@@ -51,18 +51,19 @@ class SwitchMonitor13(LearningSwitch13):
 		# Handle flow stats information from the datapaht
 	@set_ev_cls(ofp_event.EventOFPFlowStatsReply, MAIN_DISPATCHER)
 	def _flow_stats_reply_handler(self, ev):
-
+		switch1_cntr = 0
+		switch2_cntr = 0
 		body = ev.msg.body
 		dpid = ev.msg.datapath.id
 
 		for flow in body:
 			if dpid == 1:
 				if flow.priority != 0 and (flow.match['in_port'] == 1):
-					print(flow.match['in_port'])
+				switch1_cntr+=1	
+				print("Switch 1 counter: " + str(switch1_cntr))
 			elif dpid == 2:
-				if flow.priority != 0 and (flow.actions['port']] == 1):
-					print(flow.match['in_port'])
-
+				if flow.priority != 0 and (flow.instructions[0].actions[0].port == 1):
+					print("switch 2 counter : " + str(flow.packet_count))
 
 
 
