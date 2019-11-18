@@ -6,6 +6,7 @@ from ryu.ofproto import ofproto_v1_3
 from ryu.lib.packet import packet
 from ryu.lib.packet import ethernet
 from ryu.lib.packet import ipv4
+from ryu.lib.packet import arp
 from ryu.lib.packet import ether_types
 
 
@@ -37,13 +38,22 @@ class LearningSwitch13(app_manager.RyuApp):
 
 	actions = [parser.OFPActionOutput(ofproto.OFPP_CONTROLLER,
                                           ofproto.OFPCML_NO_BUFFER)]
-	#self.add_flow(datapath, PRIORITY, match, actions)
-	inst = [parser.OFPInstructionActions(ofproto.OFPIT_APPLY_ACTIONS,
+	self.record_flow(datapath, PRIORITY, match, actions)
+
+
+    def record_flow(self, datapath, priority, match, actions, buffer_id=None):
+        ofproto = datapath.ofproto
+        parser = datapath.ofproto_parser
+
+        inst = [parser.OFPInstructionActions(ofproto.OFPIT_APPLY_ACTIONS,
                                              actions)]
-
-	mod = parser.OFPFlowMod(datapath=datapath, priority=PRIORITY,
+        if buffer_id:
+            mod = parser.OFPFlowMod(datapath=datapath, buffer_id=buffer_id,
+                                    priority=priority, match=match,
+                                    instructions=inst)
+        else:
+            mod = parser.OFPFlowMod(datapath=datapath, priority=priority,
                                     match=match, instructions=inst)
-
         datapath.send_msg(mod)
 
     # Handle the packet_in event
@@ -74,16 +84,36 @@ class LearningSwitch13(app_manager.RyuApp):
 
         pkt = packet.Packet(msg.data)
         eth = pkt.get_protocols(ethernet.ethernet)[0]
+	dst = eth.dst
+        src = eth.src
 
+	# seen in https://github.com/osrg/ryu/blob/v4.4/ryu/app/simple_switch_13.py
         if eth.ethertype == ether_types.ETH_TYPE_LLDP:
             # ignore lldp packet
             return
 
+	# check if ARP protocol, in this case learn, forward and don't install flow
+	arppkt = pkt.get_protocol(arp.arp)
+	if arppkt:
+		if dst in self.mac_to_port[dpid]:
+            		out_port = self.mac_to_port[dpid][dst]
+        	else:
+            		out_port = ofproto.OFPP_FLOOD
+		actions = [parser.OFPActionOutput(out_port)]
+		data = None
+        	if msg.buffer_id == ofproto.OFP_NO_BUFFER:
+            		data = msg.data
+
+        	out = parser.OFPPacketOut(datapath=datapath, buffer_id=msg.buffer_id,
+                                  in_port=in_port, actions=actions, data=data)
+        	datapath.send_msg(out)
+		return
+
 
         # implement ip-level filter
-        ip = pkt.get_protocols(ipv4.ipv4)
-	print(ip)
+	ip = pkt.get_protocols(ipv4.ipv4)
         if len(ip):
+	    print(ip)
             ip = ip[0]
             if ip.dst == '10.0.0.4':
                 print("dropping packet to h4")
@@ -100,6 +130,19 @@ class LearningSwitch13(app_manager.RyuApp):
             out_port = ofproto.OFPP_FLOOD
 
         actions = [parser.OFPActionOutput(out_port)]
+
+
+	# at this point only the packets that are not directed towards h4 are present, can install flow
+	if out_port != ofproto.OFPP_FLOOD:
+            match = parser.OFPMatch(in_port=in_port, eth_dst=dst)
+            if msg.buffer_id != ofproto.OFP_NO_BUFFER:
+                self.record_flow(datapath, 1, match, actions, msg.buffer_id)
+                return
+            else:
+                self.record_flow(datapath, 1, match, actions)
+
+
+	# send the packet
         data = None
         if msg.buffer_id == ofproto.OFP_NO_BUFFER:
             data = msg.data
