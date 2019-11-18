@@ -31,12 +31,11 @@ class LearningSwitch13(app_manager.RyuApp):
         # to be forwarded to the controller.
         # Note that the priority is the lowest, i.e., 0.
 		
-		PRIORITY = 0 # priority const value
-		match = parser.OFPMatch() # Installs a flow
+	PRIORITY = 0 # priority const value
+	match = parser.OFPMatch() # Installs a flow
 		
-		actions = [parser.OFPActionOutput(ofproto.OFPP_CONTROLLER,
-                                          ofproto.OFPCML_NO_BUFFER)]
-		self.add_flow(datapath, PRIORITY, match, actions)
+	actions = [parser.OFPActionOutput(ofproto.OFPP_CONTROLLER, ofproto.OFPCML_NO_BUFFER)] # send match pckt to packet in handler without buffering it
+	self.add_flow(datapath, PRIORITY, match, actions) # add a flow entry
 
 
     # Handle the packet_in event
@@ -46,7 +45,7 @@ class LearningSwitch13(app_manager.RyuApp):
         datapath = msg.datapath
         ofproto = datapath.ofproto
         parser = datapath.ofproto_parser
-
+        src_port = msg.match['in_port']
         # Get Datapath ID to identify OpenFlow switches
         dpid = datapath.id
         self.mac_to_port.setdefault(dpid, {})
@@ -61,9 +60,34 @@ class LearningSwitch13(app_manager.RyuApp):
         # packet blocker on specified switches to certain
         # destinations.
         # --------------------------------------------------------
+        
+        pckt = packet.Packet(msg.data) #extract pckt from openflow msg
+        frame = pckt.get_protocols(ethernet.ethernet)[0] #extract outermost ethernet frame
+        pckt_data = None
+        src_mac = frame.src
+        dst_mac = frame.dst
+        self.logger.info("packet in %s %s %s %s", dpid, src_mac, dst_mac, src_port) # log pckt info
 
+        self.mac_to_port[dpid][src_mac] = src_port # add src mac to port mapping
+        
+        #check if dst is mapped in mac_to_port
+        if dst_mac in self.mac_to_port[dpid]:
+		dst_port = self.mac_to_port[dpid][dst_mac]
+            	match = parser.OFPMatch(in_port=src_port, eth_dst=dst_mac)
+            	actions = [parser.OFPActionOutput(dst_port)] # pass destination port no
+		
+            	if msg.buffer_id == ofproto.OFP_NO_BUFFER:
+                	self.add_flow(datapath, 1, match, actions)
+                	pckt_data = msg.data
+            	else:
+                	self.add_flow(datapath, 1, match, actions, msg.buffer_id)
+                	return 
+        else:
+            	dst_port = ofproto.OFPP_FLOOD
+            	actions = [parser.OFPActionOutput(dst_port)]
+        
+        forward = parser.OFPPacketOut(datapath, msg.buffer_id, src_port, actions, data)
 
-
-
-
-
+        datapath.send_msg(forward)
+        
+     
