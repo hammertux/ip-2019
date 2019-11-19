@@ -30,9 +30,7 @@ class SwitchMonitor13(LearningSwitch13):
 		else:
 			if datapath.id == DEAD_DISPATCHER:
 				del self.datapaths[datapath.id]
-    
-    
-    
+
 	def _monitor(self):
 
 		while True:
@@ -51,22 +49,40 @@ class SwitchMonitor13(LearningSwitch13):
 		# Handle flow stats information from the datapaht
 	@set_ev_cls(ofp_event.EventOFPFlowStatsReply, MAIN_DISPATCHER)
 	def _flow_stats_reply_handler(self, ev):
-		switch1_cntr = 0
-		switch2_cntr = 0
+
 		body = ev.msg.body
 		dpid = ev.msg.datapath.id
 
+		# need to monitor datapath 1 and datapath 2
 		for flow in body:
-			if dpid == 1:
-				if flow.priority != 0 and (flow.match['in_port'] == 1):
-				switch1_cntr+=1	
-				print("Switch 1 counter: " + str(switch1_cntr))
-			elif dpid == 2:
-				if flow.priority != 0 and (flow.instructions[0].actions[0].port == 1):
-					print("switch 2 counter : " + str(flow.packet_count))
+			#if dpid == 1:
+				match = flow.match
+				if flow.priority != 0 and (match['in_port'] == 1 and dpid == 1):
+					self.logger.info('Incoming from h1 datapath         '
+                     				'in-port  eth-dst           '
+                     				'out-port packets')
 
+                			self.logger.info('---------------- ---------------- '
+                     				'-------- ----------------- '
+                     				'-------- -------- ')
+					self.logger.info('%016x %8x %17s %8x %8d',
+                                	ev.msg.datapath.id,
+                                	flow.match['in_port'],
+                                	flow.match['eth_dst'],
+                                	flow.instructions[0].actions[0].port,
+                                	flow.packet_count)
+				if flow.priority != 0 and (dpid == 2 and flow.instructions[0].actions[0].port == 3):
+					self.logger.info('Outgoing to h3 datapath         '
+                                                'in-port  eth-dst           '
+                                                'out-port packets')
 
-
-
-
+                                        self.logger.info('------------------ ---------------- '
+                                                '-------- ----------------- '
+                                                '-------- -------- ')
+					self.logger.info('%016x %8x %17s %8x %8d',
+                                        ev.msg.datapath.id,
+                                        flow.match['in_port'],
+                                        flow.match['eth_dst'],
+                                        flow.instructions[0].actions[0].port,
+                                        flow.packet_count)
 
