@@ -113,7 +113,7 @@ class LearningSwitch13(app_manager.RyuApp):
         # implement ip-level filter
 	ip = pkt.get_protocols(ipv4.ipv4)
         if len(ip):
-	    print(ip)
+	    # print(ip)
             ip = ip[0]
             if ip.dst == '10.0.0.4':
                 print("dropping packet to h4")

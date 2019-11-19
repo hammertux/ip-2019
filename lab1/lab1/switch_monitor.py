@@ -53,36 +53,28 @@ class SwitchMonitor13(LearningSwitch13):
 		body = ev.msg.body
 		dpid = ev.msg.datapath.id
 
+		counters1 = []
+		counters2 = []
+
 		# need to monitor datapath 1 and datapath 2
 		for flow in body:
-			#if dpid == 1:
 				match = flow.match
 				if flow.priority != 0 and (match['in_port'] == 1 and dpid == 1):
-					self.logger.info('Incoming from h1 datapath         '
-                     				'in-port  eth-dst           '
-                     				'out-port packets')
-
-                			self.logger.info('---------------- ---------------- '
-                     				'-------- ----------------- '
-                     				'-------- -------- ')
-					self.logger.info('%016x %8x %17s %8x %8d',
-                                	ev.msg.datapath.id,
-                                	flow.match['in_port'],
-                                	flow.match['eth_dst'],
-                                	flow.instructions[0].actions[0].port,
-                                	flow.packet_count)
+					counters1.append(flow.packet_count)
 				if flow.priority != 0 and (dpid == 2 and flow.instructions[0].actions[0].port == 3):
-					self.logger.info('Outgoing to h3 datapath         '
-                                                'in-port  eth-dst           '
-                                                'out-port packets')
+					counters2.append(flow.packet_count)
 
-                                        self.logger.info('------------------ ---------------- '
-                                                '-------- ----------------- '
-                                                '-------- -------- ')
-					self.logger.info('%016x %8x %17s %8x %8d',
-                                        ev.msg.datapath.id,
-                                        flow.match['in_port'],
-                                        flow.match['eth_dst'],
-                                        flow.instructions[0].actions[0].port,
-                                        flow.packet_count)
 
+		sum = 0
+		if dpid == 1:
+			for i in range(0, len(counters1)):
+				sum = sum + counters1[i]
+			print("-------- -------- -------- -------- ")
+			print("incoming from h1 on switch s1 = " + str(sum))
+
+
+		if dpid == 2:
+                        for i in range(0, len(counters2)):
+                                sum = sum + counters2[i]
+			print("outgoing to h3 on switch s2 = " + str(sum))
+			print("-------- -------- -------- -------- ")
