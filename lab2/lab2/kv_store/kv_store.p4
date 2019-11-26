@@ -1,8 +1,8 @@
 #include <core.p4>
 #include <v1model.p4>
 
-#define ETHERTYPE_IPV4 0x0800
-
+#define ETHERTYPE_IPV4 0x800
+#define KV_STORE_SIZE 1000
 
 
 typedef bit<64> preamble_t;
@@ -47,6 +47,7 @@ struct metadata {
 struct headers {
 	pckt_t pckt;
 	ethernet_t eth;
+	ipv4_t ipv4;
 }
 
 parser my_parser(packet_in pckt,
@@ -61,23 +62,18 @@ parser my_parser(packet_in pckt,
 	state parse_eth {
 		pckt.extract(hdr.eth);
 		
-		transition select(hdr.ethernet.etherType)
+		transition select(hdr.eth.etherType)
 		{
 			ETHERTYPE_IPV4: parse_ipv4;
-			default accept;
-		{
+			default: accept;
+		}
 	}
 
 	state parse_ipv4 {
 		pckt.extract(hdr.ipv4);
 		
-		transition select(		
-	
+		transition accept;		
+	}
 
 }
-
-
-V1Switch(
-my_parser()
-) main;
 
