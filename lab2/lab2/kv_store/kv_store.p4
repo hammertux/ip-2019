@@ -1,0 +1,83 @@
+#include <core.p4>
+#include <v1model.p4>
+
+#define ETHERTYPE_IPV4 0x0800
+
+
+
+typedef bit<64> preamble_t;
+typedef bit<8> type_t;
+typedef bit<32> key_t;
+typedef bit<32> value_t;
+typedef bit<9>  egressSpec_t;
+typedef bit<48> macAddr_t;
+typedef bit<32> ip4Addr_t;
+
+header ethernet_t {
+    macAddr_t dstAddr;
+    macAddr_t srcAddr;
+    bit<16>   etherType;
+}
+
+header pckt_t {
+	preamble_t preamble;
+	type_t type;
+	key_t key;
+	value_t value;
+}
+
+header ipv4_t {
+    bit<4>    version;
+    bit<4>    ihl;
+    bit<8>    diffserv;
+    bit<16>   totalLen;
+    bit<16>   identification;
+    bit<3>    flags;
+    bit<13>   fragOffset;
+    bit<8>    ttl;
+    bit<8>    protocol;
+    bit<16>   hdrChecksum;
+    ip4Addr_t srcAddr;
+    ip4Addr_t dstAddr;
+}
+
+struct metadata {
+}
+
+struct headers {
+	pckt_t pckt;
+	ethernet_t eth;
+}
+
+parser my_parser(packet_in pckt,
+		out headers hdr,
+		inout metadata meta,
+		inout standard_metadata_t std_meta)
+{
+	state start {
+		transition parse_eth;
+	}
+
+	state parse_eth {
+		pckt.extract(hdr.eth);
+		
+		transition select(hdr.ethernet.etherType)
+		{
+			ETHERTYPE_IPV4: parse_ipv4;
+			default accept;
+		{
+	}
+
+	state parse_ipv4 {
+		pckt.extract(hdr.ipv4);
+		
+		transition select(		
+	
+
+}
+
+
+V1Switch(
+my_parser()
+) main;
+

@@ -18,6 +18,9 @@ class SwitchMonitor13(LearningSwitch13):
 		self.datapaths = {}
 
 		self.monitor_thread = hub.spawn(self._monitor)
+		
+		self.h1_cntr = 0
+		self.h3_cntr = 0
 
 	@set_ev_cls(ofp_event.EventOFPStateChange, [MAIN_DISPATCHER, DEAD_DISPATCHER])
 	def _state_change_handler(self, ev):
@@ -58,31 +61,38 @@ class SwitchMonitor13(LearningSwitch13):
 			#if dpid == 1:
 				match = flow.match
 				if flow.priority != 0 and (match['in_port'] == 1 and dpid == 1):
-					self.logger.info('Incoming from h1 datapath         '
+					print("Packets in S1 incoming from H1")
+					self.logger.info('datapath         '
                      				'in-port  eth-dst           '
                      				'out-port packets')
 
-                			self.logger.info('---------------- ---------------- '
+                			self.logger.info('---------------- '
                      				'-------- ----------------- '
                      				'-------- -------- ')
+					if flow.packet_count != self.h1_cntr:
+						self.h1_cntr += (flow.packet_count - self.h1_cntr)
+					
 					self.logger.info('%016x %8x %17s %8x %8d',
                                 	ev.msg.datapath.id,
                                 	flow.match['in_port'],
                                 	flow.match['eth_dst'],
                                 	flow.instructions[0].actions[0].port,
-                                	flow.packet_count)
+                                	self.h1_cntr)
 				if flow.priority != 0 and (dpid == 2 and flow.instructions[0].actions[0].port == 3):
-					self.logger.info('Outgoing to h3 datapath         '
+					print("Packets in S2 Outgoing to H3")
+					self.logger.info('datapath         '
                                                 'in-port  eth-dst           '
                                                 'out-port packets')
 
-                                        self.logger.info('------------------ ---------------- '
+                                        self.logger.info('---------------- '
                                                 '-------- ----------------- '
                                                 '-------- -------- ')
+					if flow.packet_count != self.h3_cntr:
+						self.h3_cntr += (flow.packet_count - self.h3_cntr)
 					self.logger.info('%016x %8x %17s %8x %8d',
                                         ev.msg.datapath.id,
                                         flow.match['in_port'],
                                         flow.match['eth_dst'],
                                         flow.instructions[0].actions[0].port,
-                                        flow.packet_count)
+                                        self.h3_cntr)
 
