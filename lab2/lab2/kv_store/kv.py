@@ -35,7 +35,7 @@ def main():
     while(1):
         msg = raw_input("get or put or quit. eg: put 1 11, get 1, q :")
         paras = msg.split()
-        # p = Ether() / IP() / UDP()
+        #p =  Ether() / IP() / UDP()
         # p = None
         if paras[0]=='put':
             #pdb.set_trace()

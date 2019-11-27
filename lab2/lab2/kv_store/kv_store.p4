@@ -3,7 +3,7 @@
 
 #define ETHERTYPE_IPV4 0x800
 #define KV_STORE_SIZE 1000
-
+#define DEFAULT_PREAMBLE 1
 
 typedef bit<64> preamble_t;
 typedef bit<8> type_t;
@@ -50,16 +50,19 @@ struct headers {
 	ipv4_t ipv4;
 }
 
+
+register <value_t>(KV_STORE_SIZE) kv_reg;
+
 parser my_parser(packet_in pckt,
 		out headers hdr,
 		inout metadata meta,
 		inout standard_metadata_t std_meta)
 {
 	state start {
-		transition parse_eth;
+		transition parse_pckt;
 	}
 
-	state parse_eth {
+	/* state parse_eth {
 		pckt.extract(hdr.eth);
 		
 		transition select(hdr.eth.etherType)
@@ -73,7 +76,30 @@ parser my_parser(packet_in pckt,
 		pckt.extract(hdr.ipv4);
 		
 		transition accept;		
+	} */
+
+	state parse_pckt
+	{
+		pckt.extract(hdr.pckt);
+		transition select(hdr.pckt.preamble)
+		{
+			DEFAULT_PREAMBLE: accept: 
+			default: reject;
+		}
 	}
+
+
+}
+
+
+control my_chk(){}
+
+control my_ingress(inout headers hdr,
+		   inout metadata meta,
+		   inout standard_metadata_t std_meta)
+{
+	
+
 
 }
 
