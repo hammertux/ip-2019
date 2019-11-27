@@ -5,6 +5,11 @@
 #define KV_STORE_SIZE 1000
 #define DEFAULT_PREAMBLE 1
 
+#define TYPE_GET_REQ 0
+#define TYPE_PUT_REQ 1
+#define TYPE_GET_ANS 2
+#define TYPE_PUT_ANS 3
+
 typedef bit<64> preamble_t;
 typedef bit<8> type_t;
 typedef bit<32> key_t;
@@ -83,7 +88,7 @@ parser my_parser(packet_in pckt,
 		pckt.extract(hdr.pckt);
 		transition select(hdr.pckt.preamble)
 		{
-			DEFAULT_PREAMBLE: accept: 
+			DEFAULT_PREAMBLE: accept; 
 			default: reject;
 		}
 	}
@@ -92,14 +97,58 @@ parser my_parser(packet_in pckt,
 }
 
 
-control my_chk(){}
+control my_verify_chk(inout headers hdr, inout metadata meta){apply {}}
 
 control my_ingress(inout headers hdr,
 		   inout metadata meta,
 		   inout standard_metadata_t std_meta)
 {
-	
+	value_t tmp;
+	switch(hdr.pckt.type)
+	{
+		TYPE_GET_REQ: get_val(hdr.pckt.key, tmp);
+		TYPE_PUT_REQ: put_val(hdr.pckt.key, hdr.pckt.value);
+		
+	}
+
+	action get_val(in key_t key, out value_t val)
+	{
+		
+	}
+
+	action put_val(in key_t key, in value_t val)
+	{
+	}
 
 
 }
+
+
+control my_egress(inout headers hdr,
+		  inout metadata meta,
+		  inout standard_metadata_t std_meta)
+{
+}
+
+
+control my_comp_chk(inout headers hdr, inout metadata meta){apply{}}
+
+control my_deparser(packet_out pckt, in headers hdr)
+{
+	apply{}
+}
+
+
+V1Switch(
+MyParser(),
+MyVerifyChecksum(),
+MyIngress(),
+MyEgress(),
+MyComputeChecksum(),
+MyDeparser()
+) main;
+
+
+
+
 
