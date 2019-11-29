@@ -119,11 +119,13 @@ control my_ingress(inout headers hdr,
 	action get_val(in key_t key, out value_t val)
 	{
 		kv_regs.read(val, key);
+		std_meta.egress_spec = std_meta.ingress_port;
 	}
 
 	action put_val(in key_t key, in value_t val)
 	{
 		kv_regs.write(key, val);
+		std_meta.egress_spec = std_meta.ingress_port;
 	}
 
 
@@ -131,7 +133,7 @@ control my_ingress(inout headers hdr,
 	{
 		if (hdr.pckt.type == TYPE_GET_REQ)
 		{
-			get_val(hdr.pckt.key, tmp);
+			get_val(hdr.pckt.key, hdr.pckt.value);
 		}
 		else
 		{
@@ -156,7 +158,10 @@ control my_egress(inout headers hdr,
 
 control my_deparser(packet_out pckt, in headers hdr)
 {
-	apply{}
+	apply{
+        	pckt.emit(hdr.eth);
+		pckt.emit(hdr.pckt);
+	}
 }
 
 
