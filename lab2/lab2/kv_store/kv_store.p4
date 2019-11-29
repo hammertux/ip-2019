@@ -4,6 +4,8 @@
 #define ETHERTYPE_IPV4 0x800
 #define KV_STORE_SIZE 1000
 #define DEFAULT_PREAMBLE 1
+#define UDP_PORT_KV 4242
+#define IP_PROTOCOLS_UDP 17
 
 #define TYPE_GET_REQ 0
 #define TYPE_PUT_REQ 1
@@ -18,18 +20,18 @@ typedef bit<9>  egressSpec_t;
 typedef bit<48> macAddr_t;
 typedef bit<32> ip4Addr_t;
 
+
+/*************************************************************************
+ ***********************  H E A D E R S  *********************************
+ *************************************************************************/
+
+
 header ethernet_t {
     macAddr_t dstAddr;
     macAddr_t srcAddr;
     bit<16>   etherType;
 }
 
-header pckt_t {
-	preamble_t preamble;
-	type_t type;
-	key_t key;
-	value_t value;
-}
 
 header ipv4_t {
     bit<4>    version;
@@ -46,6 +48,23 @@ header ipv4_t {
     ip4Addr_t dstAddr;
 }
 
+
+header udp_t {
+	bit<16> srcPort;
+    	bit<16> dstPort;
+    	bit<16> length_;
+    	bit<16> checksum;
+}
+
+
+header pckt_t {
+	preamble_t preamble;
+	type_t type;
+	key_t key;
+	value_t value;
+}
+
+
 struct metadata {
 }
 
@@ -53,6 +72,7 @@ struct headers {
 	pckt_t pckt;
 	ethernet_t eth;
 	ipv4_t ipv4;
+	udp_t udp;
 }
 
 /*************************************************************************
@@ -66,31 +86,46 @@ parser my_parser(packet_in pckt,
 		inout metadata meta,
 		inout standard_metadata_t std_meta)
 {
+
 	state start {
 		transition parse_pckt;
 	}
 
-	/* state parse_eth {
+
+	state parse_eth {
 		pckt.extract(hdr.eth);
 		
-		transition select(hdr.eth.etherType)
-		{
+		transition select(hdr.eth.etherType) {
 			ETHERTYPE_IPV4: parse_ipv4;
-			default: accept;
+			default: reject;
 		}
 	}
+
 
 	state parse_ipv4 {
 		pckt.extract(hdr.ipv4);
 		
-		transition accept;		
-	} */
+		transition select(hdr.ipv4.protocol) {
+        		IP_PROTOCOLS_UDP : parse_udp;
+			default: reject;
+    		}		
+	}
 
-	state parse_pckt
-	{
+
+	state parse_udp {
+		pckt.extract(hdr.udp);
+
+		transition select(hdr.udp.dstPort) {
+			UDP_PORT_KV: parse_pckt;
+			default: reject;
+		}
+	}
+
+
+	state parse_pckt {
 		pckt.extract(hdr.pckt);
-		transition select(hdr.pckt.preamble)
-		{
+
+		transition select(hdr.pckt.preamble) {
 			DEFAULT_PREAMBLE: accept; 
 			default: reject;
 		}
@@ -108,13 +143,11 @@ control my_ingress(inout headers hdr,
 		   inout metadata meta,
 		   inout standard_metadata_t std_meta)
 {
-	value_t tmp;
-	/*switch(hdr.pckt.type)
+
+	action reject() 
 	{
-		TYPE_GET_REQ: get_val(hdr.pckt.key, tmp);
-		TYPE_PUT_REQ: put_val(hdr.pckt.key, hdr.pckt.value);
-		
-	}*/
+        	mark_to_drop(std_meta);
+    	}
 	
 	action get_val(in key_t key, out value_t val)
 	{
@@ -135,9 +168,13 @@ control my_ingress(inout headers hdr,
 		{
 			get_val(hdr.pckt.key, hdr.pckt.value);
 		}
-		else
+		else if(hdr.pckt.type == TYPE_PUT_REQ)
 		{
 			put_val(hdr.pckt.key, hdr.pckt.value);
+		}
+		else
+		{
+			reject();
 		}
 
 	}
@@ -160,6 +197,8 @@ control my_deparser(packet_out pckt, in headers hdr)
 {
 	apply{
         	pckt.emit(hdr.eth);
+		pckt.emit(hdr.ipv4);
+		pckt.emit(hdr.udp);
 		pckt.emit(hdr.pckt);
 	}
 }

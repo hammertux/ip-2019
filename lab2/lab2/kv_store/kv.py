@@ -35,15 +35,15 @@ def main():
     while(1):
         msg = raw_input("get or put or quit. eg: put 1 11, get 1, q :")
         paras = msg.split()
-        #p =  Ether() / IP() / UDP()
+        # p =  Ether() / IP() / UDP(dport=4242)
         # p = None
         if paras[0]=='put':
             #pdb.set_trace()
-            p = KeyValue(mtype = 1, key = int(paras[1]), value = int(paras[2]))
+            p = Ether() / IP() / UDP(dport=4242) / KeyValue(mtype = 1, key = int(paras[1]), value = int(paras[2]))
             print p.show()
             sendp(p, iface = "eth0")
         elif paras[0]=='get':
-            p = KeyValue(mtype = 0, key = int(paras[1]))
+            p = Ether() / IP() / UDP(dport=4242) / KeyValue(mtype = 0, key = int(paras[1]))
             print p.show()
             sendp(p, iface = "eth0")
         elif paras[0]=='q':

@@ -9,13 +9,15 @@ import pdb
 def handle_pkt(pkt_in):
     pkt = str(pkt_in)
     # if len(pkt) < 12: return
+    pkt = pkt[-17:]    
+    # pkt_in[0].show()
     preamble = pkt[:8]
     msg_type = ord(pkt[8:9])
     key = struct.unpack(">L",pkt[9:13])[0]
     value = struct.unpack(">L",pkt[13:17])[0]
     # if msg_type < 4:
     print "msg_type:", msg_type, "\nkey:", key, "\nvalue:", value, "\n"
-    print pkt_in.show()
+    # print pkt_in.show()
     sys.stdout.flush()
 
 def main():
