@@ -97,7 +97,7 @@ parser my_parser(packet_in pckt,
 		
 		transition select(hdr.eth.etherType) {
 			ETHERTYPE_IPV4: parse_ipv4;
-			default: reject;
+			default: accept;
 		}
 	}
 
@@ -107,7 +107,7 @@ parser my_parser(packet_in pckt,
 		
 		transition select(hdr.ipv4.protocol) {
         		IP_PROTOCOLS_UDP : parse_udp;
-			default: reject;
+			default: accept;
     		}		
 	}
 
@@ -117,7 +117,7 @@ parser my_parser(packet_in pckt,
 
 		transition select(hdr.udp.dstPort) {
 			UDP_PORT_KV: parse_pckt;
-			default: reject;
+			default: accept;
 		}
 	}
 
@@ -127,7 +127,7 @@ parser my_parser(packet_in pckt,
 
 		transition select(hdr.pckt.preamble) {
 			DEFAULT_PREAMBLE: accept; 
-			default: reject;
+			default: accept;
 		}
 	}
 
