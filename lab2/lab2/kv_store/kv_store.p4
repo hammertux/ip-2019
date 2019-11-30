@@ -88,7 +88,7 @@ parser my_parser(packet_in pckt,
 {
 
 	state start {
-		transition parse_pckt;
+		transition parse_eth;
 	}
 
 
