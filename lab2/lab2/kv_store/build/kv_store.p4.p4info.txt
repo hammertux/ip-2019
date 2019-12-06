@@ -1,0 +1,41 @@
+pkg_info {
+  arch: "v1model"
+}
+actions {
+  preamble {
+    id: 16820103
+    name: "my_ingress.reject"
+    alias: "reject"
+  }
+}
+actions {
+  preamble {
+    id: 16791293
+    name: "my_ingress.get_val"
+    alias: "get_val"
+  }
+}
+actions {
+  preamble {
+    id: 16832032
+    name: "my_ingress.put_val"
+    alias: "put_val"
+  }
+}
+registers {
+  preamble {
+    id: 369144108
+    name: "kv_regs"
+    alias: "kv_regs"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1000
+}
+type_info {
+}
