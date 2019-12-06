@@ -1,0 +1,342 @@
+Calling target program-options parser
+[16:32:50.704] [bmv2] [D] [thread 10016] Set default default entry for table 'MyIngress.ipv4_lpm': NoAction - 
+Adding interface s2-eth1 as port 1
+[16:32:50.705] [bmv2] [D] [thread 10016] Adding interface s2-eth1 as port 1
+Adding interface s2-eth2 as port 2
+[16:32:50.735] [bmv2] [D] [thread 10016] Adding interface s2-eth2 as port 2
+Adding interface s2-eth3 as port 3
+[16:32:50.762] [bmv2] [D] [thread 10016] Adding interface s2-eth3 as port 3
+I1206 16:32:50.786841914   10016 server_builder.cc:247]      Synchronous server. Num CQs: 1, Min pollers: 1, Max Pollers: 2147483647, CQ timeout (msec): 1000
+Server listening on 0.0.0.0:50052
+[16:32:50.794] [bmv2] [I] [thread 10016] Starting Thrift server on port 9091
+[16:32:50.795] [bmv2] [I] [thread 10016] Thrift server was started
+[16:32:51.101] [bmv2] [D] [thread 10023] [0.0] [cxt 0] Processing packet received on port 2
+[16:32:51.102] [bmv2] [D] [thread 10023] [0.0] [cxt 0] Parser 'parser': start
+[16:32:51.103] [bmv2] [D] [thread 10023] [0.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:32:51.103] [bmv2] [D] [thread 10023] [0.0] [cxt 0] Extracting header 'ethernet'
+[16:32:51.104] [bmv2] [D] [thread 10023] [0.0] [cxt 0] Parser state 'start': key is 86dd
+[16:32:51.104] [bmv2] [T] [thread 10023] [0.0] [cxt 0] Bytes parsed: 14
+[16:32:51.104] [bmv2] [D] [thread 10023] [0.0] [cxt 0] Parser 'parser': end
+[16:32:51.105] [bmv2] [D] [thread 10023] [0.0] [cxt 0] Pipeline 'ingress': start
+[16:32:51.105] [bmv2] [T] [thread 10023] [0.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:32:51.106] [bmv2] [D] [thread 10023] [0.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[16:32:51.106] [bmv2] [D] [thread 10023] [0.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[16:32:51.106] [bmv2] [D] [thread 10023] [0.0] [cxt 0] Action entry is NoAction - 
+[16:32:51.106] [bmv2] [T] [thread 10023] [0.0] [cxt 0] Action NoAction
+[16:32:51.107] [bmv2] [D] [thread 10023] [0.0] [cxt 0] Pipeline 'ingress': end
+[16:32:51.107] [bmv2] [D] [thread 10023] [0.0] [cxt 0] Egress port is 0
+[16:32:51.108] [bmv2] [D] [thread 10023] [1.0] [cxt 0] Processing packet received on port 2
+[16:32:51.108] [bmv2] [D] [thread 10023] [1.0] [cxt 0] Parser 'parser': start
+[16:32:51.108] [bmv2] [D] [thread 10023] [1.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:32:51.109] [bmv2] [D] [thread 10023] [1.0] [cxt 0] Extracting header 'ethernet'
+[16:32:51.109] [bmv2] [D] [thread 10023] [1.0] [cxt 0] Parser state 'start': key is 86dd
+[16:32:51.109] [bmv2] [T] [thread 10023] [1.0] [cxt 0] Bytes parsed: 14
+[16:32:51.110] [bmv2] [D] [thread 10023] [1.0] [cxt 0] Parser 'parser': end
+[16:32:51.110] [bmv2] [D] [thread 10023] [1.0] [cxt 0] Pipeline 'ingress': start
+[16:32:51.110] [bmv2] [T] [thread 10023] [1.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:32:51.108] [bmv2] [D] [thread 10024] [0.0] [cxt 0] Pipeline 'egress': start
+[16:32:51.111] [bmv2] [D] [thread 10024] [0.0] [cxt 0] Pipeline 'egress': end
+[16:32:51.111] [bmv2] [D] [thread 10023] [1.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[16:32:51.111] [bmv2] [D] [thread 10023] [1.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[16:32:51.112] [bmv2] [D] [thread 10023] [1.0] [cxt 0] Action entry is NoAction - 
+[16:32:51.112] [bmv2] [T] [thread 10023] [1.0] [cxt 0] Action NoAction
+[16:32:51.112] [bmv2] [D] [thread 10023] [1.0] [cxt 0] Pipeline 'ingress': end
+[16:32:51.111] [bmv2] [D] [thread 10024] [0.0] [cxt 0] Deparser 'deparser': start
+[16:32:51.113] [bmv2] [D] [thread 10024] [0.0] [cxt 0] Deparser 'deparser': end
+[16:32:51.113] [bmv2] [D] [thread 10023] [1.0] [cxt 0] Egress port is 0
+[16:32:51.113] [bmv2] [D] [thread 10028] [0.0] [cxt 0] Transmitting packet of size 76 out of port 0
+[16:32:51.114] [bmv2] [D] [thread 10024] [1.0] [cxt 0] Pipeline 'egress': start
+[16:32:51.114] [bmv2] [D] [thread 10024] [1.0] [cxt 0] Pipeline 'egress': end
+[16:32:51.114] [bmv2] [D] [thread 10024] [1.0] [cxt 0] Deparser 'deparser': start
+[16:32:51.115] [bmv2] [D] [thread 10024] [1.0] [cxt 0] Deparser 'deparser': end
+[16:32:51.115] [bmv2] [D] [thread 10028] [1.0] [cxt 0] Transmitting packet of size 56 out of port 0
+[16:32:51.163] [bmv2] [D] [thread 10023] [2.0] [cxt 0] Processing packet received on port 2
+[16:32:51.163] [bmv2] [D] [thread 10023] [2.0] [cxt 0] Parser 'parser': start
+[16:32:51.164] [bmv2] [D] [thread 10023] [2.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:32:51.164] [bmv2] [D] [thread 10023] [2.0] [cxt 0] Extracting header 'ethernet'
+[16:32:51.164] [bmv2] [D] [thread 10023] [2.0] [cxt 0] Parser state 'start': key is 86dd
+[16:32:51.165] [bmv2] [T] [thread 10023] [2.0] [cxt 0] Bytes parsed: 14
+[16:32:51.165] [bmv2] [D] [thread 10023] [2.0] [cxt 0] Parser 'parser': end
+[16:32:51.165] [bmv2] [D] [thread 10023] [2.0] [cxt 0] Pipeline 'ingress': start
+[16:32:51.166] [bmv2] [T] [thread 10023] [2.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:32:51.166] [bmv2] [D] [thread 10023] [2.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[16:32:51.167] [bmv2] [D] [thread 10023] [2.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[16:32:51.167] [bmv2] [D] [thread 10023] [2.0] [cxt 0] Action entry is NoAction - 
+[16:32:51.167] [bmv2] [T] [thread 10023] [2.0] [cxt 0] Action NoAction
+[16:32:51.168] [bmv2] [D] [thread 10023] [2.0] [cxt 0] Pipeline 'ingress': end
+[16:32:51.168] [bmv2] [D] [thread 10023] [2.0] [cxt 0] Egress port is 0
+[16:32:51.168] [bmv2] [D] [thread 10023] [3.0] [cxt 0] Processing packet received on port 2
+[16:32:51.169] [bmv2] [D] [thread 10023] [3.0] [cxt 0] Parser 'parser': start
+[16:32:51.169] [bmv2] [D] [thread 10023] [3.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:32:51.169] [bmv2] [D] [thread 10023] [3.0] [cxt 0] Extracting header 'ethernet'
+[16:32:51.168] [bmv2] [D] [thread 10024] [2.0] [cxt 0] Pipeline 'egress': start
+[16:32:51.170] [bmv2] [D] [thread 10023] [3.0] [cxt 0] Parser state 'start': key is 86dd
+[16:32:51.170] [bmv2] [T] [thread 10023] [3.0] [cxt 0] Bytes parsed: 14
+[16:32:51.171] [bmv2] [D] [thread 10023] [3.0] [cxt 0] Parser 'parser': end
+[16:32:51.171] [bmv2] [D] [thread 10023] [3.0] [cxt 0] Pipeline 'ingress': start
+[16:32:51.171] [bmv2] [T] [thread 10023] [3.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:32:51.171] [bmv2] [D] [thread 10023] [3.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[16:32:51.172] [bmv2] [D] [thread 10023] [3.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[16:32:51.172] [bmv2] [D] [thread 10023] [3.0] [cxt 0] Action entry is NoAction - 
+[16:32:51.172] [bmv2] [T] [thread 10023] [3.0] [cxt 0] Action NoAction
+[16:32:51.170] [bmv2] [D] [thread 10024] [2.0] [cxt 0] Pipeline 'egress': end
+[16:32:51.172] [bmv2] [D] [thread 10023] [3.0] [cxt 0] Pipeline 'ingress': end
+[16:32:51.173] [bmv2] [D] [thread 10023] [3.0] [cxt 0] Egress port is 0
+[16:32:51.173] [bmv2] [D] [thread 10024] [2.0] [cxt 0] Deparser 'deparser': start
+[16:32:51.173] [bmv2] [D] [thread 10024] [2.0] [cxt 0] Deparser 'deparser': end
+[16:32:51.174] [bmv2] [D] [thread 10028] [2.0] [cxt 0] Transmitting packet of size 76 out of port 0
+[16:32:51.174] [bmv2] [D] [thread 10024] [3.0] [cxt 0] Pipeline 'egress': start
+[16:32:51.174] [bmv2] [D] [thread 10024] [3.0] [cxt 0] Pipeline 'egress': end
+[16:32:51.174] [bmv2] [D] [thread 10024] [3.0] [cxt 0] Deparser 'deparser': start
+[16:32:51.175] [bmv2] [D] [thread 10024] [3.0] [cxt 0] Deparser 'deparser': end
+[16:32:51.175] [bmv2] [D] [thread 10028] [3.0] [cxt 0] Transmitting packet of size 56 out of port 0
+[16:32:51.229] [bmv2] [D] [thread 10023] [4.0] [cxt 0] Processing packet received on port 3
+[16:32:51.229] [bmv2] [D] [thread 10023] [4.0] [cxt 0] Parser 'parser': start
+[16:32:51.229] [bmv2] [D] [thread 10023] [4.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:32:51.230] [bmv2] [D] [thread 10023] [4.0] [cxt 0] Extracting header 'ethernet'
+[16:32:51.230] [bmv2] [D] [thread 10023] [4.0] [cxt 0] Parser state 'start': key is 86dd
+[16:32:51.230] [bmv2] [T] [thread 10023] [4.0] [cxt 0] Bytes parsed: 14
+[16:32:51.230] [bmv2] [D] [thread 10023] [4.0] [cxt 0] Parser 'parser': end
+[16:32:51.230] [bmv2] [D] [thread 10023] [4.0] [cxt 0] Pipeline 'ingress': start
+[16:32:51.230] [bmv2] [T] [thread 10023] [4.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:32:51.230] [bmv2] [D] [thread 10023] [4.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[16:32:51.230] [bmv2] [D] [thread 10023] [4.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[16:32:51.231] [bmv2] [D] [thread 10023] [4.0] [cxt 0] Action entry is NoAction - 
+[16:32:51.231] [bmv2] [T] [thread 10023] [4.0] [cxt 0] Action NoAction
+[16:32:51.231] [bmv2] [D] [thread 10023] [4.0] [cxt 0] Pipeline 'ingress': end
+[16:32:51.231] [bmv2] [D] [thread 10023] [4.0] [cxt 0] Egress port is 0
+[16:32:51.231] [bmv2] [D] [thread 10023] [5.0] [cxt 0] Processing packet received on port 3
+[16:32:51.231] [bmv2] [D] [thread 10023] [5.0] [cxt 0] Parser 'parser': start
+[16:32:51.231] [bmv2] [D] [thread 10023] [5.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:32:51.231] [bmv2] [D] [thread 10023] [5.0] [cxt 0] Extracting header 'ethernet'
+[16:32:51.231] [bmv2] [D] [thread 10024] [4.0] [cxt 0] Pipeline 'egress': start
+[16:32:51.231] [bmv2] [D] [thread 10023] [5.0] [cxt 0] Parser state 'start': key is 86dd
+[16:32:51.231] [bmv2] [T] [thread 10023] [5.0] [cxt 0] Bytes parsed: 14
+[16:32:51.231] [bmv2] [D] [thread 10023] [5.0] [cxt 0] Parser 'parser': end
+[16:32:51.231] [bmv2] [D] [thread 10024] [4.0] [cxt 0] Pipeline 'egress': end
+[16:32:51.231] [bmv2] [D] [thread 10023] [5.0] [cxt 0] Pipeline 'ingress': start
+[16:32:51.231] [bmv2] [T] [thread 10023] [5.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:32:51.231] [bmv2] [D] [thread 10024] [4.0] [cxt 0] Deparser 'deparser': start
+[16:32:51.232] [bmv2] [D] [thread 10023] [5.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[16:32:51.232] [bmv2] [D] [thread 10023] [5.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[16:32:51.232] [bmv2] [D] [thread 10023] [5.0] [cxt 0] Action entry is NoAction - 
+[16:32:51.232] [bmv2] [T] [thread 10023] [5.0] [cxt 0] Action NoAction
+[16:32:51.232] [bmv2] [D] [thread 10023] [5.0] [cxt 0] Pipeline 'ingress': end
+[16:32:51.232] [bmv2] [D] [thread 10023] [5.0] [cxt 0] Egress port is 0
+[16:32:51.232] [bmv2] [D] [thread 10024] [4.0] [cxt 0] Deparser 'deparser': end
+[16:32:51.232] [bmv2] [D] [thread 10024] [5.0] [cxt 0] Pipeline 'egress': start
+[16:32:51.232] [bmv2] [D] [thread 10024] [5.0] [cxt 0] Pipeline 'egress': end
+[16:32:51.232] [bmv2] [D] [thread 10024] [5.0] [cxt 0] Deparser 'deparser': start
+[16:32:51.232] [bmv2] [D] [thread 10024] [5.0] [cxt 0] Deparser 'deparser': end
+[16:32:51.232] [bmv2] [D] [thread 10028] [4.0] [cxt 0] Transmitting packet of size 76 out of port 0
+[16:32:51.232] [bmv2] [D] [thread 10028] [5.0] [cxt 0] Transmitting packet of size 56 out of port 0
+[16:32:51.296] [bmv2] [D] [thread 10023] [6.0] [cxt 0] Processing packet received on port 2
+[16:32:51.296] [bmv2] [D] [thread 10023] [6.0] [cxt 0] Parser 'parser': start
+[16:32:51.297] [bmv2] [D] [thread 10023] [6.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:32:51.297] [bmv2] [D] [thread 10023] [6.0] [cxt 0] Extracting header 'ethernet'
+[16:32:51.297] [bmv2] [D] [thread 10023] [6.0] [cxt 0] Parser state 'start': key is 86dd
+[16:32:51.297] [bmv2] [T] [thread 10023] [6.0] [cxt 0] Bytes parsed: 14
+[16:32:51.297] [bmv2] [D] [thread 10023] [6.0] [cxt 0] Parser 'parser': end
+[16:32:51.297] [bmv2] [D] [thread 10023] [6.0] [cxt 0] Pipeline 'ingress': start
+[16:32:51.298] [bmv2] [T] [thread 10023] [6.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:32:51.298] [bmv2] [D] [thread 10023] [6.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[16:32:51.298] [bmv2] [D] [thread 10023] [6.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[16:32:51.298] [bmv2] [D] [thread 10023] [6.0] [cxt 0] Action entry is NoAction - 
+[16:32:51.298] [bmv2] [T] [thread 10023] [6.0] [cxt 0] Action NoAction
+[16:32:51.298] [bmv2] [D] [thread 10023] [6.0] [cxt 0] Pipeline 'ingress': end
+[16:32:51.298] [bmv2] [D] [thread 10023] [6.0] [cxt 0] Egress port is 0
+[16:32:51.299] [bmv2] [D] [thread 10024] [6.0] [cxt 0] Pipeline 'egress': start
+[16:32:51.299] [bmv2] [D] [thread 10024] [6.0] [cxt 0] Pipeline 'egress': end
+[16:32:51.299] [bmv2] [D] [thread 10024] [6.0] [cxt 0] Deparser 'deparser': start
+[16:32:51.299] [bmv2] [D] [thread 10024] [6.0] [cxt 0] Deparser 'deparser': end
+[16:32:51.299] [bmv2] [D] [thread 10028] [6.0] [cxt 0] Transmitting packet of size 76 out of port 0
+[16:32:51.413] [bmv2] [D] [thread 10023] [7.0] [cxt 0] Processing packet received on port 2
+[16:32:51.413] [bmv2] [D] [thread 10023] [7.0] [cxt 0] Parser 'parser': start
+[16:32:51.413] [bmv2] [D] [thread 10023] [7.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:32:51.414] [bmv2] [D] [thread 10023] [7.0] [cxt 0] Extracting header 'ethernet'
+[16:32:51.414] [bmv2] [D] [thread 10023] [7.0] [cxt 0] Parser state 'start': key is 86dd
+[16:32:51.415] [bmv2] [T] [thread 10023] [7.0] [cxt 0] Bytes parsed: 14
+[16:32:51.415] [bmv2] [D] [thread 10023] [7.0] [cxt 0] Parser 'parser': end
+[16:32:51.415] [bmv2] [D] [thread 10023] [7.0] [cxt 0] Pipeline 'ingress': start
+[16:32:51.416] [bmv2] [T] [thread 10023] [7.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:32:51.416] [bmv2] [D] [thread 10023] [7.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[16:32:51.417] [bmv2] [D] [thread 10023] [7.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[16:32:51.417] [bmv2] [D] [thread 10023] [7.0] [cxt 0] Action entry is NoAction - 
+[16:32:51.417] [bmv2] [T] [thread 10023] [7.0] [cxt 0] Action NoAction
+[16:32:51.418] [bmv2] [D] [thread 10023] [7.0] [cxt 0] Pipeline 'ingress': end
+[16:32:51.418] [bmv2] [D] [thread 10023] [7.0] [cxt 0] Egress port is 0
+[16:32:51.418] [bmv2] [D] [thread 10024] [7.0] [cxt 0] Pipeline 'egress': start
+[16:32:51.419] [bmv2] [D] [thread 10024] [7.0] [cxt 0] Pipeline 'egress': end
+[16:32:51.419] [bmv2] [D] [thread 10024] [7.0] [cxt 0] Deparser 'deparser': start
+[16:32:51.419] [bmv2] [D] [thread 10024] [7.0] [cxt 0] Deparser 'deparser': end
+[16:32:51.420] [bmv2] [D] [thread 10028] [7.0] [cxt 0] Transmitting packet of size 76 out of port 0
+[16:32:51.461] [bmv2] [D] [thread 10023] [8.0] [cxt 0] Processing packet received on port 3
+[16:32:51.461] [bmv2] [D] [thread 10023] [8.0] [cxt 0] Parser 'parser': start
+[16:32:51.461] [bmv2] [D] [thread 10023] [8.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:32:51.462] [bmv2] [D] [thread 10023] [8.0] [cxt 0] Extracting header 'ethernet'
+[16:32:51.462] [bmv2] [D] [thread 10023] [8.0] [cxt 0] Parser state 'start': key is 86dd
+[16:32:51.463] [bmv2] [T] [thread 10023] [8.0] [cxt 0] Bytes parsed: 14
+[16:32:51.463] [bmv2] [D] [thread 10023] [8.0] [cxt 0] Parser 'parser': end
+[16:32:51.463] [bmv2] [D] [thread 10023] [8.0] [cxt 0] Pipeline 'ingress': start
+[16:32:51.463] [bmv2] [T] [thread 10023] [8.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:32:51.463] [bmv2] [D] [thread 10023] [8.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[16:32:51.464] [bmv2] [D] [thread 10023] [8.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[16:32:51.464] [bmv2] [D] [thread 10023] [8.0] [cxt 0] Action entry is NoAction - 
+[16:32:51.464] [bmv2] [T] [thread 10023] [8.0] [cxt 0] Action NoAction
+[16:32:51.464] [bmv2] [D] [thread 10023] [8.0] [cxt 0] Pipeline 'ingress': end
+[16:32:51.465] [bmv2] [D] [thread 10023] [8.0] [cxt 0] Egress port is 0
+[16:32:51.465] [bmv2] [D] [thread 10024] [8.0] [cxt 0] Pipeline 'egress': start
+[16:32:51.465] [bmv2] [D] [thread 10024] [8.0] [cxt 0] Pipeline 'egress': end
+[16:32:51.466] [bmv2] [D] [thread 10024] [8.0] [cxt 0] Deparser 'deparser': start
+[16:32:51.466] [bmv2] [D] [thread 10024] [8.0] [cxt 0] Deparser 'deparser': end
+[16:32:51.467] [bmv2] [D] [thread 10028] [8.0] [cxt 0] Transmitting packet of size 76 out of port 0
+[16:32:51.713] [bmv2] [D] [thread 10023] [9.0] [cxt 0] Processing packet received on port 1
+[16:32:51.713] [bmv2] [D] [thread 10023] [9.0] [cxt 0] Parser 'parser': start
+[16:32:51.713] [bmv2] [D] [thread 10023] [9.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:32:51.714] [bmv2] [D] [thread 10023] [9.0] [cxt 0] Extracting header 'ethernet'
+[16:32:51.714] [bmv2] [D] [thread 10023] [9.0] [cxt 0] Parser state 'start': key is 86dd
+[16:32:51.715] [bmv2] [T] [thread 10023] [9.0] [cxt 0] Bytes parsed: 14
+[16:32:51.715] [bmv2] [D] [thread 10023] [9.0] [cxt 0] Parser 'parser': end
+[16:32:51.716] [bmv2] [D] [thread 10023] [9.0] [cxt 0] Pipeline 'ingress': start
+[16:32:51.716] [bmv2] [T] [thread 10023] [9.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:32:51.716] [bmv2] [D] [thread 10023] [9.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[16:32:51.717] [bmv2] [D] [thread 10023] [9.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[16:32:51.717] [bmv2] [D] [thread 10023] [9.0] [cxt 0] Action entry is NoAction - 
+[16:32:51.717] [bmv2] [T] [thread 10023] [9.0] [cxt 0] Action NoAction
+[16:32:51.718] [bmv2] [D] [thread 10023] [9.0] [cxt 0] Pipeline 'ingress': end
+[16:32:51.718] [bmv2] [D] [thread 10023] [9.0] [cxt 0] Egress port is 0
+[16:32:51.718] [bmv2] [D] [thread 10024] [9.0] [cxt 0] Pipeline 'egress': start
+[16:32:51.719] [bmv2] [D] [thread 10024] [9.0] [cxt 0] Pipeline 'egress': end
+[16:32:51.719] [bmv2] [D] [thread 10024] [9.0] [cxt 0] Deparser 'deparser': start
+[16:32:51.720] [bmv2] [D] [thread 10024] [9.0] [cxt 0] Deparser 'deparser': end
+[16:32:51.724] [bmv2] [D] [thread 10028] [9.0] [cxt 0] Transmitting packet of size 76 out of port 0
+[16:32:51.719] [bmv2] [D] [thread 10023] [10.0] [cxt 0] Processing packet received on port 1
+[16:32:51.724] [bmv2] [D] [thread 10023] [10.0] [cxt 0] Parser 'parser': start
+[16:32:51.724] [bmv2] [D] [thread 10023] [10.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:32:51.725] [bmv2] [D] [thread 10023] [10.0] [cxt 0] Extracting header 'ethernet'
+[16:32:51.725] [bmv2] [D] [thread 10023] [10.0] [cxt 0] Parser state 'start': key is 86dd
+[16:32:51.725] [bmv2] [T] [thread 10023] [10.0] [cxt 0] Bytes parsed: 14
+[16:32:51.725] [bmv2] [D] [thread 10023] [10.0] [cxt 0] Parser 'parser': end
+[16:32:51.725] [bmv2] [D] [thread 10023] [10.0] [cxt 0] Pipeline 'ingress': start
+[16:32:51.725] [bmv2] [T] [thread 10023] [10.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:32:51.726] [bmv2] [D] [thread 10023] [10.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[16:32:51.726] [bmv2] [D] [thread 10023] [10.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[16:32:51.726] [bmv2] [D] [thread 10023] [10.0] [cxt 0] Action entry is NoAction - 
+[16:32:51.726] [bmv2] [T] [thread 10023] [10.0] [cxt 0] Action NoAction
+[16:32:51.727] [bmv2] [D] [thread 10023] [10.0] [cxt 0] Pipeline 'ingress': end
+[16:32:51.727] [bmv2] [D] [thread 10023] [10.0] [cxt 0] Egress port is 0
+[16:32:51.727] [bmv2] [D] [thread 10024] [10.0] [cxt 0] Pipeline 'egress': start
+[16:32:51.727] [bmv2] [D] [thread 10024] [10.0] [cxt 0] Pipeline 'egress': end
+[16:32:51.727] [bmv2] [D] [thread 10024] [10.0] [cxt 0] Deparser 'deparser': start
+[16:32:51.728] [bmv2] [D] [thread 10024] [10.0] [cxt 0] Deparser 'deparser': end
+[16:32:51.728] [bmv2] [D] [thread 10028] [10.0] [cxt 0] Transmitting packet of size 56 out of port 0
+[16:32:51.736] [bmv2] [D] [thread 10023] [11.0] [cxt 0] Processing packet received on port 3
+[16:32:51.736] [bmv2] [D] [thread 10023] [11.0] [cxt 0] Parser 'parser': start
+[16:32:51.737] [bmv2] [D] [thread 10023] [11.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:32:51.737] [bmv2] [D] [thread 10023] [11.0] [cxt 0] Extracting header 'ethernet'
+[16:32:51.737] [bmv2] [D] [thread 10023] [11.0] [cxt 0] Parser state 'start': key is 86dd
+[16:32:51.737] [bmv2] [T] [thread 10023] [11.0] [cxt 0] Bytes parsed: 14
+[16:32:51.738] [bmv2] [D] [thread 10023] [11.0] [cxt 0] Parser 'parser': end
+[16:32:51.738] [bmv2] [D] [thread 10023] [11.0] [cxt 0] Pipeline 'ingress': start
+[16:32:51.738] [bmv2] [T] [thread 10023] [11.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:32:51.738] [bmv2] [D] [thread 10023] [11.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[16:32:51.739] [bmv2] [D] [thread 10023] [11.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[16:32:51.739] [bmv2] [D] [thread 10023] [11.0] [cxt 0] Action entry is NoAction - 
+[16:32:51.739] [bmv2] [T] [thread 10023] [11.0] [cxt 0] Action NoAction
+[16:32:51.739] [bmv2] [D] [thread 10023] [11.0] [cxt 0] Pipeline 'ingress': end
+[16:32:51.740] [bmv2] [D] [thread 10023] [11.0] [cxt 0] Egress port is 0
+[16:32:51.740] [bmv2] [D] [thread 10024] [11.0] [cxt 0] Pipeline 'egress': start
+[16:32:51.740] [bmv2] [D] [thread 10024] [11.0] [cxt 0] Pipeline 'egress': end
+[16:32:51.740] [bmv2] [D] [thread 10024] [11.0] [cxt 0] Deparser 'deparser': start
+[16:32:51.740] [bmv2] [D] [thread 10024] [11.0] [cxt 0] Deparser 'deparser': end
+[16:32:51.741] [bmv2] [D] [thread 10028] [11.0] [cxt 0] Transmitting packet of size 76 out of port 0
+[16:32:51.741] [bmv2] [D] [thread 10023] [12.0] [cxt 0] Processing packet received on port 3
+[16:32:51.741] [bmv2] [D] [thread 10023] [12.0] [cxt 0] Parser 'parser': start
+[16:32:51.741] [bmv2] [D] [thread 10023] [12.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:32:51.742] [bmv2] [D] [thread 10023] [12.0] [cxt 0] Extracting header 'ethernet'
+[16:32:51.742] [bmv2] [D] [thread 10023] [12.0] [cxt 0] Parser state 'start': key is 86dd
+[16:32:51.742] [bmv2] [T] [thread 10023] [12.0] [cxt 0] Bytes parsed: 14
+[16:32:51.743] [bmv2] [D] [thread 10023] [12.0] [cxt 0] Parser 'parser': end
+[16:32:51.743] [bmv2] [D] [thread 10023] [12.0] [cxt 0] Pipeline 'ingress': start
+[16:32:51.743] [bmv2] [T] [thread 10023] [12.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:32:51.744] [bmv2] [D] [thread 10023] [12.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[16:32:51.744] [bmv2] [D] [thread 10023] [12.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[16:32:51.744] [bmv2] [D] [thread 10023] [12.0] [cxt 0] Action entry is NoAction - 
+[16:32:51.744] [bmv2] [T] [thread 10023] [12.0] [cxt 0] Action NoAction
+[16:32:51.744] [bmv2] [D] [thread 10023] [12.0] [cxt 0] Pipeline 'ingress': end
+[16:32:51.745] [bmv2] [D] [thread 10023] [12.0] [cxt 0] Egress port is 0
+[16:32:51.745] [bmv2] [D] [thread 10024] [12.0] [cxt 0] Pipeline 'egress': start
+[16:32:51.745] [bmv2] [D] [thread 10024] [12.0] [cxt 0] Pipeline 'egress': end
+[16:32:51.745] [bmv2] [D] [thread 10024] [12.0] [cxt 0] Deparser 'deparser': start
+[16:32:51.746] [bmv2] [D] [thread 10024] [12.0] [cxt 0] Deparser 'deparser': end
+[16:32:51.746] [bmv2] [D] [thread 10028] [12.0] [cxt 0] Transmitting packet of size 56 out of port 0
+[16:32:51.805] [bmv2] [D] [thread 10023] [13.0] [cxt 0] Processing packet received on port 1
+[16:32:51.805] [bmv2] [D] [thread 10023] [13.0] [cxt 0] Parser 'parser': start
+[16:32:51.806] [bmv2] [D] [thread 10023] [13.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:32:51.806] [bmv2] [D] [thread 10023] [13.0] [cxt 0] Extracting header 'ethernet'
+[16:32:51.807] [bmv2] [D] [thread 10023] [13.0] [cxt 0] Parser state 'start': key is 86dd
+[16:32:51.807] [bmv2] [T] [thread 10023] [13.0] [cxt 0] Bytes parsed: 14
+[16:32:51.807] [bmv2] [D] [thread 10023] [13.0] [cxt 0] Parser 'parser': end
+[16:32:51.808] [bmv2] [D] [thread 10023] [13.0] [cxt 0] Pipeline 'ingress': start
+[16:32:51.808] [bmv2] [T] [thread 10023] [13.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:32:51.808] [bmv2] [D] [thread 10023] [13.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[16:32:51.809] [bmv2] [D] [thread 10023] [13.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[16:32:51.809] [bmv2] [D] [thread 10023] [13.0] [cxt 0] Action entry is NoAction - 
+[16:32:51.809] [bmv2] [T] [thread 10023] [13.0] [cxt 0] Action NoAction
+[16:32:51.809] [bmv2] [D] [thread 10023] [13.0] [cxt 0] Pipeline 'ingress': end
+[16:32:51.810] [bmv2] [D] [thread 10023] [13.0] [cxt 0] Egress port is 0
+[16:32:51.810] [bmv2] [D] [thread 10024] [13.0] [cxt 0] Pipeline 'egress': start
+[16:32:51.811] [bmv2] [D] [thread 10024] [13.0] [cxt 0] Pipeline 'egress': end
+[16:32:51.811] [bmv2] [D] [thread 10024] [13.0] [cxt 0] Deparser 'deparser': start
+[16:32:51.811] [bmv2] [D] [thread 10024] [13.0] [cxt 0] Deparser 'deparser': end
+[16:32:51.811] [bmv2] [D] [thread 10028] [13.0] [cxt 0] Transmitting packet of size 76 out of port 0
+[16:32:52.129] [bmv2] [D] [thread 10023] [14.0] [cxt 0] Processing packet received on port 3
+[16:32:52.129] [bmv2] [D] [thread 10023] [14.0] [cxt 0] Parser 'parser': start
+[16:32:52.130] [bmv2] [D] [thread 10023] [14.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:32:52.130] [bmv2] [D] [thread 10023] [14.0] [cxt 0] Extracting header 'ethernet'
+[16:32:52.131] [bmv2] [D] [thread 10023] [14.0] [cxt 0] Parser state 'start': key is 86dd
+[16:32:52.131] [bmv2] [T] [thread 10023] [14.0] [cxt 0] Bytes parsed: 14
+[16:32:52.131] [bmv2] [D] [thread 10023] [14.0] [cxt 0] Parser 'parser': end
+[16:32:52.132] [bmv2] [D] [thread 10023] [14.0] [cxt 0] Pipeline 'ingress': start
+[16:32:52.132] [bmv2] [T] [thread 10023] [14.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:32:52.132] [bmv2] [D] [thread 10023] [14.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[16:32:52.133] [bmv2] [D] [thread 10023] [14.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[16:32:52.133] [bmv2] [D] [thread 10023] [14.0] [cxt 0] Action entry is NoAction - 
+[16:32:52.134] [bmv2] [T] [thread 10023] [14.0] [cxt 0] Action NoAction
+[16:32:52.134] [bmv2] [D] [thread 10023] [14.0] [cxt 0] Pipeline 'ingress': end
+[16:32:52.134] [bmv2] [D] [thread 10023] [14.0] [cxt 0] Egress port is 0
+[16:32:52.135] [bmv2] [D] [thread 10024] [14.0] [cxt 0] Pipeline 'egress': start
+[16:32:52.135] [bmv2] [D] [thread 10024] [14.0] [cxt 0] Pipeline 'egress': end
+[16:32:52.136] [bmv2] [D] [thread 10024] [14.0] [cxt 0] Deparser 'deparser': start
+[16:32:52.136] [bmv2] [D] [thread 10024] [14.0] [cxt 0] Deparser 'deparser': end
+[16:32:52.136] [bmv2] [D] [thread 10028] [14.0] [cxt 0] Transmitting packet of size 76 out of port 0
