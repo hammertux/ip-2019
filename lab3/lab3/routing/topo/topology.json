@@ -28,16 +28,16 @@
     "switches": {
         "s1": {
             "runtime_json": "topo/s1-runtime.json",
-		"mac": "08:00:00:00:04:44"
+	    "mac" : "08:00:00:00:04:44"
         },
         "s2": {
             "runtime_json": "topo/s2-runtime.json",
-		"mac": "08:00:00:00:05:55"
+	    "mac" : "08:00:00:00:05:55"
  
         },
         "s3": {
             "runtime_json": "topo/s3-runtime.json",
-		"mac": "08:00:00:00:06:66"
+	    "mac" : "08:00:00:00:06:66"
  
         }
     },

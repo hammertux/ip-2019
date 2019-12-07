@@ -29,8 +29,8 @@
       "table": "MyIngress.ipv4_lpm",
       "match": {
         "hdr.ipv4.dstAddr": [
-		"10.0.2.2",
-		32
+		"10.0.2.0",
+		24
 	]
       },
       "action_name": "MyIngress.ipv4_forward",
@@ -45,8 +45,8 @@
       "table": "MyIngress.ipv4_lpm",
       "match": {
         "hdr.ipv4.dstAddr": [
-		"10.0.3.3",
-		32
+		"10.0.3.0",
+		24
 	]
       },
       "action_name": "MyIngress.ipv4_forward",
