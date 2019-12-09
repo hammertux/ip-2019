@@ -470,25 +470,6 @@
             "column" : 2,
             "source_fragment" : "hdr.ipv4.ttl = hdr.ipv4.ttl - 1"
           }
-        },
-        {
-          "op" : "assign",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["standard_metadata", "mcast_grp"]
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0x0001"
-            }
-          ],
-          "source_info" : {
-            "filename" : "streaming.p4",
-            "line" : 151,
-            "column" : 2,
-            "source_fragment" : "standard_metadata.mcast_grp = 1"
-          }
         }
       ]
     },
@@ -510,32 +491,6 @@
             "line" : 157,
             "column" : 9,
             "source_fragment" : "mark_to_drop(standard_metadata)"
-          }
-        }
-      ]
-    },
-    {
-      "name" : "act",
-      "id" : 3,
-      "runtime_data" : [],
-      "primitives" : [
-        {
-          "op" : "assign",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["standard_metadata", "egress_rid"]
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0x0001"
-            }
-          ],
-          "source_info" : {
-            "filename" : "streaming.p4",
-            "line" : 188,
-            "column" : 5,
-            "source_fragment" : "standard_metadata.egress_rid = 1"
           }
         }
       ]
@@ -604,38 +559,8 @@
         "column" : 8,
         "source_fragment" : "MyEgress"
       },
-      "init_table" : "tbl_act",
-      "tables" : [
-        {
-          "name" : "tbl_act",
-          "id" : 1,
-          "source_info" : {
-            "filename" : "streaming.p4",
-            "line" : 188,
-            "column" : 34,
-            "source_fragment" : "="
-          },
-          "key" : [],
-          "match_type" : "exact",
-          "type" : "simple",
-          "max_size" : 1024,
-          "with_counters" : false,
-          "support_timeout" : false,
-          "direct_meters" : null,
-          "action_ids" : [3],
-          "actions" : ["act"],
-          "base_default_next" : null,
-          "next_tables" : {
-            "act" : null
-          },
-          "default_entry" : {
-            "action_id" : 3,
-            "action_const" : true,
-            "action_data" : [],
-            "action_entry_const" : true
-          }
-        }
-      ],
+      "init_table" : null,
+      "tables" : [],
       "action_profiles" : [],
       "conditionals" : []
     }
