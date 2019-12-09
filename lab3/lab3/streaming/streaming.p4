@@ -105,6 +105,7 @@ parser MyParser(packet_in packet,
   state parse_udp {
 		packet.extract(hdr.udp);
 
+
     		transition select(hdr.udp.dst) {
 			RTP_PORT: parse_rtp;
 			default: accept;
@@ -149,18 +150,13 @@ control MyIngress(inout headers hdr,
 		hdr.ethernet.src = hdr.ethernet.dst;
 		standard_metadata.egress_spec = port;
 		hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
-
+		standard_metadata.mcast_grp = 1;
 	}
 
 
 	action drop()
 	{
         	mark_to_drop(standard_metadata);
-  }
-
-  action multicast_forward()
-  {
-
   }
 
 	table ipv4_lpm {
@@ -189,7 +185,10 @@ control MyIngress(inout headers hdr,
 control MyEgress(inout headers hdr,
                  inout metadata meta,
                  inout standard_metadata_t standard_metadata) {
-    apply {  }
+    apply {  
+	    
+	    standard_metadata.egress_rid = 1;
+}
 }
 
 /*************************************************************************
