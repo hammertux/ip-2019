@@ -13,8 +13,8 @@
       "table" : "MyIngress.ipv4_lpm",
       "match": {
         "hdr.ipv4.dstAddr": [
-		"10.0.7.7",
-		32
+		"10.0.7.0",
+		24
 	]
       },
       "action_name": "MyIngress.ipv4_forward",
@@ -22,7 +22,23 @@
       	"dstAddr" : "08:00:00:00:09:99",
 	"port" : 2
       }
+    },
+
+    {
+      "table" : "MyIngress.ipv4_lpm",
+      "match": {
+        "hdr.ipv4.dstAddr": [
+		"10.0.1.0",
+		24
+	]
+      },
+      "action_name": "MyIngress.ipv4_forward",
+      "action_params": {
+      	"dstAddr" : "08:00:00:00:04:44",
+	"port" : 1
+      }
     }
+
   ],
   "multicast_group_entries" : [
    {
