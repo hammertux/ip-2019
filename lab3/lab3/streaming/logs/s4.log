@@ -1,452 +1,478 @@
 Calling target program-options parser
-[12:00:58.277] [bmv2] [D] [thread 14107] Set default default entry for table 'MyIngress.ipv4_lpm': NoAction - 
+[15:15:47.129] [bmv2] [D] [thread 18300] Set default default entry for table 'MyIngress.ipv4_lpm': NoAction - 
 Adding interface s4-eth1 as port 1
-[12:00:58.278] [bmv2] [D] [thread 14107] Adding interface s4-eth1 as port 1
+[15:15:47.131] [bmv2] [D] [thread 18300] Adding interface s4-eth1 as port 1
 Adding interface s4-eth2 as port 2
-[12:00:58.305] [bmv2] [D] [thread 14107] Adding interface s4-eth2 as port 2
+[15:15:47.159] [bmv2] [D] [thread 18300] Adding interface s4-eth2 as port 2
 Adding interface s4-eth3 as port 3
-[12:00:58.329] [bmv2] [D] [thread 14107] Adding interface s4-eth3 as port 3
-I1209 12:00:58.367670385   14107 server_builder.cc:247]      Synchronous server. Num CQs: 1, Min pollers: 1, Max Pollers: 2147483647, CQ timeout (msec): 1000
+[15:15:47.183] [bmv2] [D] [thread 18300] Adding interface s4-eth3 as port 3
+I1209 15:15:47.230393483   18300 server_builder.cc:247]      Synchronous server. Num CQs: 1, Min pollers: 1, Max Pollers: 2147483647, CQ timeout (msec): 1000
 Server listening on 0.0.0.0:50054
-[12:00:58.373] [bmv2] [I] [thread 14107] Starting Thrift server on port 9093
-[12:00:58.374] [bmv2] [I] [thread 14107] Thrift server was started
-[12:00:58.375] [bmv2] [D] [thread 14114] [0.0] [cxt 0] Processing packet received on port 1
-[12:00:58.375] [bmv2] [D] [thread 14114] [0.0] [cxt 0] Parser 'parser': start
-[12:00:58.375] [bmv2] [D] [thread 14114] [0.0] [cxt 0] Parser 'parser' entering state 'start'
-[12:00:58.376] [bmv2] [D] [thread 14114] [0.0] [cxt 0] Extracting header 'ethernet'
-[12:00:58.376] [bmv2] [D] [thread 14114] [0.0] [cxt 0] Parser state 'start': key is 86dd
-[12:00:58.376] [bmv2] [T] [thread 14114] [0.0] [cxt 0] Bytes parsed: 14
-[12:00:58.377] [bmv2] [D] [thread 14114] [0.0] [cxt 0] Parser 'parser': end
-[12:00:58.377] [bmv2] [D] [thread 14114] [0.0] [cxt 0] Pipeline 'ingress': start
-[12:00:58.377] [bmv2] [T] [thread 14114] [0.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
-[12:00:58.378] [bmv2] [D] [thread 14114] [0.0] [cxt 0] Looking up key:
+[15:15:47.237] [bmv2] [I] [thread 18300] Starting Thrift server on port 9093
+[15:15:47.238] [bmv2] [I] [thread 18300] Thrift server was started
+[15:15:47.239] [bmv2] [D] [thread 18307] [0.0] [cxt 0] Processing packet received on port 1
+[15:15:47.239] [bmv2] [D] [thread 18307] [0.0] [cxt 0] Parser 'parser': start
+[15:15:47.239] [bmv2] [D] [thread 18307] [0.0] [cxt 0] Parser 'parser' entering state 'start'
+[15:15:47.240] [bmv2] [D] [thread 18307] [0.0] [cxt 0] Extracting header 'ethernet'
+[15:15:47.240] [bmv2] [D] [thread 18307] [0.0] [cxt 0] Parser state 'start': key is 86dd
+[15:15:47.240] [bmv2] [T] [thread 18307] [0.0] [cxt 0] Bytes parsed: 14
+[15:15:47.240] [bmv2] [D] [thread 18307] [0.0] [cxt 0] Parser 'parser': end
+[15:15:47.241] [bmv2] [D] [thread 18307] [0.0] [cxt 0] Pipeline 'ingress': start
+[15:15:47.241] [bmv2] [T] [thread 18307] [0.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[15:15:47.241] [bmv2] [D] [thread 18307] [0.0] [cxt 0] Looking up key:
 * hdr.ipv4.dstAddr    : 00000000
 
-[12:00:58.378] [bmv2] [D] [thread 14114] [0.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
-[12:00:58.378] [bmv2] [D] [thread 14114] [0.0] [cxt 0] Action entry is NoAction - 
-[12:00:58.378] [bmv2] [T] [thread 14114] [0.0] [cxt 0] Action NoAction
-[12:00:58.379] [bmv2] [D] [thread 14114] [0.0] [cxt 0] Pipeline 'ingress': end
-[12:00:58.379] [bmv2] [D] [thread 14114] [0.0] [cxt 0] Egress port is 0
-[12:00:58.379] [bmv2] [D] [thread 14114] [1.0] [cxt 0] Processing packet received on port 2
-[12:00:58.379] [bmv2] [D] [thread 14114] [1.0] [cxt 0] Parser 'parser': start
-[12:00:58.379] [bmv2] [D] [thread 14114] [1.0] [cxt 0] Parser 'parser' entering state 'start'
-[12:00:58.379] [bmv2] [D] [thread 14114] [1.0] [cxt 0] Extracting header 'ethernet'
-[12:00:58.379] [bmv2] [D] [thread 14114] [1.0] [cxt 0] Parser state 'start': key is 86dd
-[12:00:58.380] [bmv2] [T] [thread 14114] [1.0] [cxt 0] Bytes parsed: 14
-[12:00:58.380] [bmv2] [D] [thread 14114] [1.0] [cxt 0] Parser 'parser': end
-[12:00:58.380] [bmv2] [D] [thread 14114] [1.0] [cxt 0] Pipeline 'ingress': start
-[12:00:58.380] [bmv2] [T] [thread 14114] [1.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
-[12:00:58.379] [bmv2] [D] [thread 14115] [0.0] [cxt 0] Pipeline 'egress': start
-[12:00:58.380] [bmv2] [D] [thread 14115] [0.0] [cxt 0] Pipeline 'egress': end
-[12:00:58.380] [bmv2] [D] [thread 14115] [0.0] [cxt 0] Deparser 'deparser': start
-[12:00:58.380] [bmv2] [T] [thread 14115] [0.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
-[12:00:58.380] [bmv2] [D] [thread 14115] [0.0] [cxt 0] Deparsing header 'ethernet'
-[12:00:58.381] [bmv2] [D] [thread 14115] [0.0] [cxt 0] Deparser 'deparser': end
-[12:00:58.380] [bmv2] [D] [thread 14114] [1.0] [cxt 0] Looking up key:
+[15:15:47.241] [bmv2] [D] [thread 18307] [0.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[15:15:47.241] [bmv2] [D] [thread 18307] [0.0] [cxt 0] Action entry is NoAction - 
+[15:15:47.241] [bmv2] [T] [thread 18307] [0.0] [cxt 0] Action NoAction
+[15:15:47.242] [bmv2] [D] [thread 18307] [0.0] [cxt 0] Pipeline 'ingress': end
+[15:15:47.242] [bmv2] [D] [thread 18307] [0.0] [cxt 0] Egress port is 0
+[15:15:47.242] [bmv2] [D] [thread 18307] [1.0] [cxt 0] Processing packet received on port 2
+[15:15:47.242] [bmv2] [D] [thread 18307] [1.0] [cxt 0] Parser 'parser': start
+[15:15:47.242] [bmv2] [D] [thread 18307] [1.0] [cxt 0] Parser 'parser' entering state 'start'
+[15:15:47.243] [bmv2] [D] [thread 18307] [1.0] [cxt 0] Extracting header 'ethernet'
+[15:15:47.243] [bmv2] [D] [thread 18307] [1.0] [cxt 0] Parser state 'start': key is 86dd
+[15:15:47.243] [bmv2] [T] [thread 18307] [1.0] [cxt 0] Bytes parsed: 14
+[15:15:47.243] [bmv2] [D] [thread 18307] [1.0] [cxt 0] Parser 'parser': end
+[15:15:47.243] [bmv2] [D] [thread 18307] [1.0] [cxt 0] Pipeline 'ingress': start
+[15:15:47.243] [bmv2] [T] [thread 18307] [1.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[15:15:47.244] [bmv2] [D] [thread 18307] [1.0] [cxt 0] Looking up key:
 * hdr.ipv4.dstAddr    : 00000000
 
-[12:00:58.381] [bmv2] [D] [thread 14119] [0.0] [cxt 0] Transmitting packet of size 90 out of port 0
-[12:00:58.381] [bmv2] [D] [thread 14114] [1.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
-[12:00:58.381] [bmv2] [D] [thread 14114] [1.0] [cxt 0] Action entry is NoAction - 
-[12:00:58.381] [bmv2] [T] [thread 14114] [1.0] [cxt 0] Action NoAction
-[12:00:58.381] [bmv2] [D] [thread 14114] [1.0] [cxt 0] Pipeline 'ingress': end
-[12:00:58.381] [bmv2] [D] [thread 14114] [1.0] [cxt 0] Egress port is 0
-[12:00:58.382] [bmv2] [D] [thread 14115] [1.0] [cxt 0] Pipeline 'egress': start
-[12:00:58.382] [bmv2] [D] [thread 14115] [1.0] [cxt 0] Pipeline 'egress': end
-[12:00:58.382] [bmv2] [D] [thread 14115] [1.0] [cxt 0] Deparser 'deparser': start
-[12:00:58.382] [bmv2] [T] [thread 14115] [1.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
-[12:00:58.382] [bmv2] [D] [thread 14115] [1.0] [cxt 0] Deparsing header 'ethernet'
-[12:00:58.382] [bmv2] [D] [thread 14115] [1.0] [cxt 0] Deparser 'deparser': end
-[12:00:58.382] [bmv2] [D] [thread 14119] [1.0] [cxt 0] Transmitting packet of size 90 out of port 0
-[12:00:58.503] [bmv2] [D] [thread 14114] [2.0] [cxt 0] Processing packet received on port 2
-[12:00:58.503] [bmv2] [D] [thread 14114] [2.0] [cxt 0] Parser 'parser': start
-[12:00:58.503] [bmv2] [D] [thread 14114] [2.0] [cxt 0] Parser 'parser' entering state 'start'
-[12:00:58.504] [bmv2] [D] [thread 14114] [2.0] [cxt 0] Extracting header 'ethernet'
-[12:00:58.504] [bmv2] [D] [thread 14114] [2.0] [cxt 0] Parser state 'start': key is 86dd
-[12:00:58.504] [bmv2] [T] [thread 14114] [2.0] [cxt 0] Bytes parsed: 14
-[12:00:58.504] [bmv2] [D] [thread 14114] [2.0] [cxt 0] Parser 'parser': end
-[12:00:58.505] [bmv2] [D] [thread 14114] [2.0] [cxt 0] Pipeline 'ingress': start
-[12:00:58.505] [bmv2] [T] [thread 14114] [2.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
-[12:00:58.505] [bmv2] [D] [thread 14114] [2.0] [cxt 0] Looking up key:
+[15:15:47.242] [bmv2] [D] [thread 18308] [0.0] [cxt 0] Pipeline 'egress': start
+[15:15:47.244] [bmv2] [D] [thread 18308] [0.0] [cxt 0] Pipeline 'egress': end
+[15:15:47.244] [bmv2] [D] [thread 18308] [0.0] [cxt 0] Deparser 'deparser': start
+[15:15:47.245] [bmv2] [T] [thread 18308] [0.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[15:15:47.245] [bmv2] [D] [thread 18308] [0.0] [cxt 0] Deparsing header 'ethernet'
+[15:15:47.245] [bmv2] [D] [thread 18308] [0.0] [cxt 0] Deparser 'deparser': end
+[15:15:47.245] [bmv2] [D] [thread 18307] [1.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[15:15:47.246] [bmv2] [D] [thread 18307] [1.0] [cxt 0] Action entry is NoAction - 
+[15:15:47.246] [bmv2] [T] [thread 18307] [1.0] [cxt 0] Action NoAction
+[15:15:47.246] [bmv2] [D] [thread 18307] [1.0] [cxt 0] Pipeline 'ingress': end
+[15:15:47.246] [bmv2] [D] [thread 18312] [0.0] [cxt 0] Transmitting packet of size 90 out of port 0
+[15:15:47.246] [bmv2] [D] [thread 18307] [1.0] [cxt 0] Egress port is 0
+[15:15:47.247] [bmv2] [D] [thread 18308] [1.0] [cxt 0] Pipeline 'egress': start
+[15:15:47.247] [bmv2] [D] [thread 18308] [1.0] [cxt 0] Pipeline 'egress': end
+[15:15:47.247] [bmv2] [D] [thread 18308] [1.0] [cxt 0] Deparser 'deparser': start
+[15:15:47.247] [bmv2] [T] [thread 18308] [1.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[15:15:47.247] [bmv2] [D] [thread 18308] [1.0] [cxt 0] Deparsing header 'ethernet'
+[15:15:47.247] [bmv2] [D] [thread 18308] [1.0] [cxt 0] Deparser 'deparser': end
+[15:15:47.248] [bmv2] [D] [thread 18312] [1.0] [cxt 0] Transmitting packet of size 90 out of port 0
+[15:15:47.247] [bmv2] [D] [thread 18307] [2.0] [cxt 0] Processing packet received on port 2
+[15:15:47.248] [bmv2] [D] [thread 18307] [2.0] [cxt 0] Parser 'parser': start
+[15:15:47.248] [bmv2] [D] [thread 18307] [2.0] [cxt 0] Parser 'parser' entering state 'start'
+[15:15:47.248] [bmv2] [D] [thread 18307] [2.0] [cxt 0] Extracting header 'ethernet'
+[15:15:47.248] [bmv2] [D] [thread 18307] [2.0] [cxt 0] Parser state 'start': key is 86dd
+[15:15:47.248] [bmv2] [T] [thread 18307] [2.0] [cxt 0] Bytes parsed: 14
+[15:15:47.249] [bmv2] [D] [thread 18307] [2.0] [cxt 0] Parser 'parser': end
+[15:15:47.249] [bmv2] [D] [thread 18307] [2.0] [cxt 0] Pipeline 'ingress': start
+[15:15:47.249] [bmv2] [T] [thread 18307] [2.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[15:15:47.249] [bmv2] [D] [thread 18307] [2.0] [cxt 0] Looking up key:
 * hdr.ipv4.dstAddr    : 00000000
 
-[12:00:58.505] [bmv2] [D] [thread 14114] [2.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
-[12:00:58.505] [bmv2] [D] [thread 14114] [2.0] [cxt 0] Action entry is NoAction - 
-[12:00:58.505] [bmv2] [T] [thread 14114] [2.0] [cxt 0] Action NoAction
-[12:00:58.506] [bmv2] [D] [thread 14114] [2.0] [cxt 0] Pipeline 'ingress': end
-[12:00:58.506] [bmv2] [D] [thread 14114] [2.0] [cxt 0] Egress port is 0
-[12:00:58.506] [bmv2] [D] [thread 14115] [2.0] [cxt 0] Pipeline 'egress': start
-[12:00:58.506] [bmv2] [D] [thread 14115] [2.0] [cxt 0] Pipeline 'egress': end
-[12:00:58.507] [bmv2] [D] [thread 14115] [2.0] [cxt 0] Deparser 'deparser': start
-[12:00:58.507] [bmv2] [T] [thread 14115] [2.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
-[12:00:58.506] [bmv2] [D] [thread 14114] [3.0] [cxt 0] Processing packet received on port 2
-[12:00:58.509] [bmv2] [D] [thread 14114] [3.0] [cxt 0] Parser 'parser': start
-[12:00:58.509] [bmv2] [D] [thread 14114] [3.0] [cxt 0] Parser 'parser' entering state 'start'
-[12:00:58.509] [bmv2] [D] [thread 14115] [2.0] [cxt 0] Deparsing header 'ethernet'
-[12:00:58.509] [bmv2] [D] [thread 14114] [3.0] [cxt 0] Extracting header 'ethernet'
-[12:00:58.509] [bmv2] [D] [thread 14114] [3.0] [cxt 0] Parser state 'start': key is 86dd
-[12:00:58.509] [bmv2] [T] [thread 14114] [3.0] [cxt 0] Bytes parsed: 14
-[12:00:58.509] [bmv2] [D] [thread 14114] [3.0] [cxt 0] Parser 'parser': end
-[12:00:58.509] [bmv2] [D] [thread 14114] [3.0] [cxt 0] Pipeline 'ingress': start
-[12:00:58.509] [bmv2] [T] [thread 14114] [3.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
-[12:00:58.510] [bmv2] [D] [thread 14114] [3.0] [cxt 0] Looking up key:
+[15:15:47.249] [bmv2] [D] [thread 18307] [2.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[15:15:47.249] [bmv2] [D] [thread 18307] [2.0] [cxt 0] Action entry is NoAction - 
+[15:15:47.250] [bmv2] [T] [thread 18307] [2.0] [cxt 0] Action NoAction
+[15:15:47.250] [bmv2] [D] [thread 18307] [2.0] [cxt 0] Pipeline 'ingress': end
+[15:15:47.250] [bmv2] [D] [thread 18307] [2.0] [cxt 0] Egress port is 0
+[15:15:47.250] [bmv2] [D] [thread 18307] [3.0] [cxt 0] Processing packet received on port 2
+[15:15:47.250] [bmv2] [D] [thread 18307] [3.0] [cxt 0] Parser 'parser': start
+[15:15:47.250] [bmv2] [D] [thread 18307] [3.0] [cxt 0] Parser 'parser' entering state 'start'
+[15:15:47.250] [bmv2] [D] [thread 18307] [3.0] [cxt 0] Extracting header 'ethernet'
+[15:15:47.250] [bmv2] [D] [thread 18308] [2.0] [cxt 0] Pipeline 'egress': start
+[15:15:47.251] [bmv2] [D] [thread 18308] [2.0] [cxt 0] Pipeline 'egress': end
+[15:15:47.251] [bmv2] [D] [thread 18308] [2.0] [cxt 0] Deparser 'deparser': start
+[15:15:47.251] [bmv2] [T] [thread 18308] [2.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[15:15:47.251] [bmv2] [D] [thread 18308] [2.0] [cxt 0] Deparsing header 'ethernet'
+[15:15:47.251] [bmv2] [D] [thread 18308] [2.0] [cxt 0] Deparser 'deparser': end
+[15:15:47.251] [bmv2] [D] [thread 18307] [3.0] [cxt 0] Parser state 'start': key is 86dd
+[15:15:47.251] [bmv2] [T] [thread 18307] [3.0] [cxt 0] Bytes parsed: 14
+[15:15:47.251] [bmv2] [D] [thread 18307] [3.0] [cxt 0] Parser 'parser': end
+[15:15:47.252] [bmv2] [D] [thread 18307] [3.0] [cxt 0] Pipeline 'ingress': start
+[15:15:47.252] [bmv2] [T] [thread 18307] [3.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[15:15:47.252] [bmv2] [D] [thread 18307] [3.0] [cxt 0] Looking up key:
 * hdr.ipv4.dstAddr    : 00000000
 
-[12:00:58.510] [bmv2] [D] [thread 14114] [3.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
-[12:00:58.510] [bmv2] [D] [thread 14114] [3.0] [cxt 0] Action entry is NoAction - 
-[12:00:58.510] [bmv2] [T] [thread 14114] [3.0] [cxt 0] Action NoAction
-[12:00:58.510] [bmv2] [D] [thread 14114] [3.0] [cxt 0] Pipeline 'ingress': end
-[12:00:58.510] [bmv2] [D] [thread 14114] [3.0] [cxt 0] Egress port is 0
-[12:00:58.509] [bmv2] [D] [thread 14115] [2.0] [cxt 0] Deparser 'deparser': end
-[12:00:58.510] [bmv2] [D] [thread 14115] [3.0] [cxt 0] Pipeline 'egress': start
-[12:00:58.510] [bmv2] [D] [thread 14115] [3.0] [cxt 0] Pipeline 'egress': end
-[12:00:58.510] [bmv2] [D] [thread 14115] [3.0] [cxt 0] Deparser 'deparser': start
-[12:00:58.510] [bmv2] [T] [thread 14115] [3.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
-[12:00:58.510] [bmv2] [D] [thread 14115] [3.0] [cxt 0] Deparsing header 'ethernet'
-[12:00:58.510] [bmv2] [D] [thread 14115] [3.0] [cxt 0] Deparser 'deparser': end
-[12:00:58.510] [bmv2] [D] [thread 14119] [2.0] [cxt 0] Transmitting packet of size 90 out of port 0
-[12:00:58.510] [bmv2] [D] [thread 14119] [3.0] [cxt 0] Transmitting packet of size 70 out of port 0
-[12:00:59.126] [bmv2] [D] [thread 14114] [4.0] [cxt 0] Processing packet received on port 3
-[12:00:59.126] [bmv2] [D] [thread 14114] [4.0] [cxt 0] Parser 'parser': start
-[12:00:59.126] [bmv2] [D] [thread 14114] [4.0] [cxt 0] Parser 'parser' entering state 'start'
-[12:00:59.127] [bmv2] [D] [thread 14114] [4.0] [cxt 0] Extracting header 'ethernet'
-[12:00:59.127] [bmv2] [D] [thread 14114] [4.0] [cxt 0] Parser state 'start': key is 86dd
-[12:00:59.127] [bmv2] [T] [thread 14114] [4.0] [cxt 0] Bytes parsed: 14
-[12:00:59.127] [bmv2] [D] [thread 14114] [4.0] [cxt 0] Parser 'parser': end
-[12:00:59.128] [bmv2] [D] [thread 14114] [4.0] [cxt 0] Pipeline 'ingress': start
-[12:00:59.128] [bmv2] [T] [thread 14114] [4.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
-[12:00:59.128] [bmv2] [D] [thread 14114] [4.0] [cxt 0] Looking up key:
+[15:15:47.252] [bmv2] [D] [thread 18307] [3.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[15:15:47.252] [bmv2] [D] [thread 18307] [3.0] [cxt 0] Action entry is NoAction - 
+[15:15:47.252] [bmv2] [T] [thread 18307] [3.0] [cxt 0] Action NoAction
+[15:15:47.252] [bmv2] [D] [thread 18307] [3.0] [cxt 0] Pipeline 'ingress': end
+[15:15:47.253] [bmv2] [D] [thread 18307] [3.0] [cxt 0] Egress port is 0
+[15:15:47.251] [bmv2] [D] [thread 18312] [2.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[15:15:47.253] [bmv2] [D] [thread 18308] [3.0] [cxt 0] Pipeline 'egress': start
+[15:15:47.253] [bmv2] [D] [thread 18308] [3.0] [cxt 0] Pipeline 'egress': end
+[15:15:47.253] [bmv2] [D] [thread 18308] [3.0] [cxt 0] Deparser 'deparser': start
+[15:15:47.253] [bmv2] [T] [thread 18308] [3.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[15:15:47.253] [bmv2] [D] [thread 18308] [3.0] [cxt 0] Deparsing header 'ethernet'
+[15:15:47.253] [bmv2] [D] [thread 18308] [3.0] [cxt 0] Deparser 'deparser': end
+[15:15:47.254] [bmv2] [D] [thread 18312] [3.0] [cxt 0] Transmitting packet of size 90 out of port 0
+[15:15:47.359] [bmv2] [D] [thread 18307] [4.0] [cxt 0] Processing packet received on port 2
+[15:15:47.359] [bmv2] [D] [thread 18307] [4.0] [cxt 0] Parser 'parser': start
+[15:15:47.359] [bmv2] [D] [thread 18307] [4.0] [cxt 0] Parser 'parser' entering state 'start'
+[15:15:47.359] [bmv2] [D] [thread 18307] [4.0] [cxt 0] Extracting header 'ethernet'
+[15:15:47.360] [bmv2] [D] [thread 18307] [4.0] [cxt 0] Parser state 'start': key is 86dd
+[15:15:47.360] [bmv2] [T] [thread 18307] [4.0] [cxt 0] Bytes parsed: 14
+[15:15:47.360] [bmv2] [D] [thread 18307] [4.0] [cxt 0] Parser 'parser': end
+[15:15:47.361] [bmv2] [D] [thread 18307] [4.0] [cxt 0] Pipeline 'ingress': start
+[15:15:47.361] [bmv2] [T] [thread 18307] [4.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[15:15:47.361] [bmv2] [D] [thread 18307] [4.0] [cxt 0] Looking up key:
 * hdr.ipv4.dstAddr    : 00000000
 
-[12:00:59.128] [bmv2] [D] [thread 14114] [4.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
-[12:00:59.129] [bmv2] [D] [thread 14114] [4.0] [cxt 0] Action entry is NoAction - 
-[12:00:59.129] [bmv2] [T] [thread 14114] [4.0] [cxt 0] Action NoAction
-[12:00:59.129] [bmv2] [D] [thread 14114] [4.0] [cxt 0] Pipeline 'ingress': end
-[12:00:59.129] [bmv2] [D] [thread 14114] [4.0] [cxt 0] Egress port is 0
-[12:00:59.129] [bmv2] [D] [thread 14115] [4.0] [cxt 0] Pipeline 'egress': start
-[12:00:59.130] [bmv2] [D] [thread 14115] [4.0] [cxt 0] Pipeline 'egress': end
-[12:00:59.130] [bmv2] [D] [thread 14115] [4.0] [cxt 0] Deparser 'deparser': start
-[12:00:59.130] [bmv2] [T] [thread 14115] [4.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
-[12:00:59.130] [bmv2] [D] [thread 14115] [4.0] [cxt 0] Deparsing header 'ethernet'
-[12:00:59.130] [bmv2] [D] [thread 14115] [4.0] [cxt 0] Deparser 'deparser': end
-[12:00:59.130] [bmv2] [D] [thread 14119] [4.0] [cxt 0] Transmitting packet of size 90 out of port 0
-[12:00:59.350] [bmv2] [D] [thread 14114] [5.0] [cxt 0] Processing packet received on port 2
-[12:00:59.350] [bmv2] [D] [thread 14114] [5.0] [cxt 0] Parser 'parser': start
-[12:00:59.351] [bmv2] [D] [thread 14114] [5.0] [cxt 0] Parser 'parser' entering state 'start'
-[12:00:59.352] [bmv2] [D] [thread 14114] [5.0] [cxt 0] Extracting header 'ethernet'
-[12:00:59.353] [bmv2] [D] [thread 14114] [5.0] [cxt 0] Parser state 'start': key is 86dd
-[12:00:59.353] [bmv2] [T] [thread 14114] [5.0] [cxt 0] Bytes parsed: 14
-[12:00:59.353] [bmv2] [D] [thread 14114] [5.0] [cxt 0] Parser 'parser': end
-[12:00:59.353] [bmv2] [D] [thread 14114] [5.0] [cxt 0] Pipeline 'ingress': start
-[12:00:59.354] [bmv2] [T] [thread 14114] [5.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
-[12:00:59.354] [bmv2] [D] [thread 14114] [5.0] [cxt 0] Looking up key:
+[15:15:47.361] [bmv2] [D] [thread 18307] [4.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[15:15:47.361] [bmv2] [D] [thread 18307] [4.0] [cxt 0] Action entry is NoAction - 
+[15:15:47.362] [bmv2] [T] [thread 18307] [4.0] [cxt 0] Action NoAction
+[15:15:47.362] [bmv2] [D] [thread 18307] [4.0] [cxt 0] Pipeline 'ingress': end
+[15:15:47.362] [bmv2] [D] [thread 18307] [4.0] [cxt 0] Egress port is 0
+[15:15:47.362] [bmv2] [D] [thread 18308] [4.0] [cxt 0] Pipeline 'egress': start
+[15:15:47.362] [bmv2] [D] [thread 18308] [4.0] [cxt 0] Pipeline 'egress': end
+[15:15:47.363] [bmv2] [D] [thread 18308] [4.0] [cxt 0] Deparser 'deparser': start
+[15:15:47.363] [bmv2] [T] [thread 18308] [4.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[15:15:47.363] [bmv2] [D] [thread 18308] [4.0] [cxt 0] Deparsing header 'ethernet'
+[15:15:47.363] [bmv2] [D] [thread 18308] [4.0] [cxt 0] Deparser 'deparser': end
+[15:15:47.364] [bmv2] [D] [thread 18312] [4.0] [cxt 0] Transmitting packet of size 90 out of port 0
+[15:15:47.439] [bmv2] [D] [thread 18307] [5.0] [cxt 0] Processing packet received on port 3
+[15:15:47.439] [bmv2] [D] [thread 18307] [5.0] [cxt 0] Parser 'parser': start
+[15:15:47.439] [bmv2] [D] [thread 18307] [5.0] [cxt 0] Parser 'parser' entering state 'start'
+[15:15:47.440] [bmv2] [D] [thread 18307] [5.0] [cxt 0] Extracting header 'ethernet'
+[15:15:47.440] [bmv2] [D] [thread 18307] [5.0] [cxt 0] Parser state 'start': key is 86dd
+[15:15:47.440] [bmv2] [T] [thread 18307] [5.0] [cxt 0] Bytes parsed: 14
+[15:15:47.441] [bmv2] [D] [thread 18307] [5.0] [cxt 0] Parser 'parser': end
+[15:15:47.441] [bmv2] [D] [thread 18307] [5.0] [cxt 0] Pipeline 'ingress': start
+[15:15:47.441] [bmv2] [T] [thread 18307] [5.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[15:15:47.442] [bmv2] [D] [thread 18307] [5.0] [cxt 0] Looking up key:
 * hdr.ipv4.dstAddr    : 00000000
 
-[12:00:59.354] [bmv2] [D] [thread 14114] [5.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
-[12:00:59.354] [bmv2] [D] [thread 14114] [5.0] [cxt 0] Action entry is NoAction - 
-[12:00:59.354] [bmv2] [T] [thread 14114] [5.0] [cxt 0] Action NoAction
-[12:00:59.354] [bmv2] [D] [thread 14114] [5.0] [cxt 0] Pipeline 'ingress': end
-[12:00:59.354] [bmv2] [D] [thread 14114] [5.0] [cxt 0] Egress port is 0
-[12:00:59.354] [bmv2] [D] [thread 14115] [5.0] [cxt 0] Pipeline 'egress': start
-[12:00:59.354] [bmv2] [D] [thread 14115] [5.0] [cxt 0] Pipeline 'egress': end
-[12:00:59.354] [bmv2] [D] [thread 14115] [5.0] [cxt 0] Deparser 'deparser': start
-[12:00:59.355] [bmv2] [T] [thread 14115] [5.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
-[12:00:59.355] [bmv2] [D] [thread 14115] [5.0] [cxt 0] Deparsing header 'ethernet'
-[12:00:59.355] [bmv2] [D] [thread 14115] [5.0] [cxt 0] Deparser 'deparser': end
-[12:00:59.355] [bmv2] [D] [thread 14119] [5.0] [cxt 0] Transmitting packet of size 90 out of port 0
+[15:15:47.442] [bmv2] [D] [thread 18307] [5.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[15:15:47.442] [bmv2] [D] [thread 18307] [5.0] [cxt 0] Action entry is NoAction - 
+[15:15:47.442] [bmv2] [T] [thread 18307] [5.0] [cxt 0] Action NoAction
+[15:15:47.443] [bmv2] [D] [thread 18307] [5.0] [cxt 0] Pipeline 'ingress': end
+[15:15:47.443] [bmv2] [D] [thread 18307] [5.0] [cxt 0] Egress port is 0
+[15:15:47.443] [bmv2] [D] [thread 18308] [5.0] [cxt 0] Pipeline 'egress': start
+[15:15:47.444] [bmv2] [D] [thread 18308] [5.0] [cxt 0] Pipeline 'egress': end
+[15:15:47.444] [bmv2] [D] [thread 18308] [5.0] [cxt 0] Deparser 'deparser': start
+[15:15:47.444] [bmv2] [T] [thread 18308] [5.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[15:15:47.444] [bmv2] [D] [thread 18308] [5.0] [cxt 0] Deparsing header 'ethernet'
+[15:15:47.444] [bmv2] [D] [thread 18308] [5.0] [cxt 0] Deparser 'deparser': end
+[15:15:47.445] [bmv2] [D] [thread 18312] [5.0] [cxt 0] Transmitting packet of size 90 out of port 0
+[15:15:47.499] [bmv2] [D] [thread 18307] [6.0] [cxt 0] Processing packet received on port 3
+[15:15:47.499] [bmv2] [D] [thread 18307] [6.0] [cxt 0] Parser 'parser': start
+[15:15:47.499] [bmv2] [D] [thread 18307] [6.0] [cxt 0] Parser 'parser' entering state 'start'
+[15:15:47.500] [bmv2] [D] [thread 18307] [6.0] [cxt 0] Extracting header 'ethernet'
+[15:15:47.500] [bmv2] [D] [thread 18307] [6.0] [cxt 0] Parser state 'start': key is 86dd
+[15:15:47.501] [bmv2] [T] [thread 18307] [6.0] [cxt 0] Bytes parsed: 14
+[15:15:47.501] [bmv2] [D] [thread 18307] [6.0] [cxt 0] Parser 'parser': end
+[15:15:47.501] [bmv2] [D] [thread 18307] [6.0] [cxt 0] Pipeline 'ingress': start
+[15:15:47.502] [bmv2] [T] [thread 18307] [6.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[15:15:47.502] [bmv2] [D] [thread 18307] [6.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 00000000
+
+[15:15:47.502] [bmv2] [D] [thread 18307] [6.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[15:15:47.502] [bmv2] [D] [thread 18307] [6.0] [cxt 0] Action entry is NoAction - 
+[15:15:47.502] [bmv2] [T] [thread 18307] [6.0] [cxt 0] Action NoAction
+[15:15:47.503] [bmv2] [D] [thread 18307] [6.0] [cxt 0] Pipeline 'ingress': end
+[15:15:47.503] [bmv2] [D] [thread 18307] [6.0] [cxt 0] Egress port is 0
+[15:15:47.503] [bmv2] [D] [thread 18308] [6.0] [cxt 0] Pipeline 'egress': start
+[15:15:47.504] [bmv2] [D] [thread 18308] [6.0] [cxt 0] Pipeline 'egress': end
+[15:15:47.504] [bmv2] [D] [thread 18308] [6.0] [cxt 0] Deparser 'deparser': start
+[15:15:47.504] [bmv2] [T] [thread 18308] [6.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[15:15:47.504] [bmv2] [D] [thread 18308] [6.0] [cxt 0] Deparsing header 'ethernet'
+[15:15:47.505] [bmv2] [D] [thread 18308] [6.0] [cxt 0] Deparser 'deparser': end
+[15:15:47.505] [bmv2] [D] [thread 18312] [6.0] [cxt 0] Transmitting packet of size 90 out of port 0
 New connection
 P4Runtime SetForwardingPipelineConfig
-[12:01:01.472] [bmv2] [W] [thread 14224] [P4Runtime] p4::tmp::P4DeviceConfig is deprecated
-[12:01:01.473] [bmv2] [D] [thread 14224] Set default default entry for table 'MyIngress.ipv4_lpm': NoAction - 
+[15:15:50.337] [bmv2] [W] [thread 18415] [P4Runtime] p4::tmp::P4DeviceConfig is deprecated
+[15:15:50.338] [bmv2] [D] [thread 18415] Set default default entry for table 'MyIngress.ipv4_lpm': NoAction - 
 Connection removed
-[12:01:01.546] [bmv2] [D] [thread 14114] [6.0] [cxt 0] Processing packet received on port 1
-[12:01:01.546] [bmv2] [D] [thread 14114] [6.0] [cxt 0] Parser 'parser': start
-[12:01:01.547] [bmv2] [D] [thread 14114] [6.0] [cxt 0] Parser 'parser' entering state 'start'
-[12:01:01.547] [bmv2] [D] [thread 14114] [6.0] [cxt 0] Extracting header 'ethernet'
-[12:01:01.547] [bmv2] [D] [thread 14114] [6.0] [cxt 0] Parser state 'start': key is 86dd
-[12:01:01.547] [bmv2] [T] [thread 14114] [6.0] [cxt 0] Bytes parsed: 14
-[12:01:01.547] [bmv2] [D] [thread 14114] [6.0] [cxt 0] Parser 'parser': end
-[12:01:01.548] [bmv2] [D] [thread 14114] [6.0] [cxt 0] Pipeline 'ingress': start
-[12:01:01.548] [bmv2] [T] [thread 14114] [6.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
-[12:01:01.548] [bmv2] [D] [thread 14114] [6.0] [cxt 0] Looking up key:
+[15:15:50.427] [bmv2] [D] [thread 18307] [7.0] [cxt 0] Processing packet received on port 1
+[15:15:50.427] [bmv2] [D] [thread 18307] [7.0] [cxt 0] Parser 'parser': start
+[15:15:50.427] [bmv2] [D] [thread 18307] [7.0] [cxt 0] Parser 'parser' entering state 'start'
+[15:15:50.427] [bmv2] [D] [thread 18307] [7.0] [cxt 0] Extracting header 'ethernet'
+[15:15:50.428] [bmv2] [D] [thread 18307] [7.0] [cxt 0] Parser state 'start': key is 86dd
+[15:15:50.428] [bmv2] [T] [thread 18307] [7.0] [cxt 0] Bytes parsed: 14
+[15:15:50.428] [bmv2] [D] [thread 18307] [7.0] [cxt 0] Parser 'parser': end
+[15:15:50.428] [bmv2] [D] [thread 18307] [7.0] [cxt 0] Pipeline 'ingress': start
+[15:15:50.428] [bmv2] [T] [thread 18307] [7.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[15:15:50.428] [bmv2] [D] [thread 18307] [7.0] [cxt 0] Looking up key:
 * hdr.ipv4.dstAddr    : 00000000
 
-[12:01:01.548] [bmv2] [D] [thread 14114] [6.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
-[12:01:01.548] [bmv2] [D] [thread 14114] [6.0] [cxt 0] Action entry is NoAction - 
-[12:01:01.549] [bmv2] [T] [thread 14114] [6.0] [cxt 0] Action NoAction
-[12:01:01.549] [bmv2] [D] [thread 14114] [6.0] [cxt 0] Pipeline 'ingress': end
-[12:01:01.549] [bmv2] [D] [thread 14114] [6.0] [cxt 0] Egress port is 0
-[12:01:01.549] [bmv2] [D] [thread 14115] [6.0] [cxt 0] Pipeline 'egress': start
-[12:01:01.549] [bmv2] [D] [thread 14115] [6.0] [cxt 0] Pipeline 'egress': end
-[12:01:01.549] [bmv2] [D] [thread 14115] [6.0] [cxt 0] Deparser 'deparser': start
-[12:01:01.549] [bmv2] [T] [thread 14115] [6.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
-[12:01:01.550] [bmv2] [D] [thread 14115] [6.0] [cxt 0] Deparsing header 'ethernet'
-[12:01:01.550] [bmv2] [D] [thread 14115] [6.0] [cxt 0] Deparser 'deparser': end
-[12:01:01.550] [bmv2] [D] [thread 14119] [6.0] [cxt 0] Transmitting packet of size 70 out of port 0
-[12:01:01.690] [bmv2] [D] [thread 14114] [7.0] [cxt 0] Processing packet received on port 3
-[12:01:01.690] [bmv2] [D] [thread 14114] [7.0] [cxt 0] Parser 'parser': start
-[12:01:01.691] [bmv2] [D] [thread 14114] [7.0] [cxt 0] Parser 'parser' entering state 'start'
-[12:01:01.691] [bmv2] [D] [thread 14114] [7.0] [cxt 0] Extracting header 'ethernet'
-[12:01:01.691] [bmv2] [D] [thread 14114] [7.0] [cxt 0] Parser state 'start': key is 86dd
-[12:01:01.691] [bmv2] [T] [thread 14114] [7.0] [cxt 0] Bytes parsed: 14
-[12:01:01.692] [bmv2] [D] [thread 14114] [7.0] [cxt 0] Parser 'parser': end
-[12:01:01.692] [bmv2] [D] [thread 14114] [7.0] [cxt 0] Pipeline 'ingress': start
-[12:01:01.692] [bmv2] [T] [thread 14114] [7.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
-[12:01:01.693] [bmv2] [D] [thread 14114] [7.0] [cxt 0] Looking up key:
+[15:15:50.429] [bmv2] [D] [thread 18307] [7.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[15:15:50.429] [bmv2] [D] [thread 18307] [7.0] [cxt 0] Action entry is NoAction - 
+[15:15:50.429] [bmv2] [T] [thread 18307] [7.0] [cxt 0] Action NoAction
+[15:15:50.429] [bmv2] [D] [thread 18307] [7.0] [cxt 0] Pipeline 'ingress': end
+[15:15:50.429] [bmv2] [D] [thread 18307] [7.0] [cxt 0] Egress port is 0
+[15:15:50.429] [bmv2] [D] [thread 18308] [7.0] [cxt 0] Pipeline 'egress': start
+[15:15:50.429] [bmv2] [D] [thread 18308] [7.0] [cxt 0] Pipeline 'egress': end
+[15:15:50.430] [bmv2] [D] [thread 18308] [7.0] [cxt 0] Deparser 'deparser': start
+[15:15:50.430] [bmv2] [T] [thread 18308] [7.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[15:15:50.430] [bmv2] [D] [thread 18308] [7.0] [cxt 0] Deparsing header 'ethernet'
+[15:15:50.430] [bmv2] [D] [thread 18308] [7.0] [cxt 0] Deparser 'deparser': end
+[15:15:50.430] [bmv2] [D] [thread 18312] [7.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[15:15:50.483] [bmv2] [D] [thread 18307] [8.0] [cxt 0] Processing packet received on port 2
+[15:15:50.483] [bmv2] [D] [thread 18307] [8.0] [cxt 0] Parser 'parser': start
+[15:15:50.483] [bmv2] [D] [thread 18307] [8.0] [cxt 0] Parser 'parser' entering state 'start'
+[15:15:50.483] [bmv2] [D] [thread 18307] [8.0] [cxt 0] Extracting header 'ethernet'
+[15:15:50.484] [bmv2] [D] [thread 18307] [8.0] [cxt 0] Parser state 'start': key is 86dd
+[15:15:50.484] [bmv2] [T] [thread 18307] [8.0] [cxt 0] Bytes parsed: 14
+[15:15:50.484] [bmv2] [D] [thread 18307] [8.0] [cxt 0] Parser 'parser': end
+[15:15:50.484] [bmv2] [D] [thread 18307] [8.0] [cxt 0] Pipeline 'ingress': start
+[15:15:50.484] [bmv2] [T] [thread 18307] [8.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[15:15:50.485] [bmv2] [D] [thread 18307] [8.0] [cxt 0] Looking up key:
 * hdr.ipv4.dstAddr    : 00000000
 
-[12:01:01.693] [bmv2] [D] [thread 14114] [7.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
-[12:01:01.693] [bmv2] [D] [thread 14114] [7.0] [cxt 0] Action entry is NoAction - 
-[12:01:01.694] [bmv2] [T] [thread 14114] [7.0] [cxt 0] Action NoAction
-[12:01:01.694] [bmv2] [D] [thread 14114] [7.0] [cxt 0] Pipeline 'ingress': end
-[12:01:01.694] [bmv2] [D] [thread 14114] [7.0] [cxt 0] Egress port is 0
-[12:01:01.694] [bmv2] [D] [thread 14115] [7.0] [cxt 0] Pipeline 'egress': start
-[12:01:01.694] [bmv2] [D] [thread 14115] [7.0] [cxt 0] Pipeline 'egress': end
-[12:01:01.695] [bmv2] [D] [thread 14115] [7.0] [cxt 0] Deparser 'deparser': start
-[12:01:01.695] [bmv2] [T] [thread 14115] [7.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
-[12:01:01.695] [bmv2] [D] [thread 14115] [7.0] [cxt 0] Deparsing header 'ethernet'
-[12:01:01.695] [bmv2] [D] [thread 14115] [7.0] [cxt 0] Deparser 'deparser': end
-[12:01:01.696] [bmv2] [D] [thread 14119] [7.0] [cxt 0] Transmitting packet of size 70 out of port 0
-[12:01:01.722] [bmv2] [D] [thread 14114] [8.0] [cxt 0] Processing packet received on port 1
-[12:01:01.722] [bmv2] [D] [thread 14114] [8.0] [cxt 0] Parser 'parser': start
-[12:01:01.723] [bmv2] [D] [thread 14114] [8.0] [cxt 0] Parser 'parser' entering state 'start'
-[12:01:01.723] [bmv2] [D] [thread 14114] [8.0] [cxt 0] Extracting header 'ethernet'
-[12:01:01.723] [bmv2] [D] [thread 14114] [8.0] [cxt 0] Parser state 'start': key is 86dd
-[12:01:01.723] [bmv2] [T] [thread 14114] [8.0] [cxt 0] Bytes parsed: 14
-[12:01:01.723] [bmv2] [D] [thread 14114] [8.0] [cxt 0] Parser 'parser': end
-[12:01:01.724] [bmv2] [D] [thread 14114] [8.0] [cxt 0] Pipeline 'ingress': start
-[12:01:01.724] [bmv2] [T] [thread 14114] [8.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
-[12:01:01.724] [bmv2] [D] [thread 14114] [8.0] [cxt 0] Looking up key:
+[15:15:50.485] [bmv2] [D] [thread 18307] [8.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[15:15:50.485] [bmv2] [D] [thread 18307] [8.0] [cxt 0] Action entry is NoAction - 
+[15:15:50.485] [bmv2] [T] [thread 18307] [8.0] [cxt 0] Action NoAction
+[15:15:50.485] [bmv2] [D] [thread 18307] [8.0] [cxt 0] Pipeline 'ingress': end
+[15:15:50.485] [bmv2] [D] [thread 18307] [8.0] [cxt 0] Egress port is 0
+[15:15:50.485] [bmv2] [D] [thread 18308] [8.0] [cxt 0] Pipeline 'egress': start
+[15:15:50.486] [bmv2] [D] [thread 18308] [8.0] [cxt 0] Pipeline 'egress': end
+[15:15:50.486] [bmv2] [D] [thread 18308] [8.0] [cxt 0] Deparser 'deparser': start
+[15:15:50.486] [bmv2] [T] [thread 18308] [8.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[15:15:50.486] [bmv2] [D] [thread 18308] [8.0] [cxt 0] Deparsing header 'ethernet'
+[15:15:50.486] [bmv2] [D] [thread 18308] [8.0] [cxt 0] Deparser 'deparser': end
+[15:15:50.486] [bmv2] [D] [thread 18312] [8.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[15:15:50.531] [bmv2] [D] [thread 18307] [9.0] [cxt 0] Processing packet received on port 1
+[15:15:50.531] [bmv2] [D] [thread 18307] [9.0] [cxt 0] Parser 'parser': start
+[15:15:50.531] [bmv2] [D] [thread 18307] [9.0] [cxt 0] Parser 'parser' entering state 'start'
+[15:15:50.531] [bmv2] [D] [thread 18307] [9.0] [cxt 0] Extracting header 'ethernet'
+[15:15:50.531] [bmv2] [D] [thread 18307] [9.0] [cxt 0] Parser state 'start': key is 86dd
+[15:15:50.532] [bmv2] [T] [thread 18307] [9.0] [cxt 0] Bytes parsed: 14
+[15:15:50.532] [bmv2] [D] [thread 18307] [9.0] [cxt 0] Parser 'parser': end
+[15:15:50.532] [bmv2] [D] [thread 18307] [9.0] [cxt 0] Pipeline 'ingress': start
+[15:15:50.532] [bmv2] [T] [thread 18307] [9.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[15:15:50.532] [bmv2] [D] [thread 18307] [9.0] [cxt 0] Looking up key:
 * hdr.ipv4.dstAddr    : 00000000
 
-[12:01:01.724] [bmv2] [D] [thread 14114] [8.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
-[12:01:01.725] [bmv2] [D] [thread 14114] [8.0] [cxt 0] Action entry is NoAction - 
-[12:01:01.725] [bmv2] [T] [thread 14114] [8.0] [cxt 0] Action NoAction
-[12:01:01.725] [bmv2] [D] [thread 14114] [8.0] [cxt 0] Pipeline 'ingress': end
-[12:01:01.725] [bmv2] [D] [thread 14114] [8.0] [cxt 0] Egress port is 0
-[12:01:01.726] [bmv2] [D] [thread 14115] [8.0] [cxt 0] Pipeline 'egress': start
-[12:01:01.726] [bmv2] [D] [thread 14115] [8.0] [cxt 0] Pipeline 'egress': end
-[12:01:01.726] [bmv2] [D] [thread 14115] [8.0] [cxt 0] Deparser 'deparser': start
-[12:01:01.726] [bmv2] [T] [thread 14115] [8.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
-[12:01:01.726] [bmv2] [D] [thread 14115] [8.0] [cxt 0] Deparsing header 'ethernet'
-[12:01:01.726] [bmv2] [D] [thread 14115] [8.0] [cxt 0] Deparser 'deparser': end
-[12:01:01.727] [bmv2] [D] [thread 14119] [8.0] [cxt 0] Transmitting packet of size 70 out of port 0
-[12:01:02.130] [bmv2] [D] [thread 14114] [9.0] [cxt 0] Processing packet received on port 2
-[12:01:02.130] [bmv2] [D] [thread 14114] [9.0] [cxt 0] Parser 'parser': start
-[12:01:02.130] [bmv2] [D] [thread 14114] [9.0] [cxt 0] Parser 'parser' entering state 'start'
-[12:01:02.131] [bmv2] [D] [thread 14114] [9.0] [cxt 0] Extracting header 'ethernet'
-[12:01:02.131] [bmv2] [D] [thread 14114] [9.0] [cxt 0] Parser state 'start': key is 86dd
-[12:01:02.131] [bmv2] [T] [thread 14114] [9.0] [cxt 0] Bytes parsed: 14
-[12:01:02.132] [bmv2] [D] [thread 14114] [9.0] [cxt 0] Parser 'parser': end
-[12:01:02.132] [bmv2] [D] [thread 14114] [9.0] [cxt 0] Pipeline 'ingress': start
-[12:01:02.132] [bmv2] [T] [thread 14114] [9.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
-[12:01:02.133] [bmv2] [D] [thread 14114] [9.0] [cxt 0] Looking up key:
+[15:15:50.532] [bmv2] [D] [thread 18307] [9.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[15:15:50.533] [bmv2] [D] [thread 18307] [9.0] [cxt 0] Action entry is NoAction - 
+[15:15:50.533] [bmv2] [T] [thread 18307] [9.0] [cxt 0] Action NoAction
+[15:15:50.533] [bmv2] [D] [thread 18307] [9.0] [cxt 0] Pipeline 'ingress': end
+[15:15:50.533] [bmv2] [D] [thread 18307] [9.0] [cxt 0] Egress port is 0
+[15:15:50.533] [bmv2] [D] [thread 18308] [9.0] [cxt 0] Pipeline 'egress': start
+[15:15:50.533] [bmv2] [D] [thread 18308] [9.0] [cxt 0] Pipeline 'egress': end
+[15:15:50.533] [bmv2] [D] [thread 18308] [9.0] [cxt 0] Deparser 'deparser': start
+[15:15:50.533] [bmv2] [T] [thread 18308] [9.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[15:15:50.533] [bmv2] [D] [thread 18308] [9.0] [cxt 0] Deparsing header 'ethernet'
+[15:15:50.534] [bmv2] [D] [thread 18308] [9.0] [cxt 0] Deparser 'deparser': end
+[15:15:50.534] [bmv2] [D] [thread 18312] [9.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[15:15:50.602] [bmv2] [D] [thread 18307] [10.0] [cxt 0] Processing packet received on port 3
+[15:15:50.603] [bmv2] [D] [thread 18307] [10.0] [cxt 0] Parser 'parser': start
+[15:15:50.603] [bmv2] [D] [thread 18307] [10.0] [cxt 0] Parser 'parser' entering state 'start'
+[15:15:50.603] [bmv2] [D] [thread 18307] [10.0] [cxt 0] Extracting header 'ethernet'
+[15:15:50.604] [bmv2] [D] [thread 18307] [10.0] [cxt 0] Parser state 'start': key is 86dd
+[15:15:50.604] [bmv2] [T] [thread 18307] [10.0] [cxt 0] Bytes parsed: 14
+[15:15:50.604] [bmv2] [D] [thread 18307] [10.0] [cxt 0] Parser 'parser': end
+[15:15:50.604] [bmv2] [D] [thread 18307] [10.0] [cxt 0] Pipeline 'ingress': start
+[15:15:50.605] [bmv2] [T] [thread 18307] [10.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[15:15:50.605] [bmv2] [D] [thread 18307] [10.0] [cxt 0] Looking up key:
 * hdr.ipv4.dstAddr    : 00000000
 
-[12:01:02.133] [bmv2] [D] [thread 14114] [9.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
-[12:01:02.133] [bmv2] [D] [thread 14114] [9.0] [cxt 0] Action entry is NoAction - 
-[12:01:02.133] [bmv2] [T] [thread 14114] [9.0] [cxt 0] Action NoAction
-[12:01:02.133] [bmv2] [D] [thread 14114] [9.0] [cxt 0] Pipeline 'ingress': end
-[12:01:02.133] [bmv2] [D] [thread 14114] [9.0] [cxt 0] Egress port is 0
-[12:01:02.133] [bmv2] [D] [thread 14115] [9.0] [cxt 0] Pipeline 'egress': start
-[12:01:02.133] [bmv2] [D] [thread 14115] [9.0] [cxt 0] Pipeline 'egress': end
-[12:01:02.133] [bmv2] [D] [thread 14115] [9.0] [cxt 0] Deparser 'deparser': start
-[12:01:02.134] [bmv2] [T] [thread 14115] [9.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
-[12:01:02.134] [bmv2] [D] [thread 14115] [9.0] [cxt 0] Deparsing header 'ethernet'
-[12:01:02.134] [bmv2] [D] [thread 14115] [9.0] [cxt 0] Deparser 'deparser': end
-[12:01:02.134] [bmv2] [D] [thread 14119] [9.0] [cxt 0] Transmitting packet of size 70 out of port 0
-[12:01:02.322] [bmv2] [D] [thread 14114] [10.0] [cxt 0] Processing packet received on port 3
-[12:01:02.322] [bmv2] [D] [thread 14114] [10.0] [cxt 0] Parser 'parser': start
-[12:01:02.322] [bmv2] [D] [thread 14114] [10.0] [cxt 0] Parser 'parser' entering state 'start'
-[12:01:02.323] [bmv2] [D] [thread 14114] [10.0] [cxt 0] Extracting header 'ethernet'
-[12:01:02.323] [bmv2] [D] [thread 14114] [10.0] [cxt 0] Parser state 'start': key is 86dd
-[12:01:02.323] [bmv2] [T] [thread 14114] [10.0] [cxt 0] Bytes parsed: 14
-[12:01:02.323] [bmv2] [D] [thread 14114] [10.0] [cxt 0] Parser 'parser': end
-[12:01:02.324] [bmv2] [D] [thread 14114] [10.0] [cxt 0] Pipeline 'ingress': start
-[12:01:02.324] [bmv2] [T] [thread 14114] [10.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
-[12:01:02.324] [bmv2] [D] [thread 14114] [10.0] [cxt 0] Looking up key:
+[15:15:50.605] [bmv2] [D] [thread 18307] [10.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[15:15:50.605] [bmv2] [D] [thread 18307] [10.0] [cxt 0] Action entry is NoAction - 
+[15:15:50.605] [bmv2] [T] [thread 18307] [10.0] [cxt 0] Action NoAction
+[15:15:50.606] [bmv2] [D] [thread 18307] [10.0] [cxt 0] Pipeline 'ingress': end
+[15:15:50.606] [bmv2] [D] [thread 18307] [10.0] [cxt 0] Egress port is 0
+[15:15:50.606] [bmv2] [D] [thread 18308] [10.0] [cxt 0] Pipeline 'egress': start
+[15:15:50.606] [bmv2] [D] [thread 18308] [10.0] [cxt 0] Pipeline 'egress': end
+[15:15:50.606] [bmv2] [D] [thread 18308] [10.0] [cxt 0] Deparser 'deparser': start
+[15:15:50.606] [bmv2] [T] [thread 18308] [10.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[15:15:50.607] [bmv2] [D] [thread 18308] [10.0] [cxt 0] Deparsing header 'ethernet'
+[15:15:50.607] [bmv2] [D] [thread 18308] [10.0] [cxt 0] Deparser 'deparser': end
+[15:15:50.607] [bmv2] [D] [thread 18312] [10.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[15:15:50.978] [bmv2] [D] [thread 18307] [11.0] [cxt 0] Processing packet received on port 3
+[15:15:50.979] [bmv2] [D] [thread 18307] [11.0] [cxt 0] Parser 'parser': start
+[15:15:50.979] [bmv2] [D] [thread 18307] [11.0] [cxt 0] Parser 'parser' entering state 'start'
+[15:15:50.979] [bmv2] [D] [thread 18307] [11.0] [cxt 0] Extracting header 'ethernet'
+[15:15:50.979] [bmv2] [D] [thread 18307] [11.0] [cxt 0] Parser state 'start': key is 86dd
+[15:15:50.979] [bmv2] [T] [thread 18307] [11.0] [cxt 0] Bytes parsed: 14
+[15:15:50.980] [bmv2] [D] [thread 18307] [11.0] [cxt 0] Parser 'parser': end
+[15:15:50.980] [bmv2] [D] [thread 18307] [11.0] [cxt 0] Pipeline 'ingress': start
+[15:15:50.980] [bmv2] [T] [thread 18307] [11.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[15:15:50.980] [bmv2] [D] [thread 18307] [11.0] [cxt 0] Looking up key:
 * hdr.ipv4.dstAddr    : 00000000
 
-[12:01:02.324] [bmv2] [D] [thread 14114] [10.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
-[12:01:02.324] [bmv2] [D] [thread 14114] [10.0] [cxt 0] Action entry is NoAction - 
-[12:01:02.324] [bmv2] [T] [thread 14114] [10.0] [cxt 0] Action NoAction
-[12:01:02.324] [bmv2] [D] [thread 14114] [10.0] [cxt 0] Pipeline 'ingress': end
-[12:01:02.325] [bmv2] [D] [thread 14114] [10.0] [cxt 0] Egress port is 0
-[12:01:02.325] [bmv2] [D] [thread 14115] [10.0] [cxt 0] Pipeline 'egress': start
-[12:01:02.325] [bmv2] [D] [thread 14115] [10.0] [cxt 0] Pipeline 'egress': end
-[12:01:02.325] [bmv2] [D] [thread 14115] [10.0] [cxt 0] Deparser 'deparser': start
-[12:01:02.326] [bmv2] [T] [thread 14115] [10.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
-[12:01:02.326] [bmv2] [D] [thread 14115] [10.0] [cxt 0] Deparsing header 'ethernet'
-[12:01:02.326] [bmv2] [D] [thread 14115] [10.0] [cxt 0] Deparser 'deparser': end
-[12:01:02.326] [bmv2] [D] [thread 14119] [10.0] [cxt 0] Transmitting packet of size 70 out of port 0
-[12:01:02.509] [bmv2] [D] [thread 14114] [11.0] [cxt 0] Processing packet received on port 2
-[12:01:02.510] [bmv2] [D] [thread 14114] [11.0] [cxt 0] Parser 'parser': start
-[12:01:02.510] [bmv2] [D] [thread 14114] [11.0] [cxt 0] Parser 'parser' entering state 'start'
-[12:01:02.510] [bmv2] [D] [thread 14114] [11.0] [cxt 0] Extracting header 'ethernet'
-[12:01:02.510] [bmv2] [D] [thread 14114] [11.0] [cxt 0] Parser state 'start': key is 86dd
-[12:01:02.510] [bmv2] [T] [thread 14114] [11.0] [cxt 0] Bytes parsed: 14
-[12:01:02.511] [bmv2] [D] [thread 14114] [11.0] [cxt 0] Parser 'parser': end
-[12:01:02.511] [bmv2] [D] [thread 14114] [11.0] [cxt 0] Pipeline 'ingress': start
-[12:01:02.511] [bmv2] [T] [thread 14114] [11.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
-[12:01:02.511] [bmv2] [D] [thread 14114] [11.0] [cxt 0] Looking up key:
+[15:15:50.981] [bmv2] [D] [thread 18307] [11.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[15:15:50.981] [bmv2] [D] [thread 18307] [11.0] [cxt 0] Action entry is NoAction - 
+[15:15:50.981] [bmv2] [T] [thread 18307] [11.0] [cxt 0] Action NoAction
+[15:15:50.981] [bmv2] [D] [thread 18307] [11.0] [cxt 0] Pipeline 'ingress': end
+[15:15:50.982] [bmv2] [D] [thread 18307] [11.0] [cxt 0] Egress port is 0
+[15:15:50.982] [bmv2] [D] [thread 18308] [11.0] [cxt 0] Pipeline 'egress': start
+[15:15:50.982] [bmv2] [D] [thread 18308] [11.0] [cxt 0] Pipeline 'egress': end
+[15:15:50.982] [bmv2] [D] [thread 18308] [11.0] [cxt 0] Deparser 'deparser': start
+[15:15:50.982] [bmv2] [T] [thread 18308] [11.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[15:15:50.982] [bmv2] [D] [thread 18308] [11.0] [cxt 0] Deparsing header 'ethernet'
+[15:15:50.983] [bmv2] [D] [thread 18308] [11.0] [cxt 0] Deparser 'deparser': end
+[15:15:50.983] [bmv2] [D] [thread 18312] [11.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[15:15:51.227] [bmv2] [D] [thread 18307] [12.0] [cxt 0] Processing packet received on port 2
+[15:15:51.227] [bmv2] [D] [thread 18307] [12.0] [cxt 0] Parser 'parser': start
+[15:15:51.227] [bmv2] [D] [thread 18307] [12.0] [cxt 0] Parser 'parser' entering state 'start'
+[15:15:51.227] [bmv2] [D] [thread 18307] [12.0] [cxt 0] Extracting header 'ethernet'
+[15:15:51.228] [bmv2] [D] [thread 18307] [12.0] [cxt 0] Parser state 'start': key is 86dd
+[15:15:51.228] [bmv2] [T] [thread 18307] [12.0] [cxt 0] Bytes parsed: 14
+[15:15:51.228] [bmv2] [D] [thread 18307] [12.0] [cxt 0] Parser 'parser': end
+[15:15:51.228] [bmv2] [D] [thread 18307] [12.0] [cxt 0] Pipeline 'ingress': start
+[15:15:51.228] [bmv2] [T] [thread 18307] [12.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[15:15:51.228] [bmv2] [D] [thread 18307] [12.0] [cxt 0] Looking up key:
 * hdr.ipv4.dstAddr    : 00000000
 
-[12:01:02.511] [bmv2] [D] [thread 14114] [11.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
-[12:01:02.511] [bmv2] [D] [thread 14114] [11.0] [cxt 0] Action entry is NoAction - 
-[12:01:02.512] [bmv2] [T] [thread 14114] [11.0] [cxt 0] Action NoAction
-[12:01:02.512] [bmv2] [D] [thread 14114] [11.0] [cxt 0] Pipeline 'ingress': end
-[12:01:02.512] [bmv2] [D] [thread 14114] [11.0] [cxt 0] Egress port is 0
-[12:01:02.512] [bmv2] [D] [thread 14115] [11.0] [cxt 0] Pipeline 'egress': start
-[12:01:02.513] [bmv2] [D] [thread 14115] [11.0] [cxt 0] Pipeline 'egress': end
-[12:01:02.513] [bmv2] [D] [thread 14115] [11.0] [cxt 0] Deparser 'deparser': start
-[12:01:02.513] [bmv2] [T] [thread 14115] [11.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
-[12:01:02.513] [bmv2] [D] [thread 14115] [11.0] [cxt 0] Deparsing header 'ethernet'
-[12:01:02.513] [bmv2] [D] [thread 14115] [11.0] [cxt 0] Deparser 'deparser': end
-[12:01:02.514] [bmv2] [D] [thread 14119] [11.0] [cxt 0] Transmitting packet of size 70 out of port 0
-[12:01:05.570] [bmv2] [D] [thread 14114] [12.0] [cxt 0] Processing packet received on port 1
-[12:01:05.570] [bmv2] [D] [thread 14114] [12.0] [cxt 0] Parser 'parser': start
-[12:01:05.570] [bmv2] [D] [thread 14114] [12.0] [cxt 0] Parser 'parser' entering state 'start'
-[12:01:05.570] [bmv2] [D] [thread 14114] [12.0] [cxt 0] Extracting header 'ethernet'
-[12:01:05.571] [bmv2] [D] [thread 14114] [12.0] [cxt 0] Parser state 'start': key is 86dd
-[12:01:05.571] [bmv2] [T] [thread 14114] [12.0] [cxt 0] Bytes parsed: 14
-[12:01:05.571] [bmv2] [D] [thread 14114] [12.0] [cxt 0] Parser 'parser': end
-[12:01:05.571] [bmv2] [D] [thread 14114] [12.0] [cxt 0] Pipeline 'ingress': start
-[12:01:05.571] [bmv2] [T] [thread 14114] [12.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
-[12:01:05.571] [bmv2] [D] [thread 14114] [12.0] [cxt 0] Looking up key:
+[15:15:51.228] [bmv2] [D] [thread 18307] [12.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[15:15:51.229] [bmv2] [D] [thread 18307] [12.0] [cxt 0] Action entry is NoAction - 
+[15:15:51.229] [bmv2] [T] [thread 18307] [12.0] [cxt 0] Action NoAction
+[15:15:51.229] [bmv2] [D] [thread 18307] [12.0] [cxt 0] Pipeline 'ingress': end
+[15:15:51.229] [bmv2] [D] [thread 18307] [12.0] [cxt 0] Egress port is 0
+[15:15:51.229] [bmv2] [D] [thread 18308] [12.0] [cxt 0] Pipeline 'egress': start
+[15:15:51.229] [bmv2] [D] [thread 18308] [12.0] [cxt 0] Pipeline 'egress': end
+[15:15:51.229] [bmv2] [D] [thread 18308] [12.0] [cxt 0] Deparser 'deparser': start
+[15:15:51.229] [bmv2] [T] [thread 18308] [12.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[15:15:51.230] [bmv2] [D] [thread 18308] [12.0] [cxt 0] Deparsing header 'ethernet'
+[15:15:51.230] [bmv2] [D] [thread 18308] [12.0] [cxt 0] Deparser 'deparser': end
+[15:15:51.230] [bmv2] [D] [thread 18312] [12.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[15:15:54.435] [bmv2] [D] [thread 18307] [13.0] [cxt 0] Processing packet received on port 1
+[15:15:54.435] [bmv2] [D] [thread 18307] [13.0] [cxt 0] Parser 'parser': start
+[15:15:54.435] [bmv2] [D] [thread 18307] [13.0] [cxt 0] Parser 'parser' entering state 'start'
+[15:15:54.435] [bmv2] [D] [thread 18307] [13.0] [cxt 0] Extracting header 'ethernet'
+[15:15:54.436] [bmv2] [D] [thread 18307] [13.0] [cxt 0] Parser state 'start': key is 86dd
+[15:15:54.436] [bmv2] [T] [thread 18307] [13.0] [cxt 0] Bytes parsed: 14
+[15:15:54.436] [bmv2] [D] [thread 18307] [13.0] [cxt 0] Parser 'parser': end
+[15:15:54.436] [bmv2] [D] [thread 18307] [13.0] [cxt 0] Pipeline 'ingress': start
+[15:15:54.437] [bmv2] [T] [thread 18307] [13.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[15:15:54.437] [bmv2] [D] [thread 18307] [13.0] [cxt 0] Looking up key:
 * hdr.ipv4.dstAddr    : 00000000
 
-[12:01:05.572] [bmv2] [D] [thread 14114] [12.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
-[12:01:05.572] [bmv2] [D] [thread 14114] [12.0] [cxt 0] Action entry is NoAction - 
-[12:01:05.572] [bmv2] [T] [thread 14114] [12.0] [cxt 0] Action NoAction
-[12:01:05.572] [bmv2] [D] [thread 14114] [12.0] [cxt 0] Pipeline 'ingress': end
-[12:01:05.573] [bmv2] [D] [thread 14114] [12.0] [cxt 0] Egress port is 0
-[12:01:05.573] [bmv2] [D] [thread 14115] [12.0] [cxt 0] Pipeline 'egress': start
-[12:01:05.573] [bmv2] [D] [thread 14115] [12.0] [cxt 0] Pipeline 'egress': end
-[12:01:05.573] [bmv2] [D] [thread 14115] [12.0] [cxt 0] Deparser 'deparser': start
-[12:01:05.573] [bmv2] [T] [thread 14115] [12.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
-[12:01:05.574] [bmv2] [D] [thread 14115] [12.0] [cxt 0] Deparsing header 'ethernet'
-[12:01:05.574] [bmv2] [D] [thread 14115] [12.0] [cxt 0] Deparser 'deparser': end
-[12:01:05.574] [bmv2] [D] [thread 14119] [12.0] [cxt 0] Transmitting packet of size 70 out of port 0
-[12:01:05.702] [bmv2] [D] [thread 14114] [13.0] [cxt 0] Processing packet received on port 3
-[12:01:05.702] [bmv2] [D] [thread 14114] [13.0] [cxt 0] Parser 'parser': start
-[12:01:05.702] [bmv2] [D] [thread 14114] [13.0] [cxt 0] Parser 'parser' entering state 'start'
-[12:01:05.703] [bmv2] [D] [thread 14114] [13.0] [cxt 0] Extracting header 'ethernet'
-[12:01:05.703] [bmv2] [D] [thread 14114] [13.0] [cxt 0] Parser state 'start': key is 86dd
-[12:01:05.703] [bmv2] [T] [thread 14114] [13.0] [cxt 0] Bytes parsed: 14
-[12:01:05.704] [bmv2] [D] [thread 14114] [13.0] [cxt 0] Parser 'parser': end
-[12:01:05.704] [bmv2] [D] [thread 14114] [13.0] [cxt 0] Pipeline 'ingress': start
-[12:01:05.704] [bmv2] [T] [thread 14114] [13.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
-[12:01:05.704] [bmv2] [D] [thread 14114] [13.0] [cxt 0] Looking up key:
+[15:15:54.437] [bmv2] [D] [thread 18307] [13.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[15:15:54.437] [bmv2] [D] [thread 18307] [13.0] [cxt 0] Action entry is NoAction - 
+[15:15:54.437] [bmv2] [T] [thread 18307] [13.0] [cxt 0] Action NoAction
+[15:15:54.437] [bmv2] [D] [thread 18307] [13.0] [cxt 0] Pipeline 'ingress': end
+[15:15:54.438] [bmv2] [D] [thread 18307] [13.0] [cxt 0] Egress port is 0
+[15:15:54.438] [bmv2] [D] [thread 18308] [13.0] [cxt 0] Pipeline 'egress': start
+[15:15:54.438] [bmv2] [D] [thread 18308] [13.0] [cxt 0] Pipeline 'egress': end
+[15:15:54.438] [bmv2] [D] [thread 18308] [13.0] [cxt 0] Deparser 'deparser': start
+[15:15:54.438] [bmv2] [T] [thread 18308] [13.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[15:15:54.439] [bmv2] [D] [thread 18308] [13.0] [cxt 0] Deparsing header 'ethernet'
+[15:15:54.439] [bmv2] [D] [thread 18308] [13.0] [cxt 0] Deparser 'deparser': end
+[15:15:54.439] [bmv2] [D] [thread 18312] [13.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[15:15:54.491] [bmv2] [D] [thread 18307] [14.0] [cxt 0] Processing packet received on port 2
+[15:15:54.491] [bmv2] [D] [thread 18307] [14.0] [cxt 0] Parser 'parser': start
+[15:15:54.492] [bmv2] [D] [thread 18307] [14.0] [cxt 0] Parser 'parser' entering state 'start'
+[15:15:54.492] [bmv2] [D] [thread 18307] [14.0] [cxt 0] Extracting header 'ethernet'
+[15:15:54.492] [bmv2] [D] [thread 18307] [14.0] [cxt 0] Parser state 'start': key is 86dd
+[15:15:54.493] [bmv2] [T] [thread 18307] [14.0] [cxt 0] Bytes parsed: 14
+[15:15:54.493] [bmv2] [D] [thread 18307] [14.0] [cxt 0] Parser 'parser': end
+[15:15:54.493] [bmv2] [D] [thread 18307] [14.0] [cxt 0] Pipeline 'ingress': start
+[15:15:54.493] [bmv2] [T] [thread 18307] [14.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[15:15:54.493] [bmv2] [D] [thread 18307] [14.0] [cxt 0] Looking up key:
 * hdr.ipv4.dstAddr    : 00000000
 
-[12:01:05.704] [bmv2] [D] [thread 14114] [13.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
-[12:01:05.704] [bmv2] [D] [thread 14114] [13.0] [cxt 0] Action entry is NoAction - 
-[12:01:05.705] [bmv2] [T] [thread 14114] [13.0] [cxt 0] Action NoAction
-[12:01:05.705] [bmv2] [D] [thread 14114] [13.0] [cxt 0] Pipeline 'ingress': end
-[12:01:05.705] [bmv2] [D] [thread 14114] [13.0] [cxt 0] Egress port is 0
-[12:01:05.705] [bmv2] [D] [thread 14115] [13.0] [cxt 0] Pipeline 'egress': start
-[12:01:05.705] [bmv2] [D] [thread 14115] [13.0] [cxt 0] Pipeline 'egress': end
-[12:01:05.706] [bmv2] [D] [thread 14115] [13.0] [cxt 0] Deparser 'deparser': start
-[12:01:05.706] [bmv2] [T] [thread 14115] [13.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
-[12:01:05.706] [bmv2] [D] [thread 14115] [13.0] [cxt 0] Deparsing header 'ethernet'
-[12:01:05.706] [bmv2] [D] [thread 14115] [13.0] [cxt 0] Deparser 'deparser': end
-[12:01:05.706] [bmv2] [D] [thread 14119] [13.0] [cxt 0] Transmitting packet of size 70 out of port 0
-[12:01:05.730] [bmv2] [D] [thread 14114] [14.0] [cxt 0] Processing packet received on port 1
-[12:01:05.730] [bmv2] [D] [thread 14114] [14.0] [cxt 0] Parser 'parser': start
-[12:01:05.730] [bmv2] [D] [thread 14114] [14.0] [cxt 0] Parser 'parser' entering state 'start'
-[12:01:05.731] [bmv2] [D] [thread 14114] [14.0] [cxt 0] Extracting header 'ethernet'
-[12:01:05.731] [bmv2] [D] [thread 14114] [14.0] [cxt 0] Parser state 'start': key is 86dd
-[12:01:05.731] [bmv2] [T] [thread 14114] [14.0] [cxt 0] Bytes parsed: 14
-[12:01:05.732] [bmv2] [D] [thread 14114] [14.0] [cxt 0] Parser 'parser': end
-[12:01:05.732] [bmv2] [D] [thread 14114] [14.0] [cxt 0] Pipeline 'ingress': start
-[12:01:05.733] [bmv2] [T] [thread 14114] [14.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
-[12:01:05.733] [bmv2] [D] [thread 14114] [14.0] [cxt 0] Looking up key:
+[15:15:54.493] [bmv2] [D] [thread 18307] [14.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[15:15:54.494] [bmv2] [D] [thread 18307] [14.0] [cxt 0] Action entry is NoAction - 
+[15:15:54.494] [bmv2] [T] [thread 18307] [14.0] [cxt 0] Action NoAction
+[15:15:54.494] [bmv2] [D] [thread 18307] [14.0] [cxt 0] Pipeline 'ingress': end
+[15:15:54.494] [bmv2] [D] [thread 18307] [14.0] [cxt 0] Egress port is 0
+[15:15:54.494] [bmv2] [D] [thread 18308] [14.0] [cxt 0] Pipeline 'egress': start
+[15:15:54.495] [bmv2] [D] [thread 18308] [14.0] [cxt 0] Pipeline 'egress': end
+[15:15:54.495] [bmv2] [D] [thread 18308] [14.0] [cxt 0] Deparser 'deparser': start
+[15:15:54.495] [bmv2] [T] [thread 18308] [14.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[15:15:54.495] [bmv2] [D] [thread 18308] [14.0] [cxt 0] Deparsing header 'ethernet'
+[15:15:54.495] [bmv2] [D] [thread 18308] [14.0] [cxt 0] Deparser 'deparser': end
+[15:15:54.495] [bmv2] [D] [thread 18312] [14.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[15:15:54.539] [bmv2] [D] [thread 18307] [15.0] [cxt 0] Processing packet received on port 1
+[15:15:54.539] [bmv2] [D] [thread 18307] [15.0] [cxt 0] Parser 'parser': start
+[15:15:54.540] [bmv2] [D] [thread 18307] [15.0] [cxt 0] Parser 'parser' entering state 'start'
+[15:15:54.540] [bmv2] [D] [thread 18307] [15.0] [cxt 0] Extracting header 'ethernet'
+[15:15:54.541] [bmv2] [D] [thread 18307] [15.0] [cxt 0] Parser state 'start': key is 86dd
+[15:15:54.541] [bmv2] [T] [thread 18307] [15.0] [cxt 0] Bytes parsed: 14
+[15:15:54.541] [bmv2] [D] [thread 18307] [15.0] [cxt 0] Parser 'parser': end
+[15:15:54.541] [bmv2] [D] [thread 18307] [15.0] [cxt 0] Pipeline 'ingress': start
+[15:15:54.542] [bmv2] [T] [thread 18307] [15.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[15:15:54.542] [bmv2] [D] [thread 18307] [15.0] [cxt 0] Looking up key:
 * hdr.ipv4.dstAddr    : 00000000
 
-[12:01:05.733] [bmv2] [D] [thread 14114] [14.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
-[12:01:05.733] [bmv2] [D] [thread 14114] [14.0] [cxt 0] Action entry is NoAction - 
-[12:01:05.733] [bmv2] [T] [thread 14114] [14.0] [cxt 0] Action NoAction
-[12:01:05.733] [bmv2] [D] [thread 14114] [14.0] [cxt 0] Pipeline 'ingress': end
-[12:01:05.734] [bmv2] [D] [thread 14114] [14.0] [cxt 0] Egress port is 0
-[12:01:05.734] [bmv2] [D] [thread 14115] [14.0] [cxt 0] Pipeline 'egress': start
-[12:01:05.734] [bmv2] [D] [thread 14115] [14.0] [cxt 0] Pipeline 'egress': end
-[12:01:05.734] [bmv2] [D] [thread 14115] [14.0] [cxt 0] Deparser 'deparser': start
-[12:01:05.734] [bmv2] [T] [thread 14115] [14.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
-[12:01:05.734] [bmv2] [D] [thread 14115] [14.0] [cxt 0] Deparsing header 'ethernet'
-[12:01:05.735] [bmv2] [D] [thread 14115] [14.0] [cxt 0] Deparser 'deparser': end
-[12:01:05.735] [bmv2] [D] [thread 14119] [14.0] [cxt 0] Transmitting packet of size 70 out of port 0
-[12:01:06.138] [bmv2] [D] [thread 14114] [15.0] [cxt 0] Processing packet received on port 2
-[12:01:06.138] [bmv2] [D] [thread 14114] [15.0] [cxt 0] Parser 'parser': start
-[12:01:06.139] [bmv2] [D] [thread 14114] [15.0] [cxt 0] Parser 'parser' entering state 'start'
-[12:01:06.139] [bmv2] [D] [thread 14114] [15.0] [cxt 0] Extracting header 'ethernet'
-[12:01:06.139] [bmv2] [D] [thread 14114] [15.0] [cxt 0] Parser state 'start': key is 86dd
-[12:01:06.141] [bmv2] [T] [thread 14114] [15.0] [cxt 0] Bytes parsed: 14
-[12:01:06.141] [bmv2] [D] [thread 14114] [15.0] [cxt 0] Parser 'parser': end
-[12:01:06.141] [bmv2] [D] [thread 14114] [15.0] [cxt 0] Pipeline 'ingress': start
-[12:01:06.141] [bmv2] [T] [thread 14114] [15.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
-[12:01:06.141] [bmv2] [D] [thread 14114] [15.0] [cxt 0] Looking up key:
+[15:15:54.542] [bmv2] [D] [thread 18307] [15.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[15:15:54.542] [bmv2] [D] [thread 18307] [15.0] [cxt 0] Action entry is NoAction - 
+[15:15:54.542] [bmv2] [T] [thread 18307] [15.0] [cxt 0] Action NoAction
+[15:15:54.543] [bmv2] [D] [thread 18307] [15.0] [cxt 0] Pipeline 'ingress': end
+[15:15:54.543] [bmv2] [D] [thread 18307] [15.0] [cxt 0] Egress port is 0
+[15:15:54.543] [bmv2] [D] [thread 18308] [15.0] [cxt 0] Pipeline 'egress': start
+[15:15:54.543] [bmv2] [D] [thread 18308] [15.0] [cxt 0] Pipeline 'egress': end
+[15:15:54.543] [bmv2] [D] [thread 18308] [15.0] [cxt 0] Deparser 'deparser': start
+[15:15:54.543] [bmv2] [T] [thread 18308] [15.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[15:15:54.543] [bmv2] [D] [thread 18308] [15.0] [cxt 0] Deparsing header 'ethernet'
+[15:15:54.543] [bmv2] [D] [thread 18308] [15.0] [cxt 0] Deparser 'deparser': end
+[15:15:54.544] [bmv2] [D] [thread 18312] [15.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[15:15:54.611] [bmv2] [D] [thread 18307] [16.0] [cxt 0] Processing packet received on port 3
+[15:15:54.611] [bmv2] [D] [thread 18307] [16.0] [cxt 0] Parser 'parser': start
+[15:15:54.611] [bmv2] [D] [thread 18307] [16.0] [cxt 0] Parser 'parser' entering state 'start'
+[15:15:54.611] [bmv2] [D] [thread 18307] [16.0] [cxt 0] Extracting header 'ethernet'
+[15:15:54.612] [bmv2] [D] [thread 18307] [16.0] [cxt 0] Parser state 'start': key is 86dd
+[15:15:54.612] [bmv2] [T] [thread 18307] [16.0] [cxt 0] Bytes parsed: 14
+[15:15:54.612] [bmv2] [D] [thread 18307] [16.0] [cxt 0] Parser 'parser': end
+[15:15:54.612] [bmv2] [D] [thread 18307] [16.0] [cxt 0] Pipeline 'ingress': start
+[15:15:54.612] [bmv2] [T] [thread 18307] [16.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[15:15:54.612] [bmv2] [D] [thread 18307] [16.0] [cxt 0] Looking up key:
 * hdr.ipv4.dstAddr    : 00000000
 
-[12:01:06.142] [bmv2] [D] [thread 14114] [15.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
-[12:01:06.142] [bmv2] [D] [thread 14114] [15.0] [cxt 0] Action entry is NoAction - 
-[12:01:06.142] [bmv2] [T] [thread 14114] [15.0] [cxt 0] Action NoAction
-[12:01:06.142] [bmv2] [D] [thread 14114] [15.0] [cxt 0] Pipeline 'ingress': end
-[12:01:06.142] [bmv2] [D] [thread 14114] [15.0] [cxt 0] Egress port is 0
-[12:01:06.143] [bmv2] [D] [thread 14115] [15.0] [cxt 0] Pipeline 'egress': start
-[12:01:06.143] [bmv2] [D] [thread 14115] [15.0] [cxt 0] Pipeline 'egress': end
-[12:01:06.143] [bmv2] [D] [thread 14115] [15.0] [cxt 0] Deparser 'deparser': start
-[12:01:06.143] [bmv2] [T] [thread 14115] [15.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
-[12:01:06.143] [bmv2] [D] [thread 14115] [15.0] [cxt 0] Deparsing header 'ethernet'
-[12:01:06.143] [bmv2] [D] [thread 14115] [15.0] [cxt 0] Deparser 'deparser': end
-[12:01:06.143] [bmv2] [D] [thread 14119] [15.0] [cxt 0] Transmitting packet of size 70 out of port 0
-[12:01:06.330] [bmv2] [D] [thread 14114] [16.0] [cxt 0] Processing packet received on port 3
-[12:01:06.330] [bmv2] [D] [thread 14114] [16.0] [cxt 0] Parser 'parser': start
-[12:01:06.330] [bmv2] [D] [thread 14114] [16.0] [cxt 0] Parser 'parser' entering state 'start'
-[12:01:06.331] [bmv2] [D] [thread 14114] [16.0] [cxt 0] Extracting header 'ethernet'
-[12:01:06.331] [bmv2] [D] [thread 14114] [16.0] [cxt 0] Parser state 'start': key is 86dd
-[12:01:06.331] [bmv2] [T] [thread 14114] [16.0] [cxt 0] Bytes parsed: 14
-[12:01:06.331] [bmv2] [D] [thread 14114] [16.0] [cxt 0] Parser 'parser': end
-[12:01:06.331] [bmv2] [D] [thread 14114] [16.0] [cxt 0] Pipeline 'ingress': start
-[12:01:06.332] [bmv2] [T] [thread 14114] [16.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
-[12:01:06.332] [bmv2] [D] [thread 14114] [16.0] [cxt 0] Looking up key:
+[15:15:54.613] [bmv2] [D] [thread 18307] [16.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[15:15:54.613] [bmv2] [D] [thread 18307] [16.0] [cxt 0] Action entry is NoAction - 
+[15:15:54.613] [bmv2] [T] [thread 18307] [16.0] [cxt 0] Action NoAction
+[15:15:54.613] [bmv2] [D] [thread 18307] [16.0] [cxt 0] Pipeline 'ingress': end
+[15:15:54.613] [bmv2] [D] [thread 18307] [16.0] [cxt 0] Egress port is 0
+[15:15:54.614] [bmv2] [D] [thread 18308] [16.0] [cxt 0] Pipeline 'egress': start
+[15:15:54.614] [bmv2] [D] [thread 18308] [16.0] [cxt 0] Pipeline 'egress': end
+[15:15:54.614] [bmv2] [D] [thread 18308] [16.0] [cxt 0] Deparser 'deparser': start
+[15:15:54.614] [bmv2] [T] [thread 18308] [16.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[15:15:54.615] [bmv2] [D] [thread 18308] [16.0] [cxt 0] Deparsing header 'ethernet'
+[15:15:54.615] [bmv2] [D] [thread 18308] [16.0] [cxt 0] Deparser 'deparser': end
+[15:15:54.615] [bmv2] [D] [thread 18312] [16.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[15:15:54.986] [bmv2] [D] [thread 18307] [17.0] [cxt 0] Processing packet received on port 3
+[15:15:54.986] [bmv2] [D] [thread 18307] [17.0] [cxt 0] Parser 'parser': start
+[15:15:54.986] [bmv2] [D] [thread 18307] [17.0] [cxt 0] Parser 'parser' entering state 'start'
+[15:15:54.987] [bmv2] [D] [thread 18307] [17.0] [cxt 0] Extracting header 'ethernet'
+[15:15:54.987] [bmv2] [D] [thread 18307] [17.0] [cxt 0] Parser state 'start': key is 86dd
+[15:15:54.987] [bmv2] [T] [thread 18307] [17.0] [cxt 0] Bytes parsed: 14
+[15:15:54.987] [bmv2] [D] [thread 18307] [17.0] [cxt 0] Parser 'parser': end
+[15:15:54.987] [bmv2] [D] [thread 18307] [17.0] [cxt 0] Pipeline 'ingress': start
+[15:15:54.987] [bmv2] [T] [thread 18307] [17.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[15:15:54.988] [bmv2] [D] [thread 18307] [17.0] [cxt 0] Looking up key:
 * hdr.ipv4.dstAddr    : 00000000
 
-[12:01:06.332] [bmv2] [D] [thread 14114] [16.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
-[12:01:06.332] [bmv2] [D] [thread 14114] [16.0] [cxt 0] Action entry is NoAction - 
-[12:01:06.332] [bmv2] [T] [thread 14114] [16.0] [cxt 0] Action NoAction
-[12:01:06.333] [bmv2] [D] [thread 14114] [16.0] [cxt 0] Pipeline 'ingress': end
-[12:01:06.333] [bmv2] [D] [thread 14114] [16.0] [cxt 0] Egress port is 0
-[12:01:06.333] [bmv2] [D] [thread 14115] [16.0] [cxt 0] Pipeline 'egress': start
-[12:01:06.333] [bmv2] [D] [thread 14115] [16.0] [cxt 0] Pipeline 'egress': end
-[12:01:06.334] [bmv2] [D] [thread 14115] [16.0] [cxt 0] Deparser 'deparser': start
-[12:01:06.334] [bmv2] [T] [thread 14115] [16.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
-[12:01:06.334] [bmv2] [D] [thread 14115] [16.0] [cxt 0] Deparsing header 'ethernet'
-[12:01:06.334] [bmv2] [D] [thread 14115] [16.0] [cxt 0] Deparser 'deparser': end
-[12:01:06.335] [bmv2] [D] [thread 14119] [16.0] [cxt 0] Transmitting packet of size 70 out of port 0
-[12:01:06.514] [bmv2] [D] [thread 14114] [17.0] [cxt 0] Processing packet received on port 2
-[12:01:06.514] [bmv2] [D] [thread 14114] [17.0] [cxt 0] Parser 'parser': start
-[12:01:06.514] [bmv2] [D] [thread 14114] [17.0] [cxt 0] Parser 'parser' entering state 'start'
-[12:01:06.514] [bmv2] [D] [thread 14114] [17.0] [cxt 0] Extracting header 'ethernet'
-[12:01:06.515] [bmv2] [D] [thread 14114] [17.0] [cxt 0] Parser state 'start': key is 86dd
-[12:01:06.515] [bmv2] [T] [thread 14114] [17.0] [cxt 0] Bytes parsed: 14
-[12:01:06.515] [bmv2] [D] [thread 14114] [17.0] [cxt 0] Parser 'parser': end
-[12:01:06.515] [bmv2] [D] [thread 14114] [17.0] [cxt 0] Pipeline 'ingress': start
-[12:01:06.515] [bmv2] [T] [thread 14114] [17.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
-[12:01:06.515] [bmv2] [D] [thread 14114] [17.0] [cxt 0] Looking up key:
+[15:15:54.988] [bmv2] [D] [thread 18307] [17.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[15:15:54.988] [bmv2] [D] [thread 18307] [17.0] [cxt 0] Action entry is NoAction - 
+[15:15:54.988] [bmv2] [T] [thread 18307] [17.0] [cxt 0] Action NoAction
+[15:15:54.989] [bmv2] [D] [thread 18307] [17.0] [cxt 0] Pipeline 'ingress': end
+[15:15:54.989] [bmv2] [D] [thread 18307] [17.0] [cxt 0] Egress port is 0
+[15:15:54.989] [bmv2] [D] [thread 18308] [17.0] [cxt 0] Pipeline 'egress': start
+[15:15:54.989] [bmv2] [D] [thread 18308] [17.0] [cxt 0] Pipeline 'egress': end
+[15:15:54.989] [bmv2] [D] [thread 18308] [17.0] [cxt 0] Deparser 'deparser': start
+[15:15:54.989] [bmv2] [T] [thread 18308] [17.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[15:15:54.990] [bmv2] [D] [thread 18308] [17.0] [cxt 0] Deparsing header 'ethernet'
+[15:15:54.990] [bmv2] [D] [thread 18308] [17.0] [cxt 0] Deparser 'deparser': end
+[15:15:54.990] [bmv2] [D] [thread 18312] [17.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[15:15:55.235] [bmv2] [D] [thread 18307] [18.0] [cxt 0] Processing packet received on port 2
+[15:15:55.235] [bmv2] [D] [thread 18307] [18.0] [cxt 0] Parser 'parser': start
+[15:15:55.235] [bmv2] [D] [thread 18307] [18.0] [cxt 0] Parser 'parser' entering state 'start'
+[15:15:55.235] [bmv2] [D] [thread 18307] [18.0] [cxt 0] Extracting header 'ethernet'
+[15:15:55.235] [bmv2] [D] [thread 18307] [18.0] [cxt 0] Parser state 'start': key is 86dd
+[15:15:55.236] [bmv2] [T] [thread 18307] [18.0] [cxt 0] Bytes parsed: 14
+[15:15:55.236] [bmv2] [D] [thread 18307] [18.0] [cxt 0] Parser 'parser': end
+[15:15:55.236] [bmv2] [D] [thread 18307] [18.0] [cxt 0] Pipeline 'ingress': start
+[15:15:55.236] [bmv2] [T] [thread 18307] [18.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[15:15:55.237] [bmv2] [D] [thread 18307] [18.0] [cxt 0] Looking up key:
 * hdr.ipv4.dstAddr    : 00000000
 
-[12:01:06.516] [bmv2] [D] [thread 14114] [17.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
-[12:01:06.516] [bmv2] [D] [thread 14114] [17.0] [cxt 0] Action entry is NoAction - 
-[12:01:06.516] [bmv2] [T] [thread 14114] [17.0] [cxt 0] Action NoAction
-[12:01:06.516] [bmv2] [D] [thread 14114] [17.0] [cxt 0] Pipeline 'ingress': end
-[12:01:06.516] [bmv2] [D] [thread 14114] [17.0] [cxt 0] Egress port is 0
-[12:01:06.516] [bmv2] [D] [thread 14115] [17.0] [cxt 0] Pipeline 'egress': start
-[12:01:06.517] [bmv2] [D] [thread 14115] [17.0] [cxt 0] Pipeline 'egress': end
-[12:01:06.517] [bmv2] [D] [thread 14115] [17.0] [cxt 0] Deparser 'deparser': start
-[12:01:06.517] [bmv2] [T] [thread 14115] [17.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
-[12:01:06.517] [bmv2] [D] [thread 14115] [17.0] [cxt 0] Deparsing header 'ethernet'
-[12:01:06.517] [bmv2] [D] [thread 14115] [17.0] [cxt 0] Deparser 'deparser': end
-[12:01:06.517] [bmv2] [D] [thread 14119] [17.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[15:15:55.237] [bmv2] [D] [thread 18307] [18.0] [cxt 0] Table 'MyIngress.ipv4_lpm': miss
+[15:15:55.237] [bmv2] [D] [thread 18307] [18.0] [cxt 0] Action entry is NoAction - 
+[15:15:55.237] [bmv2] [T] [thread 18307] [18.0] [cxt 0] Action NoAction
+[15:15:55.237] [bmv2] [D] [thread 18307] [18.0] [cxt 0] Pipeline 'ingress': end
+[15:15:55.237] [bmv2] [D] [thread 18307] [18.0] [cxt 0] Egress port is 0
+[15:15:55.238] [bmv2] [D] [thread 18308] [18.0] [cxt 0] Pipeline 'egress': start
+[15:15:55.238] [bmv2] [D] [thread 18308] [18.0] [cxt 0] Pipeline 'egress': end
+[15:15:55.238] [bmv2] [D] [thread 18308] [18.0] [cxt 0] Deparser 'deparser': start
+[15:15:55.238] [bmv2] [T] [thread 18308] [18.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[15:15:55.239] [bmv2] [D] [thread 18308] [18.0] [cxt 0] Deparsing header 'ethernet'
+[15:15:55.239] [bmv2] [D] [thread 18308] [18.0] [cxt 0] Deparser 'deparser': end
+[15:15:55.239] [bmv2] [D] [thread 18312] [18.0] [cxt 0] Transmitting packet of size 70 out of port 0
+open: No such file or directory
+open: No such file or directory
 open: No such file or directory
 open: No such file or directory
 open: No such file or directory

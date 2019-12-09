@@ -150,7 +150,7 @@ control MyIngress(inout headers hdr,
 		hdr.ethernet.src = hdr.ethernet.dst;
 		standard_metadata.egress_spec = port;
 		hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
-		//standard_metadata.mcast_grp = 1;
+	//	standard_metadata.mcast_grp = 1;
 	}
 
 
@@ -228,6 +228,8 @@ control MyDeparser(packet_out packet, in headers hdr) {
     {
       packet.emit(hdr.ethernet);
       packet.emit(hdr.ipv4);
+      packet.emit(hdr.udp);
+      packet.emit(hdr.rtp);
     }
 }
 

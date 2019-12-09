@@ -196,74 +196,6 @@
           ],
           "transitions" : [
             {
-              "type" : "hexstr",
-              "value" : "0x11",
-              "mask" : null,
-              "next_state" : "parse_udp"
-            },
-            {
-              "value" : "default",
-              "mask" : null,
-              "next_state" : null
-            }
-          ],
-          "transition_key" : [
-            {
-              "type" : "field",
-              "value" : ["ipv4", "protocol"]
-            }
-          ]
-        },
-        {
-          "name" : "parse_udp",
-          "id" : 2,
-          "parser_ops" : [
-            {
-              "parameters" : [
-                {
-                  "type" : "regular",
-                  "value" : "udp"
-                }
-              ],
-              "op" : "extract"
-            }
-          ],
-          "transitions" : [
-            {
-              "type" : "hexstr",
-              "value" : "0x138a",
-              "mask" : null,
-              "next_state" : "parse_rtp"
-            },
-            {
-              "value" : "default",
-              "mask" : null,
-              "next_state" : null
-            }
-          ],
-          "transition_key" : [
-            {
-              "type" : "field",
-              "value" : ["udp", "dst"]
-            }
-          ]
-        },
-        {
-          "name" : "parse_rtp",
-          "id" : 3,
-          "parser_ops" : [
-            {
-              "parameters" : [
-                {
-                  "type" : "regular",
-                  "value" : "rtp"
-                }
-              ],
-              "op" : "extract"
-            }
-          ],
-          "transitions" : [
-            {
               "value" : "default",
               "mask" : null,
               "next_state" : null
@@ -281,11 +213,11 @@
       "id" : 0,
       "source_info" : {
         "filename" : "streaming.p4",
-        "line" : 224,
+        "line" : 226,
         "column" : 8,
         "source_fragment" : "MyDeparser"
       },
-      "order" : ["ethernet", "ipv4"]
+      "order" : ["ethernet", "ipv4", "udp", "rtp"]
     }
   ],
   "meter_arrays" : [],
@@ -297,7 +229,7 @@
       "id" : 0,
       "source_info" : {
         "filename" : "streaming.p4",
-        "line" : 198,
+        "line" : 200,
         "column" : 1,
         "source_fragment" : "update_checksum( ..."
       },
@@ -386,7 +318,7 @@
           ],
           "source_info" : {
             "filename" : "streaming.p4",
-            "line" : 147,
+            "line" : 149,
             "column" : 2,
             "source_fragment" : "hdr.ethernet.dst = dstAddr"
           }
@@ -405,7 +337,7 @@
           ],
           "source_info" : {
             "filename" : "streaming.p4",
-            "line" : 147,
+            "line" : 149,
             "column" : 21,
             "source_fragment" : "dstAddr; ..."
           }
@@ -424,7 +356,7 @@
           ],
           "source_info" : {
             "filename" : "streaming.p4",
-            "line" : 149,
+            "line" : 151,
             "column" : 2,
             "source_fragment" : "standard_metadata.egress_spec = port"
           }
@@ -466,7 +398,7 @@
           ],
           "source_info" : {
             "filename" : "streaming.p4",
-            "line" : 150,
+            "line" : 152,
             "column" : 2,
             "source_fragment" : "hdr.ipv4.ttl = hdr.ipv4.ttl - 1"
           }
@@ -488,7 +420,7 @@
           ],
           "source_info" : {
             "filename" : "streaming.p4",
-            "line" : 157,
+            "line" : 159,
             "column" : 9,
             "source_fragment" : "mark_to_drop(standard_metadata)"
           }
@@ -502,7 +434,7 @@
       "id" : 0,
       "source_info" : {
         "filename" : "streaming.p4",
-        "line" : 140,
+        "line" : 142,
         "column" : 8,
         "source_fragment" : "MyIngress"
       },
@@ -513,7 +445,7 @@
           "id" : 0,
           "source_info" : {
             "filename" : "streaming.p4",
-            "line" : 160,
+            "line" : 162,
             "column" : 7,
             "source_fragment" : "ipv4_lpm"
           },
@@ -555,7 +487,7 @@
       "id" : 1,
       "source_info" : {
         "filename" : "streaming.p4",
-        "line" : 183,
+        "line" : 185,
         "column" : 8,
         "source_fragment" : "MyEgress"
       },
@@ -571,7 +503,7 @@
       "id" : 0,
       "source_info" : {
         "filename" : "streaming.p4",
-        "line" : 198,
+        "line" : 200,
         "column" : 1,
         "source_fragment" : "update_checksum( ..."
       },

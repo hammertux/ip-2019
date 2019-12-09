@@ -1,5 +1,63 @@
 
-[2019-12-09 12:01:01.368] /p4.v1.P4Runtime/SetForwardingPipelineConfig
+[2019-12-09 15:15:50.222] /p4.v1.P4Runtime/SetForwardingPipelineConfig
 ---
-Message too long (18183 bytes)! Skipping log...
+Message too long (16407 bytes)! Skipping log...
+---
+
+[2019-12-09 15:15:50.227] /p4.v1.P4Runtime/Write
+---
+device_id: 2
+election_id {
+  low: 1
+}
+updates {
+  type: MODIFY
+  entity {
+    table_entry {
+      table_id: 33574068
+      action {
+        action {
+          action_id: 16805608
+        }
+      }
+      is_default_action: true
+    }
+  }
+}
+---
+
+[2019-12-09 15:15:50.231] /p4.v1.P4Runtime/Write
+---
+device_id: 2
+election_id {
+  low: 1
+}
+updates {
+  type: INSERT
+  entity {
+    table_entry {
+      table_id: 33574068
+      match {
+        field_id: 1
+        lpm {
+          value: "\n\000\003\003"
+          prefix_len: 32
+        }
+      }
+      action {
+        action {
+          action_id: 16799317
+          params {
+            param_id: 1
+            value: "\010\000\000\000\0033"
+          }
+          params {
+            param_id: 2
+            value: "\000\001"
+          }
+        }
+      }
+    }
+  }
+}
 ---
