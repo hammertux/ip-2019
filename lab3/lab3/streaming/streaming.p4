@@ -148,7 +148,7 @@ control MyIngress(inout headers hdr,
 		hdr.ethernet.src = hdr.ethernet.dst;
 		standard_metadata.egress_spec = port;
 		hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
-		standard_metadata.mcast_grp = 1;
+		//standard_metadata.mcast_grp = 1;
 	}
 
 
@@ -185,7 +185,7 @@ control MyEgress(inout headers hdr,
                  inout standard_metadata_t standard_metadata) {
     apply {  
 	    
-	    standard_metadata.egress_rid = 1;
+	  //  standard_metadata.egress_rid = 1;
 }
 }
 
