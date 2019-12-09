@@ -38,7 +38,7 @@ header ipv4_t {
 	ipv4_addr_t dstAddr;
 }
 
-header_type udp_t {
+header udp_t {
 
  bit<16>  src;
  bit<16>  dst;
@@ -47,7 +47,7 @@ header_type udp_t {
 }
 
 
-header_type rtp_t {
+header rtp_t {
  bit<2>   version;
  bit<1>   padding;
  bit<1>   extension;
@@ -93,18 +93,19 @@ parser MyParser(packet_in packet,
 
 	state parse_ipv4 {
 		packet.extract(hdr.ipv4);
-
-    transition select(hdr.ipv4.protocol) {
-        IP_PROTOCOLS_UDP : parse_udp;
-    		default: accept;
-    }
+		transition accept;
+    		
+		/*transition select(hdr.ipv4.protocol) {
+        		IP_PROTOCOLS_UDP : parse_udp;
+    			default: accept;
+    		}*/
 	}
 
 
   state parse_udp {
 		packet.extract(hdr.udp);
 
-    transition select(hdr.udp.dstPort) {
+    		transition select(hdr.udp.dst) {
 			RTP_PORT: parse_rtp;
 			default: accept;
 		}
