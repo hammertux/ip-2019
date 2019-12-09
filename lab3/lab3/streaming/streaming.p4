@@ -137,20 +137,19 @@ control MyVerifyChecksum(inout headers hdr, inout metadata meta) {
 **************  I N G R E S S   P R O C E S S I N G   *******************
 *************************************************************************/
 
-
-
 control MyIngress(inout headers hdr,
                   inout metadata meta,
                   inout standard_metadata_t standard_metadata) {
 
 
+	bit<16> mcast_const = 1;
+	
 	action ipv4_forward(mac_addr_t dstAddr, egressSpec_t port)
 	{
 		hdr.ethernet.dst = dstAddr;
 		hdr.ethernet.src = hdr.ethernet.dst;
 		standard_metadata.egress_spec = port;
 		hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
-	//	standard_metadata.mcast_grp = 1;
 	}
 
 
@@ -158,6 +157,11 @@ control MyIngress(inout headers hdr,
 	{
         	mark_to_drop(standard_metadata);
   }
+	
+	action broad()
+	{
+		standard_metadata.mcast_grp = mcast_const;
+	}
 
 	table ipv4_lpm {
 		key = {
@@ -175,6 +179,9 @@ control MyIngress(inout headers hdr,
    // apply(ipv4_lpm);
     apply {
 		ipv4_lpm.apply();
+		if(hdr.ipv4.protocol == IP_PROTOCOLS_UDP) {
+			broad();
+		}
 	}
 }
 
@@ -185,10 +192,33 @@ control MyIngress(inout headers hdr,
 control MyEgress(inout headers hdr,
                  inout metadata meta,
                  inout standard_metadata_t standard_metadata) {
-    apply {  
-	    
-	  //  standard_metadata.egress_rid = 1;
-}
+    	 
+	action drop() 
+	{
+		mark_to_drop(standard_metadata);
+	}
+
+	action apply_nat(ipv4_addr_t dst) {
+		hdr.ipv4.dstAddr = dst;
+		hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
+	}
+	table nat_table {
+		key = {
+			standard_metadata.instance_type : exact;
+		}
+		actions = {
+			apply_nat;
+			drop;
+		}
+		size = 1000;
+	}
+	
+    apply {
+	   if(standard_metadata.egress_rid == 1) {
+		   nat_table.apply();
+	   }
+    }
+
 }
 
 /*************************************************************************
@@ -213,6 +243,20 @@ control MyComputeChecksum(inout headers  hdr, inout metadata meta) {
 			hdr.ipv4.dstAddr
 		},
 		hdr.ipv4.hdrChecksum,
+		HashAlgorithm.csum16
+	);
+
+	update_checksum(
+		hdr.udp.isValid(),
+		{
+			hdr.ipv4.srcAddr,
+			hdr.ipv4.dstAddr,
+			hdr.ipv4.protocol,
+			hdr.udp.src,
+			hdr.udp.dst,
+			hdr.udp.len
+		},
+		hdr.udp.checksum,
 		HashAlgorithm.csum16
 	);
 

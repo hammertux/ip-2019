@@ -37,8 +37,22 @@
       	"dstAddr" : "08:00:00:00:04:44",
 	"port" : 1
       }
+    },
+    {
+	"table" : "MyEgress.nat_table",
+	"default_action" : true,
+	"action_name" : "MyEgress.drop",
+	"action_params" : {}
+    },
+    {
+	    "table" : "MyEgress.nat_table",
+	    "match" : {
+		    "standard_metadata.instance_type" : [5]
+	    },
+	    "action_name" : "MyEgress.apply_nat",
+	    "action_params" : {"dst" : "10.0.3.3"}
     }
-
+     
   ],
   "multicast_group_entries" : [
    {
@@ -50,7 +64,7 @@
 		},
 		{
 		    "egress_port" : 3,
-		    "instance" : 2
+		    "instance" : 5
 		}
 	]
    }
