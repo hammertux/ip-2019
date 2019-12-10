@@ -129,7 +129,44 @@ parser MyParser(packet_in packet,
 *************************************************************************/
 
 control MyVerifyChecksum(inout headers hdr, inout metadata meta) {
-    apply {  }
+    apply {
+	verify_checksum(true, {
+                        hdr.ipv4.version,
+                        hdr.ipv4.ihl,
+                        hdr.ipv4.diffserv,
+                        hdr.ipv4.totalLen,
+                        hdr.ipv4.identification,
+                        hdr.ipv4.flags,
+                        hdr.ipv4.fragOffset,
+                        hdr.ipv4.ttl,
+                        hdr.ipv4.protocol,
+                        hdr.ipv4.srcAddr,
+                        hdr.ipv4.dstAddr
+                },
+                hdr.ipv4.hdrChecksum,
+                HashAlgorithm.csum16
+        	);
+
+	verify_checksum_with_payload(
+
+		hdr.udp.isValid(),
+                {
+                        hdr.ipv4.srcAddr,
+                        hdr.ipv4.dstAddr,
+                        8w0,
+                        hdr.ipv4.protocol,
+                        hdr.udp.len,
+                        hdr.udp.src,
+                        hdr.udp.dst,
+                        hdr.udp.len
+                },
+                hdr.udp.checksum,
+                HashAlgorithm.csum16
+
+	);
+
+
+	}
 }
 
 
@@ -204,7 +241,7 @@ control MyEgress(inout headers hdr,
 	}
 	table nat_table {
 		key = {
-			standard_metadata.instance_type : exact;
+			standard_metadata.egress_rid : exact;
 		}
 		actions = {
 			apply_nat;
@@ -214,9 +251,9 @@ control MyEgress(inout headers hdr,
 	}
 	
     apply {
-	   if(standard_metadata.egress_rid == 1) {
-		   nat_table.apply();
-	   }
+	   //if(standard_metadata.egress_rid == 1) {
+	nat_table.apply();
+	   //}
     }
 
 }
@@ -246,12 +283,14 @@ control MyComputeChecksum(inout headers  hdr, inout metadata meta) {
 		HashAlgorithm.csum16
 	);
 
-	update_checksum(
+	update_checksum_with_payload(
 		hdr.udp.isValid(),
 		{
 			hdr.ipv4.srcAddr,
 			hdr.ipv4.dstAddr,
+			8w0,
 			hdr.ipv4.protocol,
+			hdr.udp.len,
 			hdr.udp.src,
 			hdr.udp.dst,
 			hdr.udp.len

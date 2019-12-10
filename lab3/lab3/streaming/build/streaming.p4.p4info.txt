@@ -34,8 +34,8 @@ tables {
   }
   match_fields {
     id: 1
-    name: "standard_metadata.instance_type"
-    bitwidth: 32
+    name: "standard_metadata.egress_rid"
+    bitwidth: 16
     match_type: EXACT
   }
   action_refs {

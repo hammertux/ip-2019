@@ -1,10 +1,10 @@
 
-[2019-12-09 16:58:55.866] /p4.v1.P4Runtime/SetForwardingPipelineConfig
+[2019-12-10 11:48:05.221] /p4.v1.P4Runtime/SetForwardingPipelineConfig
 ---
-Message too long (28060 bytes)! Skipping log...
+Message too long (31462 bytes)! Skipping log...
 ---
 
-[2019-12-09 16:58:55.875] /p4.v1.P4Runtime/Write
+[2019-12-10 11:48:05.228] /p4.v1.P4Runtime/Write
 ---
 device_id: 1
 election_id {
@@ -26,7 +26,7 @@ updates {
 }
 ---
 
-[2019-12-09 16:58:55.879] /p4.v1.P4Runtime/Write
+[2019-12-10 11:48:05.231] /p4.v1.P4Runtime/Write
 ---
 device_id: 1
 election_id {
@@ -62,7 +62,7 @@ updates {
 }
 ---
 
-[2019-12-09 16:58:55.881] /p4.v1.P4Runtime/Write
+[2019-12-10 11:48:05.233] /p4.v1.P4Runtime/Write
 ---
 device_id: 1
 election_id {
@@ -98,7 +98,7 @@ updates {
 }
 ---
 
-[2019-12-09 16:58:55.883] /p4.v1.P4Runtime/Write
+[2019-12-10 11:48:05.234] /p4.v1.P4Runtime/Write
 ---
 device_id: 1
 election_id {
@@ -120,7 +120,7 @@ updates {
 }
 ---
 
-[2019-12-09 16:58:55.885] /p4.v1.P4Runtime/Write
+[2019-12-10 11:48:05.236] /p4.v1.P4Runtime/Write
 ---
 device_id: 1
 election_id {
@@ -134,7 +134,7 @@ updates {
       match {
         field_id: 1
         exact {
-          value: "\000\000\000\005"
+          value: "\000\001"
         }
       }
       action {
@@ -151,7 +151,7 @@ updates {
 }
 ---
 
-[2019-12-09 16:58:55.887] /p4.v1.P4Runtime/Write
+[2019-12-10 11:48:05.237] /p4.v1.P4Runtime/Write
 ---
 device_id: 1
 election_id {
@@ -169,7 +169,7 @@ updates {
         }
         replicas {
           egress_port: 3
-          instance: 5
+          instance: 1
         }
       }
     }
