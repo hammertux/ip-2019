@@ -47,12 +47,15 @@
     {
 	    "table" : "MyEgress.nat_table",
 	    "match" : {
-		    "standard_metadata.instance_type" : [5]
+		    "standard_metadata.egress_rid" : 1,
+		    "standard_metadata.egress_port" : 3
 	    },
 	    "action_name" : "MyEgress.apply_nat",
-	    "action_params" : {"dst" : "10.0.3.3"}
+	    "action_params" : {
+		"dst" : "10.0.3.3"
+		}
     }
-     
+
   ],
   "multicast_group_entries" : [
    {
@@ -64,7 +67,7 @@
 		},
 		{
 		    "egress_port" : 3,
-		    "instance" : 5
+		    "instance" : 1
 		}
 	]
    }
