@@ -102,17 +102,18 @@ parser MyParser(packet_in packet,
 
   state parse_udp {
 		packet.extract(hdr.udp);
-    		transition select(hdr.udp.dst) {
+		transition accept;
+    /*		transition select(hdr.udp.dst) {
 			RTP_PORT: parse_rtp;
 			default: accept;
-		}
+		}*/
 	}
 
 
-  state parse_rtp {
+  /*state parse_rtp {
 		packet.extract(hdr.rtp);
 		transition accept;
-	}
+	}*/
 
 }
 
@@ -125,7 +126,7 @@ parser MyParser(packet_in packet,
 *************************************************************************/
 
 control MyVerifyChecksum(inout headers hdr, inout metadata meta) {
-    apply { 
+    apply {
 
 	/*verify_checksum(
 
@@ -161,7 +162,7 @@ control MyIngress(inout headers hdr,
 
 
 	bit<16> mcast_const = 1;
-	
+
 	action ipv4_forward(mac_addr_t dstAddr, egressSpec_t port)
 	{
 		hdr.ethernet.dst = dstAddr;
@@ -179,7 +180,7 @@ control MyIngress(inout headers hdr,
 	action multi() {
 		standard_metadata.mcast_grp = mcast_const;
 	}
-	
+
 	/*action broad()
 	{
 	}*/
@@ -213,12 +214,12 @@ control MyIngress(inout headers hdr,
 control MyEgress(inout headers hdr,
                  inout metadata meta,
                  inout standard_metadata_t standard_metadata) {
-    	 
-	action drop() 
+
+	action drop()
 	{
 		mark_to_drop(standard_metadata);
 	}
-	
+
 	action NoAction(){}
 
 	action apply_nat(ipv4_addr_t dst) {
@@ -238,7 +239,7 @@ control MyEgress(inout headers hdr,
 		size = 1000;
 		default_action = NoAction();
 	}
-	
+
     apply {
 	nat_table.apply();
     }
@@ -291,7 +292,7 @@ control MyDeparser(packet_out packet, in headers hdr) {
       packet.emit(hdr.ethernet);
       packet.emit(hdr.ipv4);
       packet.emit(hdr.udp);
-      packet.emit(hdr.rtp);
+      //packet.emit(hdr.rtp);
     }
 }
 
