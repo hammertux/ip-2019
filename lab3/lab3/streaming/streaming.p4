@@ -4,7 +4,7 @@
 
 #define ETHERTYPE_IPV4 0x800
 #define IP_PROTOCOLS_UDP 17
-#define RTP_PORT 5002
+#define RTP_PORT 5004
 
 
 
@@ -93,19 +93,15 @@ parser MyParser(packet_in packet,
 
 	state parse_ipv4 {
 		packet.extract(hdr.ipv4);
-		transition accept;
-    		
-		/*transition select(hdr.ipv4.protocol) {
+		transition select(hdr.ipv4.protocol) {
         		IP_PROTOCOLS_UDP : parse_udp;
     			default: accept;
-    		}*/
+    		}
 	}
 
 
   state parse_udp {
 		packet.extract(hdr.udp);
-
-
     		transition select(hdr.udp.dst) {
 			RTP_PORT: parse_rtp;
 			default: accept;
@@ -178,12 +174,15 @@ control MyIngress(inout headers hdr,
 	action drop()
 	{
         	mark_to_drop(standard_metadata);
-  }
-	
-	action broad()
-	{
+  	}
+
+	action multi() {
 		standard_metadata.mcast_grp = mcast_const;
 	}
+	
+	/*action broad()
+	{
+	}*/
 
 	table ipv4_lpm {
 		key = {
@@ -192,18 +191,18 @@ control MyIngress(inout headers hdr,
     		actions = {
         		ipv4_forward;
 			drop;
+			multi;
     		}
     		size = 1024;
 		//default_action = ipv4_forward();
 	}
 
 
-   // apply(ipv4_lpm);
     apply {
 		ipv4_lpm.apply();
-		//if(hdr.ipv4.protocol == IP_PROTOCOLS_UDP) {
-			broad();
-		//}
+		/*if(hdr.ipv4.protocol == IP_PROTOCOLS_UDP) {
+		standard_metadata.mcast_grp = mcast_const;
+		}*/
 	}
 }
 
@@ -219,11 +218,12 @@ control MyEgress(inout headers hdr,
 	{
 		mark_to_drop(standard_metadata);
 	}
+	
+	action NoAction(){}
 
 	action apply_nat(ipv4_addr_t dst) {
-		//hdr.ipv4.dstAddr = dst;
-		hdr.ipv4.dstAddr = 0xa000303;
-		//hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
+		hdr.ipv4.dstAddr = dst;
+		hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
 	}
 	table nat_table {
 		key = {
@@ -232,15 +232,15 @@ control MyEgress(inout headers hdr,
 		}
 		actions = {
 			apply_nat;
-			drop;
+			//drop;
+			NoAction;
 		}
 		size = 1000;
+		default_action = NoAction();
 	}
 	
     apply {
-	   //if(standard_metadata.egress_rid == 1) {
-		   nat_table.apply();
-	   //}
+	nat_table.apply();
     }
 
 }

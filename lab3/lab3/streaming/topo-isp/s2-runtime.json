@@ -17,10 +17,8 @@
 		24
 	]
       },
-      "action_name": "MyIngress.ipv4_forward",
+      "action_name": "MyIngress.multi",
       "action_params": {
-      	"dstAddr" : "08:00:00:00:09:99",
-	"port" : 2
       }
     },
 
@@ -41,7 +39,7 @@
     {
 	"table" : "MyEgress.nat_table",
 	"default_action" : true,
-	"action_name" : "MyEgress.drop",
+	"action_name" : "MyEgress.NoAction",
 	"action_params" : {}
     },
     {

@@ -1,10 +1,10 @@
 
-[2019-12-10 18:49:54.860] /p4.v1.P4Runtime/SetForwardingPipelineConfig
+[2019-12-11 10:54:56.549] /p4.v1.P4Runtime/SetForwardingPipelineConfig
 ---
-Message too long (24881 bytes)! Skipping log...
+Message too long (26431 bytes)! Skipping log...
 ---
 
-[2019-12-10 18:49:54.867] /p4.v1.P4Runtime/Write
+[2019-12-11 10:54:56.558] /p4.v1.P4Runtime/Write
 ---
 device_id: 1
 election_id {
@@ -26,7 +26,7 @@ updates {
 }
 ---
 
-[2019-12-10 18:49:54.870] /p4.v1.P4Runtime/Write
+[2019-12-11 10:54:56.561] /p4.v1.P4Runtime/Write
 ---
 device_id: 1
 election_id {
@@ -46,15 +46,7 @@ updates {
       }
       action {
         action {
-          action_id: 16799317
-          params {
-            param_id: 1
-            value: "\010\000\000\000\t\231"
-          }
-          params {
-            param_id: 2
-            value: "\000\002"
-          }
+          action_id: 16837434
         }
       }
     }
@@ -62,7 +54,7 @@ updates {
 }
 ---
 
-[2019-12-10 18:49:54.872] /p4.v1.P4Runtime/Write
+[2019-12-11 10:54:56.563] /p4.v1.P4Runtime/Write
 ---
 device_id: 1
 election_id {
@@ -98,7 +90,7 @@ updates {
 }
 ---
 
-[2019-12-10 18:49:54.874] /p4.v1.P4Runtime/Write
+[2019-12-11 10:54:56.566] /p4.v1.P4Runtime/Write
 ---
 device_id: 1
 election_id {
@@ -111,7 +103,7 @@ updates {
       table_id: 33578675
       action {
         action {
-          action_id: 16816924
+          action_id: 16786838
         }
       }
       is_default_action: true
@@ -120,7 +112,7 @@ updates {
 }
 ---
 
-[2019-12-10 18:49:54.876] /p4.v1.P4Runtime/Write
+[2019-12-11 10:54:56.567] /p4.v1.P4Runtime/Write
 ---
 device_id: 1
 election_id {
@@ -157,7 +149,7 @@ updates {
 }
 ---
 
-[2019-12-10 18:49:54.878] /p4.v1.P4Runtime/Write
+[2019-12-11 10:54:56.569] /p4.v1.P4Runtime/Write
 ---
 device_id: 1
 election_id {

@@ -20,6 +20,9 @@ tables {
     id: 16805608
   }
   action_refs {
+    id: 16837434
+  }
+  action_refs {
     id: 16800567
     annotations: "@defaultonly"
     scope: DEFAULT_ONLY
@@ -48,12 +51,7 @@ tables {
     id: 16778749
   }
   action_refs {
-    id: 16816924
-  }
-  action_refs {
-    id: 16800567
-    annotations: "@defaultonly"
-    scope: DEFAULT_ONLY
+    id: 16786838
   }
   size: 1000
 }
@@ -85,21 +83,21 @@ actions {
   preamble {
     id: 16805608
     name: "MyIngress.drop"
-    alias: "MyIngress.drop"
+    alias: "drop"
   }
 }
 actions {
   preamble {
-    id: 16804971
-    name: "MyIngress.broad"
-    alias: "broad"
+    id: 16837434
+    name: "MyIngress.multi"
+    alias: "multi"
   }
 }
 actions {
   preamble {
-    id: 16816924
-    name: "MyEgress.drop"
-    alias: "MyEgress.drop"
+    id: 16786838
+    name: "MyEgress.NoAction"
+    alias: "MyEgress.NoAction"
   }
 }
 actions {
