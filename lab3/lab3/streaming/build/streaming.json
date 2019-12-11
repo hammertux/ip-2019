@@ -249,7 +249,7 @@
       "id" : 0,
       "source_info" : {
         "filename" : "streaming.p4",
-        "line" : 289,
+        "line" : 293,
         "column" : 8,
         "source_fragment" : "MyDeparser"
       },
@@ -265,7 +265,7 @@
       "id" : 0,
       "source_info" : {
         "filename" : "streaming.p4",
-        "line" : 255,
+        "line" : 259,
         "column" : 1,
         "source_fragment" : "update_checksum( ..."
       },
@@ -316,18 +316,6 @@
           "value" : ["ipv4", "dstAddr"]
         }
       ]
-    },
-    {
-      "name" : "calc_0",
-      "id" : 1,
-      "source_info" : {
-        "filename" : "streaming.p4",
-        "line" : 274,
-        "column" : 1,
-        "source_fragment" : "update_checksum( ..."
-      },
-      "algo" : "csum16",
-      "input" : []
     }
   ],
   "learn_lists" : [],
@@ -478,8 +466,93 @@
     {
       "name" : "MyIngress.multi",
       "id" : 3,
-      "runtime_data" : [],
+      "runtime_data" : [
+        {
+          "name" : "dstAddr",
+          "bitwidth" : 48
+        }
+      ],
       "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "dst"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "streaming.p4",
+            "line" : 181,
+            "column" : 2,
+            "source_fragment" : "hdr.ethernet.dst = dstAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "src"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "streaming.p4",
+            "line" : 181,
+            "column" : 21,
+            "source_fragment" : "dstAddr; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "ttl"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["ipv4", "ttl"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xff"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "streaming.p4",
+            "line" : 183,
+            "column" : 3,
+            "source_fragment" : "hdr.ipv4.ttl = hdr.ipv4.ttl - 1"
+          }
+        },
         {
           "op" : "assign",
           "parameters" : [
@@ -494,7 +567,7 @@
           ],
           "source_info" : {
             "filename" : "streaming.p4",
-            "line" : 181,
+            "line" : 184,
             "column" : 2,
             "source_fragment" : "standard_metadata.mcast_grp = mcast_const"
           }
@@ -557,9 +630,28 @@
           ],
           "source_info" : {
             "filename" : "streaming.p4",
-            "line" : 226,
+            "line" : 229,
             "column" : 2,
             "source_fragment" : "hdr.ipv4.dstAddr = dst"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "checksum"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "streaming.p4",
+            "line" : 230,
+            "column" : 2,
+            "source_fragment" : "hdr.udp.checksum = 0"
           }
         },
         {
@@ -599,7 +691,7 @@
           ],
           "source_info" : {
             "filename" : "streaming.p4",
-            "line" : 227,
+            "line" : 231,
             "column" : 2,
             "source_fragment" : "hdr.ipv4.ttl = hdr.ipv4.ttl - 1"
           }
@@ -653,7 +745,7 @@
           "id" : 1,
           "source_info" : {
             "filename" : "streaming.p4",
-            "line" : 188,
+            "line" : 191,
             "column" : 7,
             "source_fragment" : "ipv4_lpm"
           },
@@ -671,13 +763,13 @@
           "with_counters" : false,
           "support_timeout" : false,
           "direct_meters" : null,
-          "action_ids" : [1, 2, 3, 0],
-          "actions" : ["MyIngress.ipv4_forward", "MyIngress.drop", "MyIngress.multi", "NoAction"],
+          "action_ids" : [3, 1, 2, 0],
+          "actions" : ["MyIngress.multi", "MyIngress.ipv4_forward", "MyIngress.drop", "NoAction"],
           "base_default_next" : null,
           "next_tables" : {
+            "MyIngress.multi" : null,
             "MyIngress.ipv4_forward" : null,
             "MyIngress.drop" : null,
-            "MyIngress.multi" : null,
             "NoAction" : null
           },
           "default_entry" : {
@@ -696,7 +788,7 @@
       "id" : 1,
       "source_info" : {
         "filename" : "streaming.p4",
-        "line" : 214,
+        "line" : 217,
         "column" : 8,
         "source_fragment" : "MyEgress"
       },
@@ -707,7 +799,7 @@
           "id" : 2,
           "source_info" : {
             "filename" : "streaming.p4",
-            "line" : 229,
+            "line" : 233,
             "column" : 7,
             "source_fragment" : "nat_table"
           },
@@ -756,7 +848,7 @@
       "id" : 0,
       "source_info" : {
         "filename" : "streaming.p4",
-        "line" : 255,
+        "line" : 259,
         "column" : 1,
         "source_fragment" : "update_checksum( ..."
       },
@@ -773,32 +865,6 @@
           "right" : {
             "type" : "field",
             "value" : ["ipv4", "$valid$"]
-          }
-        }
-      }
-    },
-    {
-      "name" : "cksum_0",
-      "id" : 1,
-      "source_info" : {
-        "filename" : "streaming.p4",
-        "line" : 274,
-        "column" : 1,
-        "source_fragment" : "update_checksum( ..."
-      },
-      "target" : ["udp", "checksum"],
-      "type" : "generic",
-      "calculation" : "calc_0",
-      "verify" : false,
-      "update" : true,
-      "if_cond" : {
-        "type" : "expression",
-        "value" : {
-          "op" : "d2b",
-          "left" : null,
-          "right" : {
-            "type" : "field",
-            "value" : ["udp", "$valid$"]
           }
         }
       }

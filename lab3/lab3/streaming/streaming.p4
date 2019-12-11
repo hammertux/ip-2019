@@ -177,7 +177,10 @@ control MyIngress(inout headers hdr,
         	mark_to_drop(standard_metadata);
   	}
 
-	action multi() {
+	action multi(mac_addr_t dstAddr) {
+		hdr.ethernet.dst = dstAddr;
+                hdr.ethernet.src = hdr.ethernet.dst;
+		 hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
 		standard_metadata.mcast_grp = mcast_const;
 	}
 
@@ -190,9 +193,9 @@ control MyIngress(inout headers hdr,
         		hdr.ipv4.dstAddr : lpm;
     		}
     		actions = {
-        		ipv4_forward;
-			drop;
 			multi;
+			ipv4_forward;
+			drop;
     		}
     		size = 1024;
 		//default_action = ipv4_forward();
@@ -224,6 +227,7 @@ control MyEgress(inout headers hdr,
 
 	action apply_nat(ipv4_addr_t dst) {
 		hdr.ipv4.dstAddr = dst;
+		hdr.udp.checksum = 0;
 		hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
 	}
 	table nat_table {
@@ -271,13 +275,13 @@ control MyComputeChecksum(inout headers  hdr, inout metadata meta) {
 		HashAlgorithm.csum16
 	);
 
-	update_checksum(
+	/*update_checksum(
 		hdr.udp.isValid(),
 		{
 		},
 		hdr.udp.checksum,
 		HashAlgorithm.csum16
-	);
+	);*/
 
      }
 }

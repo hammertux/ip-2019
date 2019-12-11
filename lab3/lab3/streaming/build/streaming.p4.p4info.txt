@@ -14,13 +14,13 @@ tables {
     match_type: LPM
   }
   action_refs {
+    id: 16837434
+  }
+  action_refs {
     id: 16799317
   }
   action_refs {
     id: 16805608
-  }
-  action_refs {
-    id: 16837434
   }
   action_refs {
     id: 16800567
@@ -91,6 +91,11 @@ actions {
     id: 16837434
     name: "MyIngress.multi"
     alias: "multi"
+  }
+  params {
+    id: 1
+    name: "dstAddr"
+    bitwidth: 48
   }
 }
 actions {
