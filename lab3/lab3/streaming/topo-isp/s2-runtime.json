@@ -40,7 +40,7 @@
     {
 	"table" : "MyEgress.nat_table",
 	"default_action" : true,
-	"action_name" : "MyEgress.NoAction",
+	"action_name" : "NoAction",
 	"action_params" : {}
     },
     {

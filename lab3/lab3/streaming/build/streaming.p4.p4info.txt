@@ -51,7 +51,7 @@ tables {
     id: 16778749
   }
   action_refs {
-    id: 16786838
+    id: 16800567
   }
   size: 1000
 }
@@ -96,13 +96,6 @@ actions {
     id: 1
     name: "dstAddr"
     bitwidth: 48
-  }
-}
-actions {
-  preamble {
-    id: 16786838
-    name: "MyEgress.NoAction"
-    alias: "MyEgress.NoAction"
   }
 }
 actions {

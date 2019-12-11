@@ -249,7 +249,7 @@
       "id" : 0,
       "source_info" : {
         "filename" : "streaming.p4",
-        "line" : 293,
+        "line" : 292,
         "column" : 8,
         "source_fragment" : "MyDeparser"
       },
@@ -265,7 +265,7 @@
       "id" : 0,
       "source_info" : {
         "filename" : "streaming.p4",
-        "line" : 259,
+        "line" : 258,
         "column" : 1,
         "source_fragment" : "update_checksum( ..."
       },
@@ -601,7 +601,7 @@
       ]
     },
     {
-      "name" : "MyEgress.NoAction",
+      "name" : "NoAction",
       "id" : 5,
       "runtime_data" : [],
       "primitives" : []
@@ -630,7 +630,7 @@
           ],
           "source_info" : {
             "filename" : "streaming.p4",
-            "line" : 229,
+            "line" : 228,
             "column" : 2,
             "source_fragment" : "hdr.ipv4.dstAddr = dst"
           }
@@ -649,7 +649,7 @@
           ],
           "source_info" : {
             "filename" : "streaming.p4",
-            "line" : 230,
+            "line" : 229,
             "column" : 2,
             "source_fragment" : "hdr.udp.checksum = 0"
           }
@@ -691,7 +691,7 @@
           ],
           "source_info" : {
             "filename" : "streaming.p4",
-            "line" : 231,
+            "line" : 230,
             "column" : 2,
             "source_fragment" : "hdr.ipv4.ttl = hdr.ipv4.ttl - 1"
           }
@@ -799,7 +799,7 @@
           "id" : 2,
           "source_info" : {
             "filename" : "streaming.p4",
-            "line" : 233,
+            "line" : 232,
             "column" : 7,
             "source_fragment" : "nat_table"
           },
@@ -824,11 +824,11 @@
           "support_timeout" : false,
           "direct_meters" : null,
           "action_ids" : [6, 5],
-          "actions" : ["MyEgress.apply_nat", "MyEgress.NoAction"],
+          "actions" : ["MyEgress.apply_nat", "NoAction"],
           "base_default_next" : null,
           "next_tables" : {
             "MyEgress.apply_nat" : null,
-            "MyEgress.NoAction" : null
+            "NoAction" : null
           },
           "default_entry" : {
             "action_id" : 5,
@@ -848,7 +848,7 @@
       "id" : 0,
       "source_info" : {
         "filename" : "streaming.p4",
-        "line" : 259,
+        "line" : 258,
         "column" : 1,
         "source_fragment" : "update_checksum( ..."
       },

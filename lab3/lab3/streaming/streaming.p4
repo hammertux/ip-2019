@@ -223,7 +223,6 @@ control MyEgress(inout headers hdr,
 		mark_to_drop(standard_metadata);
 	}
 
-	action NoAction(){}
 
 	action apply_nat(ipv4_addr_t dst) {
 		hdr.ipv4.dstAddr = dst;
