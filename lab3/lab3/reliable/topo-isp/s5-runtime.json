@@ -17,10 +17,9 @@
       32
     ]
         },
-        "action_name": "MyIngress.ipv4_forward",
+        "action_name": "MyIngress.multi",
         "action_params": {
-          "dstAddr" : "08:00:00:00:11:11",
-    "port" : 3
+    "dstAddr" : "08:00:00:00:06:66"
         }
       },
   
@@ -37,8 +36,40 @@
           "dstAddr" : "08:00:00:00:05:55",
     "port" : 1
         }
+      },
+      {
+    "table" : "MyEgress.nat_table",
+    "default_action" : true,
+    "action_name" : "MyEgress.NoAction",
+    "action_params" : {}
+      },
+      {
+        "table" : "MyEgress.nat_table",
+        "match" : {
+          "standard_metadata.egress_rid" : 1,
+          "standard_metadata.egress_port" : 2
+        },
+        "action_name" : "MyEgress.apply_nat",
+        "action_params" : {
+      "dst" : "10.0.3.3",
+      "SSRC" : 2
+      }
       }
   
-   ]
+    ],
+    "multicast_group_entries" : [
+     {
+    "multicast_group_id" : 1,
+    "replicas" : [
+      {
+          "egress_port" : 2,
+          "instance" : 1
+      },
+      {
+          "egress_port" : 3,
+          "instance" : 1
+      }
+    ]
+     }
+    ]
   }
-  
