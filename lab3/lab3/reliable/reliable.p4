@@ -109,7 +109,7 @@ parser MyParser(packet_in packet,
 		}*/
 	}
 
-
+	//need to parse and deparse the rtp packet to change the ssrc field
   state parse_rtp {
 		packet.extract(hdr.rtp);
 		transition accept;
@@ -163,6 +163,7 @@ control MyIngress(inout headers hdr,
 
 	bit<16> mcast_const = 1;
 
+	//standard forwarding rules
 	action ipv4_forward(mac_addr_t dstAddr, egressSpec_t port)
 	{
 		hdr.ethernet.dst = dstAddr;
@@ -177,6 +178,8 @@ control MyIngress(inout headers hdr,
         	mark_to_drop(standard_metadata);
   	}
 
+	
+	//setup the multicast group 
 	action multi(mac_addr_t dstAddr) {
 		hdr.ethernet.dst = dstAddr;
         hdr.ethernet.src = hdr.ethernet.dst;
@@ -225,6 +228,8 @@ control MyEgress(inout headers hdr,
 
 	action NoAction(){}
 
+
+	//change the ssrc by adding a value that is dependent on the switch
 	action apply_nat(ipv4_addr_t dst, bit<32>  SSRC) {
 		hdr.rtp.SSRC = hdr.rtp.SSRC + SSRC;
 		hdr.ipv4.dstAddr = dst;
