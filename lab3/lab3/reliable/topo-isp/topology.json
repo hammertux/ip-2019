@@ -27,25 +27,32 @@
     },
     "switches": {
         "s1": {
-            "runtime_json": "topo-isp/s1-runtime.json"
+            "runtime_json": "topo-isp/s1-runtime.json",
+	    "mac" : "08:00:00:00:04:44"
         },
         "s2": {
-            "runtime_json": "topo-isp/s2-runtime.json"
+            "runtime_json": "topo-isp/s2-runtime.json",
+	    "mac" : "08:00:00:00:05:55"
         },
         "s3": {
-            "runtime_json": "topo-isp/s3-runtime.json"
+            "runtime_json": "topo-isp/s3-runtime.json",
+	    "mac" : "08:00:00:00:06:66"
         },
         "s4": {
-            "runtime_json": "topo-isp/s4-runtime.json"
+            "runtime_json": "topo-isp/s4-runtime.json",
+	    "mac" : "08:00:00:00:08:88"
         },
         "s5": {
-            "runtime_json": "topo-isp/s5-runtime.json"
+            "runtime_json": "topo-isp/s5-runtime.json",
+	    "mac" : "08:00:00:00:09:99"
         },
         "s6": {
-            "runtime_json": "topo-isp/s6-runtime.json"
+            "runtime_json": "topo-isp/s6-runtime.json",
+	    "mac" : "08:00:00:00:02:22"
         },
         "s7": {
-            "runtime_json": "topo-isp/s7-runtime.json"
+            "runtime_json": "topo-isp/s7-runtime.json",
+	    "mac" : "08:00:00:00:11:11"
         }
     },
     "links": [
